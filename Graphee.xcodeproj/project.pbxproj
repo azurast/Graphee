@@ -31,6 +31,8 @@
 		1BFE7E0C266F6F9C008D61DA /* ARCameraStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7E0B266F6F9C008D61DA /* ARCameraStoryboard.storyboard */; };
 		1BFE7E0F266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7E0E266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard */; };
 		1BFE7E11266F73DD008D61DA /* SingletonSwiftFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7E10266F73DD008D61DA /* SingletonSwiftFile.swift */; };
+		FBA325FA26734ADC00C98447 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */; };
+		FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,8 @@
 		1BFE7E0B266F6F9C008D61DA /* ARCameraStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARCameraStoryboard.storyboard; sourceTree = "<group>"; };
 		1BFE7E0E266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlbumFolderStoryboard.storyboard; sourceTree = "<group>"; };
 		1BFE7E10266F73DD008D61DA /* SingletonSwiftFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonSwiftFile.swift; sourceTree = "<group>"; };
+		FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,7 @@
 		1BFE7DDA266F5E34008D61DA /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				FBA325FE26734AF800C98447 /* Core Data Class */,
 				1BFE7DC6266F5C89008D61DA /* Graphee.xcdatamodeld */,
 			);
 			path = "Core Data";
@@ -236,6 +241,15 @@
 			path = BottomBarView;
 			sourceTree = "<group>";
 		};
+		FBA325FE26734AF800C98447 /* Core Data Class */ = {
+			isa = PBXGroup;
+			children = (
+				FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */,
+				FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */,
+			);
+			path = "Core Data Class";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -322,9 +336,11 @@
 			files = (
 				1BFE7E11266F73DD008D61DA /* SingletonSwiftFile.swift in Sources */,
 				1BFE7DC8266F5C89008D61DA /* Graphee.xcdatamodeld in Sources */,
+				FBA325FA26734ADC00C98447 /* Photo+CoreDataClass.swift in Sources */,
 				1BFE7DFF266F6B6A008D61DA /* FolderTableViewCell.swift in Sources */,
 				1BFE7DC2266F5C89008D61DA /* ViewController.swift in Sources */,
 				1BFE7E02266F6BD8008D61DA /* BottomBarView.swift in Sources */,
+				FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */,
 				1BFE7DBE266F5C89008D61DA /* AppDelegate.swift in Sources */,
 				1BFE7DC0266F5C89008D61DA /* SceneDelegate.swift in Sources */,
 			);

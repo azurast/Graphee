@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20D75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Folder" representedClassName="Folder" syncable="YES" codeGenerationType="class"/>
-    <entity name="Photo" representedClassName="Photo" syncable="YES" codeGenerationType="class"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20E241" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Folder" representedClassName="Folder" syncable="YES" codeGenerationType="category">
+        <attribute name="dateCreated" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="parentFolder" inverseEntity="Photo"/>
+    </entity>
+    <entity name="Photo" representedClassName="Photo" syncable="YES" codeGenerationType="category">
+        <attribute name="direction" optional="YES" attributeType="String"/>
+        <attribute name="directory" optional="YES" attributeType="String"/>
+        <relationship name="parentFolder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="photos" inverseEntity="Folder"/>
+    </entity>
     <elements>
-        <element name="Folder" positionX="-63" positionY="-18" width="128" height="29"/>
-        <element name="Photo" positionX="-54" positionY="-9" width="128" height="29"/>
+        <element name="Folder" positionX="362.6033935546875" positionY="4.53375244140625" width="128" height="74"/>
+        <element name="Photo" positionX="-101.0428466796875" positionY="0.9439697265625" width="128" height="88"/>
     </elements>
 </model>
