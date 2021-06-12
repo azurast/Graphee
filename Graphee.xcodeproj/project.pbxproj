@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B4C388A26745545001F2681 /* CubeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C388926745545001F2681 /* CubeNode.swift */; };
 		1BFE7DBE266F5C89008D61DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7DBD266F5C89008D61DA /* AppDelegate.swift */; };
 		1BFE7DC0266F5C89008D61DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7DBF266F5C89008D61DA /* SceneDelegate.swift */; };
 		1BFE7DC2266F5C89008D61DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7DC1266F5C89008D61DA /* ViewController.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B4C388926745545001F2681 /* CubeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeNode.swift; sourceTree = "<group>"; };
 		1BFE7DBA266F5C89008D61DA /* Graphee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Graphee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BFE7DBD266F5C89008D61DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BFE7DBF266F5C89008D61DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				FBA325AF2673075200C98447 /* arcamera.scnassets */,
 				FBA325EC2673345E00C98447 /* TEMPAVFoundationCameraViewController.swift */,
 				FB23B8BA26735FE100779513 /* BoundingBox.swift */,
+				1B4C388926745545001F2681 /* CubeNode.swift */,
 			);
 			path = ARCamera;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				FBA325AE2673052600C98447 /* ARCameraViewController.swift in Sources */,
 				1BFE7DFF266F6B6A008D61DA /* FolderTableViewCell.swift in Sources */,
 				FB23B8BB26735FE100779513 /* BoundingBox.swift in Sources */,
+				1B4C388A26745545001F2681 /* CubeNode.swift in Sources */,
 				1BFE7DC2266F5C89008D61DA /* ViewController.swift in Sources */,
 				E12862EA26782F0900297B72 /* SettingView.swift in Sources */,
 				E12862F42678336800297B72 /* PreviewViewController.swift in Sources */,
