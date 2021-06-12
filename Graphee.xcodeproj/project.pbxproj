@@ -39,6 +39,7 @@
 		FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */; };
 		B713D0AC26786E020054DA86 /* FoldersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AB26786E020054DA86 /* FoldersController.swift */; };
 		B713D0AE26786E3A0054DA86 /* AddFolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AD26786E3A0054DA86 /* AddFolderController.swift */; };
+		FB23B8BB26735FE100779513 /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23B8BA26735FE100779513 /* BoundingBox.swift */; };
 		FBA325AE2673052600C98447 /* ARCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325AD2673052600C98447 /* ARCameraViewController.swift */; };
 		FBA325B02673075200C98447 /* arcamera.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = FBA325AF2673075200C98447 /* arcamera.scnassets */; };
 		FBA325ED2673345E00C98447 /* TEMPAVFoundationCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325EC2673345E00C98447 /* TEMPAVFoundationCameraViewController.swift */; };
@@ -79,6 +80,7 @@
 		FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B713D0AB26786E020054DA86 /* FoldersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersController.swift; sourceTree = "<group>"; };
 		B713D0AD26786E3A0054DA86 /* AddFolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFolderController.swift; sourceTree = "<group>"; };
+		FB23B8BA26735FE100779513 /* BoundingBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundingBox.swift; sourceTree = "<group>"; };
 		FBA325AD2673052600C98447 /* ARCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ARCameraViewController.swift; path = ../../../../../Xcode/Graphee/Graphee/Features/ARCamera/ARCameraViewController.swift; sourceTree = "<group>"; };
 		FBA325AF2673075200C98447 /* arcamera.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; name = arcamera.scnassets; path = ../../../../../Xcode/Graphee/Graphee/Features/ARCamera/arcamera.scnassets; sourceTree = "<group>"; };
 		FBA325EC2673345E00C98447 /* TEMPAVFoundationCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TEMPAVFoundationCameraViewController.swift; path = ../../../../../Xcode/Graphee/Graphee/Features/ARCamera/TEMPAVFoundationCameraViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				FBA325AD2673052600C98447 /* ARCameraViewController.swift */,
 				FBA325AF2673075200C98447 /* arcamera.scnassets */,
 				FBA325EC2673345E00C98447 /* TEMPAVFoundationCameraViewController.swift */,
+				FB23B8BA26735FE100779513 /* BoundingBox.swift */,
 			);
 			path = ARCamera;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				1BFE7DC8266F5C89008D61DA /* Graphee.xcdatamodeld in Sources */,
 				FBA325AE2673052600C98447 /* ARCameraViewController.swift in Sources */,
 				1BFE7DFF266F6B6A008D61DA /* FolderTableViewCell.swift in Sources */,
+				FB23B8BB26735FE100779513 /* BoundingBox.swift in Sources */,
 				1BFE7DC2266F5C89008D61DA /* ViewController.swift in Sources */,
 				E12862EA26782F0900297B72 /* SettingView.swift in Sources */,
 				E12862F42678336800297B72 /* PreviewViewController.swift in Sources */,

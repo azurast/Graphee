@@ -70,6 +70,11 @@ class ARCameraViewController: UIViewController, ARSCNViewDelegate {
 //        <#code#>
 //    }
     
+    // LOAD BOUNDING BOX
+    func loadBoundingBox() {
+        if let objectURL = Bundle.main.url.(forResource: "fox", withExtension: ".arobject")
+    }
+    
     // TOUCH
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Detect touch, make sure a touch is happening , or else skip
