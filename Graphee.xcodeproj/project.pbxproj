@@ -37,6 +37,11 @@
 		E12863232678A1B100297B72 /* PreviewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12863222678A1B100297B72 /* PreviewStoryboard.storyboard */; };
 		E12863252678A1E500297B72 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12863242678A1E500297B72 /* PreviewViewController.swift */; };
 		E12863262678A4B700297B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DC9266F5C8A008D61DA /* Assets.xcassets */; };
+		E128632A2678B55900297B72 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12863292678B55900297B72 /* AlbumViewController.swift */; };
+		E128632D2678B73800297B72 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128632C2678B73800297B72 /* AlbumTableViewCell.swift */; };
+		E128632F2678BB8600297B72 /* FolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128632E2678BB8600297B72 /* FolderViewController.swift */; };
+		E12863312678BC2500297B72 /* FileManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12863302678BC2500297B72 /* FileManagerHelper.swift */; };
+		E12863332678BF0E00297B72 /* FolderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12863322678BF0E00297B72 /* FolderCollectionViewCell.swift */; };
 		FBA325FA26734ADC00C98447 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */; };
 		FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
@@ -74,6 +79,11 @@
 		E12863202678A08800297B72 /* MainCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraViewController.swift; sourceTree = "<group>"; };
 		E12863222678A1B100297B72 /* PreviewStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreviewStoryboard.storyboard; sourceTree = "<group>"; };
 		E12863242678A1E500297B72 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		E12863292678B55900297B72 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		E128632C2678B73800297B72 /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
+		E128632E2678BB8600297B72 /* FolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewController.swift; sourceTree = "<group>"; };
+		E12863302678BC2500297B72 /* FileManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerHelper.swift; sourceTree = "<group>"; };
+		E12863322678BF0E00297B72 /* FolderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCollectionViewCell.swift; sourceTree = "<group>"; };
 		FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,6 +175,7 @@
 				E128630B26789A4300297B72 /* SettingHelper.swift */,
 				E128630D26789AAD00297B72 /* TorchHelper.swift */,
 				E128630F26789B1700297B72 /* CameraImages.swift */,
+				E12863302678BC2500297B72 /* FileManagerHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -213,9 +224,12 @@
 		1BFE7DE2266F6794008D61DA /* Album & Folder */ = {
 			isa = PBXGroup;
 			children = (
+				E128632B2678B71A00297B72 /* Cells */,
 				1BFE7E0E266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard */,
 				B713D0AB26786E020054DA86 /* FoldersController.swift */,
 				B713D0AD26786E3A0054DA86 /* AddFolderController.swift */,
+				E12863292678B55900297B72 /* AlbumViewController.swift */,
+				E128632E2678BB8600297B72 /* FolderViewController.swift */,
 			);
 			path = "Album & Folder";
 			sourceTree = "<group>";
@@ -246,6 +260,15 @@
 				E128631626789BFE00297B72 /* UIView+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E128632B2678B71A00297B72 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E12863322678BF0E00297B72 /* FolderCollectionViewCell.swift */,
+				E128632C2678B73800297B72 /* AlbumTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		FBA325FE26734AF800C98447 /* Core Data Class */ = {
@@ -343,19 +366,24 @@
 				1BFE7DC8266F5C89008D61DA /* Graphee.xcdatamodeld in Sources */,
 				FBA325FA26734ADC00C98447 /* Photo+CoreDataClass.swift in Sources */,
 				E128630C26789A4300297B72 /* SettingHelper.swift in Sources */,
+				E128632D2678B73800297B72 /* AlbumTableViewCell.swift in Sources */,
 				1B363D472678ACB100A1CA08 /* ARCameraViewController.swift in Sources */,
 				E128631926789C7500297B72 /* TimerView.swift in Sources */,
+				E128632A2678B55900297B72 /* AlbumViewController.swift in Sources */,
 				1BFE7DFF266F6B6A008D61DA /* FolderTableViewCell.swift in Sources */,
 				1BFE7DC2266F5C89008D61DA /* ViewController.swift in Sources */,
 				E128631426789BC000297B72 /* AngleView.swift in Sources */,
 				1BFE7E02266F6BD8008D61DA /* BottomBarView.swift in Sources */,
 				E12863252678A1E500297B72 /* PreviewViewController.swift in Sources */,
 				FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */,
+				E128632F2678BB8600297B72 /* FolderViewController.swift in Sources */,
 				B713D0AC26786E020054DA86 /* FoldersController.swift in Sources */,
 				1BFE7DBE266F5C89008D61DA /* AppDelegate.swift in Sources */,
 				1BFE7DC0266F5C89008D61DA /* SceneDelegate.swift in Sources */,
+				E12863332678BF0E00297B72 /* FolderCollectionViewCell.swift in Sources */,
 				E12863212678A08800297B72 /* MainCameraViewController.swift in Sources */,
 				E128630E26789AAD00297B72 /* TorchHelper.swift in Sources */,
+				E12863312678BC2500297B72 /* FileManagerHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
