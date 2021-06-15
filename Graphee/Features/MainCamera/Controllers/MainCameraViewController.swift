@@ -59,7 +59,6 @@ class MainCameraViewController: UIViewController {
             height = UIApplication.shared.statusBarFrame.size.height
         }
         
-        print(UIImage(named: "ratio43"))
         view.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
 
         
@@ -113,7 +112,8 @@ class MainCameraViewController: UIViewController {
             previewLayer.frame = CGRect(x: 0, y: topView.frame.height + height + veryTopView.frame.height, width: view.frame.width, height: view.frame.width)
         }
         else if SettingHelper.shared.isRatio43Activated() {
-            previewLayer.frame = CGRect(x: 0, y: topView.frame.height + height + veryTopView.frame.height, width: view.frame.width, height: view.frame.height - topView.frame.height - veryTopView.frame.height - bottomView.frame.height - height - 50)
+            let viewElements = topView.frame.height + veryTopView.frame.height + bottomView.frame.height + height + 50
+            previewLayer.frame = CGRect(x: 0, y: topView.frame.height + height + veryTopView.frame.height, width: view.frame.width, height: view.frame.height - viewElements)
         }
         else if SettingHelper.shared.isRatio169Activated() {
             
@@ -244,7 +244,19 @@ class MainCameraViewController: UIViewController {
     }
     
     private func setupSettingView() {
-        settingView = SettingView(frame: CGRect(x: 0, y: topView.frame.height + 200, width: view.frame.width, height: view.frame.height - topView.frame.height - bottomView.frame.height - 200 - 50))
+        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+        var height = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        
+        if height == 0 {
+            height = UIApplication.shared.statusBarFrame.size.height
+        }
+        
+        let viewElementsHeight = topView.frame.height + veryTopView.frame.height + bottomView.frame.height + height + 50
+        let ratio43Height = view.frame.height - viewElementsHeight
+        
+        // topView.frame.origin.y + topView.frame.height
+        //view.frame.height - topView.frame.height - bottomView.frame.height - 200 - 50
+        settingView = SettingView(frame: CGRect(x: 0, y: bottomView.frame.origin.y - (ratio43Height - bottomView.frame.height), width: view.frame.width, height: (ratio43Height - bottomView.frame.height)))
         settingView!.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1).withAlphaComponent(0.5)
         settingView?.delegate = self
         view.addSubview(settingView!)
