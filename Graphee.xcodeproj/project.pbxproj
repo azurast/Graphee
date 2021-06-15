@@ -13,13 +13,14 @@
 		1BFE7DC5266F5C89008D61DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DC3266F5C89008D61DA /* Main.storyboard */; };
 		1BFE7DC8266F5C89008D61DA /* Graphee.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7DC6266F5C89008D61DA /* Graphee.xcdatamodeld */; };
 		1BFE7DCD266F5C8A008D61DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DCB266F5C8A008D61DA /* LaunchScreen.storyboard */; };
-		1BFE7DFF266F6B6A008D61DA /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7DFD266F6B6A008D61DA /* FolderTableViewCell.swift */; };
 		1BFE7E00266F6B6A008D61DA /* FolderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DFE266F6B6A008D61DA /* FolderTableViewCell.xib */; };
 		1BFE7E02266F6BD8008D61DA /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7E01266F6BD8008D61DA /* BottomBarView.swift */; };
 		1BFE7E0A266F6F90008D61DA /* MainCameraStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7E09266F6F90008D61DA /* MainCameraStoryboard.storyboard */; };
 		1BFE7E0C266F6F9C008D61DA /* ARCameraStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7E0B266F6F9C008D61DA /* ARCameraStoryboard.storyboard */; };
 		1BFE7E0F266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7E0E266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard */; };
 		1BFE7E11266F73DD008D61DA /* SingletonSwiftFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7E10266F73DD008D61DA /* SingletonSwiftFile.swift */; };
+		B713D0AC26786E020054DA86 /* FoldersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AB26786E020054DA86 /* FoldersController.swift */; };
+		B713D0AE26786E3A0054DA86 /* AddFolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AD26786E3A0054DA86 /* AddFolderController.swift */; };
 		E12862E226782DA300297B72 /* TorchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12862E126782DA300297B72 /* TorchHelper.swift */; };
 		E12862E426782DF600297B72 /* AngleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12862E326782DF600297B72 /* AngleView.swift */; };
 		E12862E626782E2300297B72 /* SettingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12862E526782E2300297B72 /* SettingHelper.swift */; };
@@ -37,8 +38,6 @@
 		E12862FF2678587D00297B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DC9266F5C8A008D61DA /* Assets.xcassets */; };
 		FBA325FA26734ADC00C98447 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */; };
 		FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */; };
-		B713D0AC26786E020054DA86 /* FoldersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AB26786E020054DA86 /* FoldersController.swift */; };
-		B713D0AE26786E3A0054DA86 /* AddFolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AD26786E3A0054DA86 /* AddFolderController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,13 +50,14 @@
 		1BFE7DC9266F5C8A008D61DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BFE7DCC266F5C8A008D61DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BFE7DCE266F5C8A008D61DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1BFE7DFD266F6B6A008D61DA /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
 		1BFE7DFE266F6B6A008D61DA /* FolderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FolderTableViewCell.xib; sourceTree = "<group>"; };
 		1BFE7E01266F6BD8008D61DA /* BottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
 		1BFE7E09266F6F90008D61DA /* MainCameraStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainCameraStoryboard.storyboard; sourceTree = "<group>"; };
 		1BFE7E0B266F6F9C008D61DA /* ARCameraStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARCameraStoryboard.storyboard; sourceTree = "<group>"; };
 		1BFE7E0E266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlbumFolderStoryboard.storyboard; sourceTree = "<group>"; };
 		1BFE7E10266F73DD008D61DA /* SingletonSwiftFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonSwiftFile.swift; sourceTree = "<group>"; };
+		B713D0AB26786E020054DA86 /* FoldersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersController.swift; sourceTree = "<group>"; };
+		B713D0AD26786E3A0054DA86 /* AddFolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFolderController.swift; sourceTree = "<group>"; };
 		E12862DF26782D3100297B72 /* MainCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraViewController.swift; sourceTree = "<group>"; };
 		E12862E126782DA300297B72 /* TorchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorchHelper.swift; sourceTree = "<group>"; };
 		E12862E326782DF600297B72 /* AngleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleView.swift; sourceTree = "<group>"; };
@@ -74,8 +74,6 @@
 		E12862FA2678437F00297B72 /* FolderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FolderTableViewCell.xib; sourceTree = "<group>"; };
 		FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B713D0AB26786E020054DA86 /* FoldersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersController.swift; sourceTree = "<group>"; };
-		B713D0AD26786E3A0054DA86 /* AddFolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFolderController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +92,7 @@
 			children = (
 				1BFE7DBC266F5C89008D61DA /* Graphee */,
 				1BFE7DBB266F5C89008D61DA /* Products */,
+				E128630A2678934300297B72 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -260,6 +259,14 @@
 				E12862F82678437800297B72 /* FolderTableViewCell.swift */,
 			);
 			path = FolderTableViewCell;
+			sourceTree = "<group>";
+		};
+		E128630A2678934300297B72 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				1BFE7DFE266F6B6A008D61DA /* FolderTableViewCell.xib */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		FBA325FE26734AF800C98447 /* Core Data Class */ = {
@@ -519,7 +526,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				DEVELOPMENT_TEAM = A5LXCCW6FT;
 				INFOPLIST_FILE = Graphee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -539,7 +545,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				DEVELOPMENT_TEAM = A5LXCCW6FT;
 				INFOPLIST_FILE = Graphee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
