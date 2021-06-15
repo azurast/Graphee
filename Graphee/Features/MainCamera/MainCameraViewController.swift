@@ -186,7 +186,7 @@ class MainCameraViewController: UIViewController {
     
     private func setupTopView(statusBarHeight: CGFloat) {
         topView = UIView(frame: CGRect(x: 0, y: statusBarHeight + veryTopView.frame.height, width: view.frame.width, height: 50))
-        topView.backgroundColor =  #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
+        topView.backgroundColor =  #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1).withAlphaComponent(0.5)
         view.addSubview(topView)
     }
     
@@ -196,7 +196,7 @@ class MainCameraViewController: UIViewController {
         bottomView.createMainButton()
         bottomView.directionButtonDelegate = self
         bottomView.mainButtonDelegate = self
-        bottomView.backgroundColor =  #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
+        bottomView.backgroundColor =  #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1).withAlphaComponent(0.5)
         view.addSubview(bottomView)
     }
     
@@ -257,7 +257,7 @@ class MainCameraViewController: UIViewController {
         // topView.frame.origin.y + topView.frame.height
         //view.frame.height - topView.frame.height - bottomView.frame.height - 200 - 50
         settingView = SettingView(frame: CGRect(x: 0, y: bottomView.frame.origin.y - (ratio43Height - bottomView.frame.height), width: view.frame.width, height: (ratio43Height - bottomView.frame.height)))
-        settingView!.backgroundColor =  #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
+        settingView!.backgroundColor =  #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1).withAlphaComponent(0.5)
         settingView?.delegate = self
         view.addSubview(settingView!)
         
