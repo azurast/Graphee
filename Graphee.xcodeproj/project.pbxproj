@@ -20,6 +20,21 @@
 		1BFE7E0C266F6F9C008D61DA /* ARCameraStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7E0B266F6F9C008D61DA /* ARCameraStoryboard.storyboard */; };
 		1BFE7E0F266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7E0E266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard */; };
 		1BFE7E11266F73DD008D61DA /* SingletonSwiftFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7E10266F73DD008D61DA /* SingletonSwiftFile.swift */; };
+		E12862E226782DA300297B72 /* TorchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12862E126782DA300297B72 /* TorchHelper.swift */; };
+		E12862E426782DF600297B72 /* AngleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12862E326782DF600297B72 /* AngleView.swift */; };
+		E12862E626782E2300297B72 /* SettingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12862E526782E2300297B72 /* SettingHelper.swift */; };
+		E12862E826782EB300297B72 /* CameraImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12862E726782EB300297B72 /* CameraImages.swift */; };
+		E12862EA26782F0900297B72 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12862E926782F0900297B72 /* SettingView.swift */; };
+		E12862EC26782FA000297B72 /* VeryTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12862EB26782FA000297B72 /* VeryTopView.swift */; };
+		E12862EE267832D000297B72 /* BottomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12862ED267832D000297B72 /* BottomCameraView.swift */; };
+		E12862F02678331300297B72 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12862EF2678331300297B72 /* TimerView.swift */; };
+		E12862F22678333900297B72 /* PreviewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12862F12678333900297B72 /* PreviewStoryboard.storyboard */; };
+		E12862F42678336800297B72 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12862F32678336800297B72 /* PreviewViewController.swift */; };
+		E12862F626783A7500297B72 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12862F526783A7500297B72 /* UIView+Extension.swift */; };
+		E12862F92678437800297B72 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12862F82678437800297B72 /* FolderTableViewCell.swift */; };
+		E12862FB2678437F00297B72 /* FolderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12862FA2678437F00297B72 /* FolderTableViewCell.xib */; };
+		E12862FC2678577B00297B72 /* MainCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12862DF26782D3100297B72 /* MainCameraViewController.swift */; };
+		E12862FF2678587D00297B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DC9266F5C8A008D61DA /* Assets.xcassets */; };
 		FBA325FA26734ADC00C98447 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */; };
 		FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */; };
 		B713D0AC26786E020054DA86 /* FoldersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AB26786E020054DA86 /* FoldersController.swift */; };
@@ -43,6 +58,20 @@
 		1BFE7E0B266F6F9C008D61DA /* ARCameraStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARCameraStoryboard.storyboard; sourceTree = "<group>"; };
 		1BFE7E0E266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlbumFolderStoryboard.storyboard; sourceTree = "<group>"; };
 		1BFE7E10266F73DD008D61DA /* SingletonSwiftFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonSwiftFile.swift; sourceTree = "<group>"; };
+		E12862DF26782D3100297B72 /* MainCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraViewController.swift; sourceTree = "<group>"; };
+		E12862E126782DA300297B72 /* TorchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorchHelper.swift; sourceTree = "<group>"; };
+		E12862E326782DF600297B72 /* AngleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleView.swift; sourceTree = "<group>"; };
+		E12862E526782E2300297B72 /* SettingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHelper.swift; sourceTree = "<group>"; };
+		E12862E726782EB300297B72 /* CameraImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraImages.swift; sourceTree = "<group>"; };
+		E12862E926782F0900297B72 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		E12862EB26782FA000297B72 /* VeryTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeryTopView.swift; sourceTree = "<group>"; };
+		E12862ED267832D000297B72 /* BottomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCameraView.swift; sourceTree = "<group>"; };
+		E12862EF2678331300297B72 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		E12862F12678333900297B72 /* PreviewStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreviewStoryboard.storyboard; sourceTree = "<group>"; };
+		E12862F32678336800297B72 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		E12862F526783A7500297B72 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		E12862F82678437800297B72 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
+		E12862FA2678437F00297B72 /* FolderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FolderTableViewCell.xib; sourceTree = "<group>"; };
 		FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B713D0AB26786E020054DA86 /* FoldersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersController.swift; sourceTree = "<group>"; };
@@ -105,8 +134,9 @@
 		1BFE7DD8266F5E19008D61DA /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E12862F526783A7500297B72 /* UIView+Extension.swift */,
+				E12862F72678425A00297B72 /* FolderTableViewCell */,
 				1BFE7E05266F6C2F008D61DA /* BottomBarView */,
-				1BFE7DDE266F66A1008D61DA /* FolderTableViewCell */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -132,6 +162,9 @@
 			isa = PBXGroup;
 			children = (
 				1BFE7E10266F73DD008D61DA /* SingletonSwiftFile.swift */,
+				E12862E126782DA300297B72 /* TorchHelper.swift */,
+				E12862E526782E2300297B72 /* SettingHelper.swift */,
+				E12862E726782EB300297B72 /* CameraImages.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -146,19 +179,11 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
-		1BFE7DDE266F66A1008D61DA /* FolderTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				1BFE7DFD266F6B6A008D61DA /* FolderTableViewCell.swift */,
-				1BFE7DFE266F6B6A008D61DA /* FolderTableViewCell.xib */,
-			);
-			path = FolderTableViewCell;
-			sourceTree = "<group>";
-		};
 		1BFE7DE0266F66C9008D61DA /* MainCamera */ = {
 			isa = PBXGroup;
 			children = (
-				1BFE7E09266F6F90008D61DA /* MainCameraStoryboard.storyboard */,
+				E12862DC26782C9C00297B72 /* Controllers */,
+				E12862DB26782C9400297B72 /* Views */,
 			);
 			path = MainCamera;
 			sourceTree = "<group>";
@@ -187,6 +212,54 @@
 				1BFE7E01266F6BD8008D61DA /* BottomBarView.swift */,
 			);
 			path = BottomBarView;
+			sourceTree = "<group>";
+		};
+		E12862DB26782C9400297B72 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E12862DE26782CFE00297B72 /* UIViews */,
+				E12862DD26782CF700297B72 /* Storyboards */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E12862DC26782C9C00297B72 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E12862DF26782D3100297B72 /* MainCameraViewController.swift */,
+				E12862F32678336800297B72 /* PreviewViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E12862DD26782CF700297B72 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1BFE7E09266F6F90008D61DA /* MainCameraStoryboard.storyboard */,
+				E12862F12678333900297B72 /* PreviewStoryboard.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E12862DE26782CFE00297B72 /* UIViews */ = {
+			isa = PBXGroup;
+			children = (
+				E12862E326782DF600297B72 /* AngleView.swift */,
+				E12862E926782F0900297B72 /* SettingView.swift */,
+				E12862EB26782FA000297B72 /* VeryTopView.swift */,
+				E12862ED267832D000297B72 /* BottomCameraView.swift */,
+				E12862EF2678331300297B72 /* TimerView.swift */,
+			);
+			path = UIViews;
+			sourceTree = "<group>";
+		};
+		E12862F72678425A00297B72 /* FolderTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E12862FA2678437F00297B72 /* FolderTableViewCell.xib */,
+				E12862F82678437800297B72 /* FolderTableViewCell.swift */,
+			);
+			path = FolderTableViewCell;
 			sourceTree = "<group>";
 		};
 		FBA325FE26734AF800C98447 /* Core Data Class */ = {
@@ -255,11 +328,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E12862F22678333900297B72 /* PreviewStoryboard.storyboard in Resources */,
 				1BFE7DCD266F5C8A008D61DA /* LaunchScreen.storyboard in Resources */,
 				1BFE7E00266F6B6A008D61DA /* FolderTableViewCell.xib in Resources */,
 				1BFE7E0C266F6F9C008D61DA /* ARCameraStoryboard.storyboard in Resources */,
+				1BFE7E0C266F6F9C008D61DA /* ARCameraStoryboard.storyboard in Resources */,
+				E12862FB2678437F00297B72 /* FolderTableViewCell.xib in Resources */,
 				1BFE7DC5266F5C89008D61DA /* Main.storyboard in Resources */,
 				1BFE7E0F266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard in Resources */,
+				E12862FF2678587D00297B72 /* Assets.xcassets in Resources */,
 				1BFE7E0A266F6F90008D61DA /* MainCameraStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,15 +349,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				B713D0AE26786E3A0054DA86 /* AddFolderController.swift in Sources */,
+				E12862F02678331300297B72 /* TimerView.swift in Sources */,
+				E12862EC26782FA000297B72 /* VeryTopView.swift in Sources */,
+				E12862E826782EB300297B72 /* CameraImages.swift in Sources */,
 				1BFE7E11266F73DD008D61DA /* SingletonSwiftFile.swift in Sources */,
 				1BFE7DC8266F5C89008D61DA /* Graphee.xcdatamodeld in Sources */,
+				E12862EE267832D000297B72 /* BottomCameraView.swift in Sources */,
 				FBA325FA26734ADC00C98447 /* Photo+CoreDataClass.swift in Sources */,
-				1BFE7DFF266F6B6A008D61DA /* FolderTableViewCell.swift in Sources */,
 				1BFE7DC2266F5C89008D61DA /* ViewController.swift in Sources */,
+				E12862EA26782F0900297B72 /* SettingView.swift in Sources */,
+				E12862F42678336800297B72 /* PreviewViewController.swift in Sources */,
 				1BFE7E02266F6BD8008D61DA /* BottomBarView.swift in Sources */,
+				E12862F92678437800297B72 /* FolderTableViewCell.swift in Sources */,
 				FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */,
 				B713D0AC26786E020054DA86 /* FoldersController.swift in Sources */,
+				E12862E226782DA300297B72 /* TorchHelper.swift in Sources */,
+				E12862E426782DF600297B72 /* AngleView.swift in Sources */,
+				E12862E626782E2300297B72 /* SettingHelper.swift in Sources */,
 				1BFE7DBE266F5C89008D61DA /* AppDelegate.swift in Sources */,
+				E12862F626783A7500297B72 /* UIView+Extension.swift in Sources */,
+				E12862FC2678577B00297B72 /* MainCameraViewController.swift in Sources */,
 				1BFE7DC0266F5C89008D61DA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +517,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A5LXCCW6FT;
 				INFOPLIST_FILE = Graphee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -447,6 +536,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A5LXCCW6FT;
 				INFOPLIST_FILE = Graphee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
