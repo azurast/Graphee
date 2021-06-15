@@ -126,6 +126,7 @@
 		1BFE7DD8266F5E19008D61DA /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E12862F526783A7500297B72 /* UIView+Extension.swift */,
 				E12862F72678425A00297B72 /* FolderTableViewCell */,
 				1BFE7E05266F6C2F008D61DA /* BottomBarView */,
 			);
@@ -156,7 +157,6 @@
 				E12862E126782DA300297B72 /* TorchHelper.swift */,
 				E12862E526782E2300297B72 /* SettingHelper.swift */,
 				E12862E726782EB300297B72 /* CameraImages.swift */,
-				E12862F526783A7500297B72 /* UIView+Extension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
