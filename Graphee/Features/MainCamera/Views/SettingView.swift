@@ -5,6 +5,7 @@
 //  Created by Luis Genesius on 15/06/21.
 //
 
+import Foundation
 import UIKit
 import AVFoundation
 
@@ -44,7 +45,6 @@ class SettingView: UIView {
         super.init(coder: coder)
         fatalError("init(coder:) has not been implemented")
         
-        
     }
 
     private func customInit() {
@@ -73,48 +73,33 @@ class SettingView: UIView {
     }
     
     private func initRatioButtons(rowHeight: CGFloat) {
-//        disableTorchButton = UIButton(frame: CGRect(x: (frame.width / 2) / 2 - ((rowHeight / 2) / 2) - ((rowHeight / 2) / 2), y: frame.height - (rowHeight / 2) - ((rowHeight / 2) / 2), width: rowHeight / 2, height: rowHeight / 2))
-//        disableTorchButton.setBackgroundImage(UIImage(systemName: "lightbulb"), for: .normal)
-//        disableTorchButton.backgroundColor = .cyan
-//        disableTorchButton.addTarget(self, action: #selector(torchButtonSelector(sender:)), for: .touchUpInside)
-//        addSubview(disableTorchButton)
-//
-//        enableTorchButton = UIButton(frame: CGRect(x: frame.width / 2 - ((rowHeight / 2) / 2), y: frame.height - (rowHeight / 2) - ((rowHeight / 2) / 2), width: rowHeight / 2, height: rowHeight / 2))
-//        enableTorchButton.setBackgroundImage(UIImage(systemName: "lightbulb"), for: .normal)
-//        enableTorchButton.backgroundColor = .red
-//        enableTorchButton.addTarget(self, action: #selector(torchButtonSelector(sender:)), for: .touchUpInside)
-//        addSubview(enableTorchButton)
-//
-//        automaticTorchButton = UIButton(frame: CGRect(x: frame.width - ((frame.width / 2) / 2 - ((rowHeight / 2) / 2) + ((rowHeight / 2) / 2)), y: frame.height - (rowHeight / 2) - ((rowHeight / 2) / 2), width: rowHeight / 2, height: rowHeight / 2))
-//        automaticTorchButton.setBackgroundImage(UIImage(systemName: "lightbulb"), for: .normal)
-//        automaticTorchButton.backgroundColor = .darkGray
-//        automaticTorchButton.addTarget(self, action: #selector(torchButtonSelector(sender:)), for: .touchUpInside)
-//        addSubview(automaticTorchButton)
-        
-        // --
-        
         ratio11Button = UIButton(frame: CGRect(x: (frame.width / 2) / 2 - ((rowHeight / 2) / 2) - ((rowHeight / 2) / 2), y: frame.height - (rowHeight / 2) - ((rowHeight / 2) / 2), width: rowHeight / 2, height: rowHeight / 2))
-        ratio11Button.setBackgroundImage(UIImage(systemName: "aspectratio"), for: .normal)
-        ratio11Button.backgroundColor = .magenta
+        ratio11Button.setBackgroundImage(UIImage(named: "ratio11"), for: .normal)
         ratio11Button.addTarget(self, action: #selector(ratioButtonSelector(sender:)), for: .touchUpInside)
         addSubview(ratio11Button)
         
         ratio43Button = UIButton(frame: CGRect(x: frame.width / 2 - ((rowHeight / 2) / 2), y: frame.height - (rowHeight / 2) - ((rowHeight / 2) / 2), width: rowHeight / 2, height: rowHeight / 2))
-        ratio43Button.setBackgroundImage(UIImage(systemName: "aspectratio"), for: .normal)
-        ratio43Button.backgroundColor = .orange
+        ratio43Button.setBackgroundImage(UIImage(named: "ratio43"), for: .normal)
         ratio43Button.addTarget(self, action: #selector(ratioButtonSelector(sender:)), for: .touchUpInside)
         addSubview(ratio43Button)
         
         ratio169Button = UIButton(frame: CGRect(x: frame.width - ((frame.width / 2) / 2 - ((rowHeight / 2) / 2) + ((rowHeight / 2) / 2)), y: frame.height - (rowHeight / 2) - ((rowHeight / 2) / 2), width: rowHeight / 2, height: rowHeight / 2))
-        ratio169Button.setBackgroundImage(UIImage(systemName: "aspectratio"), for: .normal)
-        ratio169Button.backgroundColor = .purple
+        ratio169Button.setBackgroundImage(UIImage(named: "ratio169"), for: .normal)
         ratio169Button.addTarget(self, action: #selector(ratioButtonSelector(sender:)), for: .touchUpInside)
         addSubview(ratio169Button)
+        
+        if SettingHelper.shared.isRatio11Activated() {
+            ratio11Button.setBackgroundImage(UIImage(named: "ratio11_selected"), for: .normal)
+        } else if SettingHelper.shared.isRatio43Activated() {
+            ratio43Button.setBackgroundImage(UIImage(named: "ratio43_selected"), for: .normal)
+        } else if SettingHelper.shared.isRatio169Activated() {
+            ratio169Button.setBackgroundImage(UIImage(named: "ratio169_selected"), for: .normal)
+        }
     }
     
     private func initTimerButtons(rowHeight: CGFloat) {
         timer3SecButton = UIButton(frame: CGRect(x: (frame.width / 2) / 2 - (rowHeight / 2) / 2, y: frame.height - rowHeight - (rowHeight / 2) - ((rowHeight / 2) / 2), width: rowHeight / 2, height: rowHeight / 2))
-        timer3SecButton.setBackgroundImage(UIImage(systemName: "timer"), for: .normal)
+        timer3SecButton.setBackgroundImage(UIImage(named: "timer3"), for: .normal)
         
         if SettingHelper.shared.isTimer3SecActivated() {
             timer3SecButton.backgroundColor = .green
@@ -127,7 +112,7 @@ class SettingView: UIView {
         addSubview(timer3SecButton)
         
         timer10SecButton = UIButton(frame: CGRect(x: frame.width - (frame.width / 2) / 2 - (rowHeight / 2) / 2, y: frame.height - rowHeight - (rowHeight / 2) - ((rowHeight / 2) / 2), width: rowHeight / 2, height: rowHeight / 2))
-        timer10SecButton.setBackgroundImage(UIImage(systemName: "timer"), for: .normal)
+        timer10SecButton.setBackgroundImage(UIImage(named: "timer10"), for: .normal)
         
         if SettingHelper.shared.isTimer10SecActivated() {
             timer10SecButton.backgroundColor = .green
@@ -199,17 +184,24 @@ class SettingView: UIView {
     }
     
     @objc private func ratioButtonSelector(sender: UIButton) {
+        ratio11Button.setBackgroundImage(UIImage(named: "ratio11"), for: .normal)
+        ratio43Button.setBackgroundImage(UIImage(named: "ratio43"), for: .normal)
+        ratio169Button.setBackgroundImage(UIImage(named: "ratio169"), for: .normal)
+        
         if sender == ratio11Button {
+            ratio11Button.setBackgroundImage(UIImage(named: "ratio11_selected"), for: .normal)
             if SettingHelper.shared.setRatio11() {
                 delegate?.setRatioActivate()
             }
         }
         else if sender == ratio43Button {
+            ratio43Button.setBackgroundImage(UIImage(named: "ratio43_selected"), for: .normal)
             if SettingHelper.shared.setRatio43() {
                 delegate?.setRatioActivate()
             }
         }
         else if sender == ratio169Button {
+            ratio169Button.setBackgroundImage(UIImage(named: "ratio169_selected"), for: .normal)
             if SettingHelper.shared.setRatio169() {
                 delegate?.setRatioActivate()
             }
