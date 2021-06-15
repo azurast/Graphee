@@ -50,7 +50,7 @@ class VeryTopView: UIView {
     
     public func createImage() {
         torchImageView = UIImageView(frame: CGRect(x: frame.width / 2 - (frame.height / 2) / 2 - (frame.height / 2), y: frame.height / 2 - (frame.height / 2) / 2, width: frame.height / 2, height: frame.height / 2))
-        torchImageView!.image = UIImage(systemName: "lightbulb")
+        torchImageView!.image = UIImage(systemName: "bolt.fill")
         torchImageView!.contentMode = .scaleAspectFill
         addSubview(torchImageView!)
         
@@ -78,7 +78,7 @@ class VeryTopView: UIView {
     }
     
     public func changeTorchColorActivated() {
-        torchImageView!.tintColor = .green
+        torchImageView!.tintColor = .yellow
     }
     
     public func changeTorchColorDeactivated() {
@@ -86,7 +86,7 @@ class VeryTopView: UIView {
     }
     
     public func changeTimerColorActivated() {
-        timerImageView!.tintColor = .green
+        timerImageView!.tintColor = .yellow
     }
     
     public func changeTimerColorDeactivated() {

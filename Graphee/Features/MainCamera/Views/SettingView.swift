@@ -102,10 +102,10 @@ class SettingView: UIView {
         timer3SecButton.setBackgroundImage(UIImage(named: "timer3"), for: .normal)
         
         if SettingHelper.shared.isTimer3SecActivated() {
-            timer3SecButton.backgroundColor = .green
+            timer3SecButton.setBackgroundImage(UIImage(named: "timer3_selected"), for: .normal)
         }
         else {
-            timer3SecButton.backgroundColor = .red
+            timer3SecButton.setBackgroundImage(UIImage(named: "timer3"), for: .normal)
         }
         
         timer3SecButton.addTarget(self, action: #selector(timerButtonSelector(sender:)), for: .touchUpInside)
@@ -115,10 +115,10 @@ class SettingView: UIView {
         timer10SecButton.setBackgroundImage(UIImage(named: "timer10"), for: .normal)
         
         if SettingHelper.shared.isTimer10SecActivated() {
-            timer10SecButton.backgroundColor = .green
+            timer10SecButton.setBackgroundImage(UIImage(named: "timer10_selected"), for: .normal)
         }
         else {
-            timer10SecButton.backgroundColor = .red
+            timer10SecButton.setBackgroundImage(UIImage(named: "timer10"), for: .normal)
         }
         
         timer10SecButton.addTarget(self, action: #selector(timerButtonSelector(sender:)), for: .touchUpInside)
@@ -128,15 +128,15 @@ class SettingView: UIView {
     
     private func initTorchButtons(rowHeight: CGFloat) {
         torchButton = UIButton(frame: CGRect(x: frame.width / 2 - ((rowHeight / 2) / 2), y: frame.height - rowHeight * 2 - (rowHeight / 2) - ((rowHeight / 2) / 2), width: rowHeight / 2, height: rowHeight / 2))
-        torchButton.setBackgroundImage(UIImage(systemName: "lightbulb"), for: .normal)
         
         if SettingHelper.shared.isTorchActivated() {
-            torchButton.backgroundColor = .green
+            torchButton.tintColor = .yellow
+            torchButton.setBackgroundImage(UIImage(systemName: "bolt.fill"), for: .normal)
+        } else {
+            torchButton.tintColor = .white
+            torchButton.setBackgroundImage(UIImage(systemName: "bolt"), for: .normal)
         }
-        else {
-            torchButton.backgroundColor = .red
-        }
-    
+
         torchButton.addTarget(self, action: #selector(torchButtonSelector(sender:)), for: .touchUpInside)
         addSubview(torchButton)
         
@@ -146,37 +146,40 @@ class SettingView: UIView {
         SettingHelper.shared.setTorchOff()
         
         if SettingHelper.shared.isTorchActivated() {
-            torchButton.backgroundColor = .green
+            torchButton.tintColor = .yellow
+            torchButton.setBackgroundImage(UIImage(systemName: "bolt.fill"), for: .normal)
             delegate?.setTorchImageActivate()
         }
         else {
-            torchButton.backgroundColor = .red
+            torchButton.tintColor = .white
+            torchButton.setBackgroundImage(UIImage(systemName: "bolt"), for: .normal)
             delegate?.setTorchImageActivate()
         }
         
     }
     
     @objc private func timerButtonSelector(sender: UIButton) {
+        
         if sender == timer3SecButton {
             if SettingHelper.shared.setTimer3SecOn() {
-                timer3SecButton.backgroundColor = .green
-                timer10SecButton.backgroundColor = .red
+                timer3SecButton.setBackgroundImage(UIImage(named: "timer3_selected"), for: .normal)
+                timer10SecButton.setBackgroundImage(UIImage(named: "timer10"), for: .normal)
             }
             else {
-                timer3SecButton.backgroundColor = .red
-                timer10SecButton.backgroundColor = .red
+                timer3SecButton.setBackgroundImage(UIImage(named: "timer3"), for: .normal)
+                timer10SecButton.setBackgroundImage(UIImage(named: "timer10"), for: .normal)
             }
             
             delegate?.setTimerImageActivate()
         }
         else if sender == timer10SecButton {
             if SettingHelper.shared.setTimer10SecOn() {
-                timer10SecButton.backgroundColor = .green
-                timer3SecButton.backgroundColor = .red
+                timer3SecButton.setBackgroundImage(UIImage(named: "timer3"), for: .normal)
+                timer10SecButton.setBackgroundImage(UIImage(named: "timer10_selected"), for: .normal)
             }
             else {
-                timer10SecButton.backgroundColor = .red
-                timer3SecButton.backgroundColor = .red
+                timer3SecButton.setBackgroundImage(UIImage(named: "timer3"), for: .normal)
+                timer10SecButton.setBackgroundImage(UIImage(named: "timer10"), for: .normal)
             }
             
             delegate?.setTimerImageActivate()
