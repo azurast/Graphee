@@ -81,7 +81,7 @@ class VeryTopView: UIView {
     }
     
     public func changeTorchColorDeactivated() {
-        torchImageView!.tintColor = #colorLiteral(red: 0.1568627451, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
+        torchImageView!.tintColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
     }
     
     public func changeTimerColorActivated() {
@@ -89,6 +89,6 @@ class VeryTopView: UIView {
     }
     
     public func changeTimerColorDeactivated() {
-        timerImageView!.tintColor = #colorLiteral(red: 0.1568627451, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
+        timerImageView!.tintColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
     }
 }

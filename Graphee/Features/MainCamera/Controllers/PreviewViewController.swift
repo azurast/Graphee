@@ -20,7 +20,7 @@ class PreviewViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
         
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         let height = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
@@ -34,7 +34,7 @@ class PreviewViewController: UIViewController {
     private func setupNavigationView(statusBarHeight: CGFloat) {
         
         topView = UIView(frame: CGRect(x: 0, y:  statusBarHeight, width: view.frame.width, height: 80))
-        topView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
+        topView.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
         view.addSubview(topView)
         
         directionLabel = UILabel()
@@ -50,13 +50,13 @@ class PreviewViewController: UIViewController {
 
     private func setupBottomView() {
         let veryBottomView = UIView(frame: CGRect(x: 0, y: view.frame.height - 50, width: view.frame.width, height: 50))
-        veryBottomView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
+        veryBottomView.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
         view.addSubview(veryBottomView)
         
         bottomView = BottomCameraView(frame: CGRect(x: 0, y: view.frame.height - 150 - 50, width: view.frame.width, height: 150))
         bottomView.createPreviewButton()
         bottomView.previewButtonDelegate = self
-        bottomView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1411764706, blue: 0.1411764706, alpha: 1).withAlphaComponent(0.5)
+        bottomView.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1).withAlphaComponent(0.5)
         view.addSubview(bottomView)
         
         if CameraImages.shared.isAllDictImageAvailable() {
