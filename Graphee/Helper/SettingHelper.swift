@@ -51,13 +51,13 @@ extension SettingHelper {
     
     public func activateTorch() {
         if userDefaults.bool(forKey: torchOff) == false {
-            TorchService.shared.toggleTorch(on: true)
+            TorchHelper.shared.toggleTorch(on: true)
         }
     }
     
     public func deactivateTorch() {
         if userDefaults.bool(forKey: torchOff) == true {
-            TorchService.shared.toggleTorch(on: false)
+            TorchHelper.shared.toggleTorch(on: false)
         }
     }
     
