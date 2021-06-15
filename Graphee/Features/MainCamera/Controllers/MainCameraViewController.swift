@@ -51,10 +51,18 @@ class MainCameraViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-        let height = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
         
-        view.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
+        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+        var height = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        
+        if height == 0 {
+            height = UIApplication.shared.statusBarFrame.size.height
+        }
+        
+        print(UIImage(named: "ratio43"))
+        view.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
+
+        
         view.layer.addSublayer(previewLayer)
         
         setupNavigationView(statusBarHeight: height)
@@ -94,9 +102,12 @@ class MainCameraViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        // this is to get status bar in iOS 13 and more
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-        let height = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        var height = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        
+        if height == 0 {
+            height = UIApplication.shared.statusBarFrame.size.height
+        }
         
         if SettingHelper.shared.isRatio11Activated() {
             previewLayer.frame = CGRect(x: 0, y: topView.frame.height + height + veryTopView.frame.height, width: view.frame.width, height: view.frame.width)
@@ -117,7 +128,7 @@ class MainCameraViewController: UIViewController {
         motionManager.deviceMotionUpdateInterval = 0.1
         motionManager.startDeviceMotionUpdates(using: CMAttitudeReferenceFrame.xTrueNorthZVertical, to: OperationQueue.current!) { data, error in
             
-            let pitchDeg = 180 * data!.attitude.pitch/Double.pi
+//            let pitchDeg = 180 * data!.attitude.pitch/Double.pi
             
             let gravityZ = data!.gravity.z
             let gravityX = data!.gravity.x
@@ -147,7 +158,7 @@ class MainCameraViewController: UIViewController {
     private func setupNavigationView(statusBarHeight: CGFloat) {
         
         veryTopView = VeryTopView(frame: CGRect(x: 0, y: statusBarHeight, width: view.frame.width, height: 80))
-        veryTopView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
+        veryTopView.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
         veryTopView.createImage()
         veryTopView.delegate = self
         view.addSubview(veryTopView)
@@ -169,13 +180,13 @@ class MainCameraViewController: UIViewController {
     
     private func setupVeryBottomView() {
         let veryBottomView = UIView(frame: CGRect(x: 0, y: view.frame.height - 50, width: view.frame.width, height: 50))
-        veryBottomView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
+        veryBottomView.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
         view.addSubview(veryBottomView)
     }
     
     private func setupTopView(statusBarHeight: CGFloat) {
         topView = UIView(frame: CGRect(x: 0, y: statusBarHeight + veryTopView.frame.height, width: view.frame.width, height: 50))
-        topView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1411764706, blue: 0.1411764706, alpha: 1).withAlphaComponent(0.5)
+        topView.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1).withAlphaComponent(0.5)
         view.addSubview(topView)
     }
     
@@ -185,7 +196,7 @@ class MainCameraViewController: UIViewController {
         bottomView.createMainButton()
         bottomView.directionButtonDelegate = self
         bottomView.mainButtonDelegate = self
-        bottomView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1411764706, blue: 0.1411764706, alpha: 1).withAlphaComponent(0.5)
+        bottomView.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1).withAlphaComponent(0.5)
         view.addSubview(bottomView)
     }
     
@@ -234,7 +245,7 @@ class MainCameraViewController: UIViewController {
     
     private func setupSettingView() {
         settingView = SettingView(frame: CGRect(x: 0, y: topView.frame.height + 200, width: view.frame.width, height: view.frame.height - topView.frame.height - bottomView.frame.height - 200 - 50))
-        settingView!.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1411764706, blue: 0.1411764706, alpha: 1).withAlphaComponent(0.5)
+        settingView!.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1).withAlphaComponent(0.5)
         settingView?.delegate = self
         view.addSubview(settingView!)
         
@@ -580,7 +591,7 @@ extension MainCameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate
         let metadata = CFDictionaryCreateMutableCopy(nil, 0, rawMetadata) as NSMutableDictionary
         let exifData = metadata.value(forKey: "{Exif}") as? NSMutableDictionary
 
-        let brightnessValue : Double = exifData?[kCGImagePropertyExifBrightnessValue as String] as! Double
+//        let brightnessValue : Double = exifData?[kCGImagePropertyExifBrightnessValue as String] as! Double
 
         let fNumber: Double = exifData?["FNumber"] as! Double
         let exposureTime: Double = exifData?["ExposureTime"] as! Double

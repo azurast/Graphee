@@ -74,27 +74,24 @@ class SettingView: UIView {
     
     private func initRatioButtons(rowHeight: CGFloat) {
         ratio11Button = UIButton(frame: CGRect(x: (frame.width / 2) / 2 - ((rowHeight / 2) / 2) - ((rowHeight / 2) / 2), y: frame.height - (rowHeight / 2) - ((rowHeight / 2) / 2), width: rowHeight / 2, height: rowHeight / 2))
-        ratio11Button.setBackgroundImage(UIImage(systemName: "aspectratio"), for: .normal)
-        ratio11Button.backgroundColor = .magenta
+        ratio11Button.setBackgroundImage(UIImage(named: "ratio11"), for: .normal)
         ratio11Button.addTarget(self, action: #selector(ratioButtonSelector(sender:)), for: .touchUpInside)
         addSubview(ratio11Button)
         
         ratio43Button = UIButton(frame: CGRect(x: frame.width / 2 - ((rowHeight / 2) / 2), y: frame.height - (rowHeight / 2) - ((rowHeight / 2) / 2), width: rowHeight / 2, height: rowHeight / 2))
-        ratio43Button.setBackgroundImage(UIImage(systemName: "aspectratio"), for: .normal)
-        ratio43Button.backgroundColor = .orange
+        ratio43Button.setBackgroundImage(UIImage(named: "ratio43"), for: .normal)
         ratio43Button.addTarget(self, action: #selector(ratioButtonSelector(sender:)), for: .touchUpInside)
         addSubview(ratio43Button)
         
         ratio169Button = UIButton(frame: CGRect(x: frame.width - ((frame.width / 2) / 2 - ((rowHeight / 2) / 2) + ((rowHeight / 2) / 2)), y: frame.height - (rowHeight / 2) - ((rowHeight / 2) / 2), width: rowHeight / 2, height: rowHeight / 2))
-        ratio169Button.setBackgroundImage(UIImage(systemName: "aspectratio"), for: .normal)
-        ratio169Button.backgroundColor = .purple
+        ratio169Button.setBackgroundImage(UIImage(named: "ratio169"), for: .normal)
         ratio169Button.addTarget(self, action: #selector(ratioButtonSelector(sender:)), for: .touchUpInside)
         addSubview(ratio169Button)
     }
     
     private func initTimerButtons(rowHeight: CGFloat) {
         timer3SecButton = UIButton(frame: CGRect(x: (frame.width / 2) / 2 - (rowHeight / 2) / 2, y: frame.height - rowHeight - (rowHeight / 2) - ((rowHeight / 2) / 2), width: rowHeight / 2, height: rowHeight / 2))
-        timer3SecButton.setBackgroundImage(UIImage(systemName: "timer"), for: .normal)
+        timer3SecButton.setBackgroundImage(UIImage(named: "timer3"), for: .normal)
         
         if SettingHelper.shared.isTimer3SecActivated() {
             timer3SecButton.backgroundColor = .green
@@ -107,7 +104,7 @@ class SettingView: UIView {
         addSubview(timer3SecButton)
         
         timer10SecButton = UIButton(frame: CGRect(x: frame.width - (frame.width / 2) / 2 - (rowHeight / 2) / 2, y: frame.height - rowHeight - (rowHeight / 2) - ((rowHeight / 2) / 2), width: rowHeight / 2, height: rowHeight / 2))
-        timer10SecButton.setBackgroundImage(UIImage(systemName: "timer"), for: .normal)
+        timer10SecButton.setBackgroundImage(UIImage(named: "timer10"), for: .normal)
         
         if SettingHelper.shared.isTimer10SecActivated() {
             timer10SecButton.backgroundColor = .green
