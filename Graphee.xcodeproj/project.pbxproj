@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B363D452678AC0700A1CA08 /* assetcatalog.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B363D442678AC0700A1CA08 /* assetcatalog.scnassets */; };
+		1B363D472678ACB100A1CA08 /* ARCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B363D462678ACB100A1CA08 /* ARCameraViewController.swift */; };
 		1BFE7DBE266F5C89008D61DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7DBD266F5C89008D61DA /* AppDelegate.swift */; };
 		1BFE7DC0266F5C89008D61DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7DBF266F5C89008D61DA /* SceneDelegate.swift */; };
 		1BFE7DC2266F5C89008D61DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7DC1266F5C89008D61DA /* ViewController.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B363D442678AC0700A1CA08 /* assetcatalog.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = assetcatalog.scnassets; sourceTree = "<group>"; };
+		1B363D462678ACB100A1CA08 /* ARCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCameraViewController.swift; sourceTree = "<group>"; };
 		1BFE7DBA266F5C89008D61DA /* Graphee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Graphee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BFE7DBD266F5C89008D61DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BFE7DBF266F5C89008D61DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				1BFE7E0B266F6F9C008D61DA /* ARCameraStoryboard.storyboard */,
+				1B363D442678AC0700A1CA08 /* assetcatalog.scnassets */,
+				1B363D462678ACB100A1CA08 /* ARCameraViewController.swift */,
 			);
 			path = ARCamera;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BFE7DCD266F5C8A008D61DA /* LaunchScreen.storyboard in Resources */,
+				1B363D452678AC0700A1CA08 /* assetcatalog.scnassets in Resources */,
 				1BFE7E00266F6B6A008D61DA /* FolderTableViewCell.xib in Resources */,
 				1BFE7E0C266F6F9C008D61DA /* ARCameraStoryboard.storyboard in Resources */,
 				E12863232678A1B100297B72 /* PreviewStoryboard.storyboard in Resources */,
@@ -336,6 +343,7 @@
 				1BFE7DC8266F5C89008D61DA /* Graphee.xcdatamodeld in Sources */,
 				FBA325FA26734ADC00C98447 /* Photo+CoreDataClass.swift in Sources */,
 				E128630C26789A4300297B72 /* SettingHelper.swift in Sources */,
+				1B363D472678ACB100A1CA08 /* ARCameraViewController.swift in Sources */,
 				E128631926789C7500297B72 /* TimerView.swift in Sources */,
 				1BFE7DFF266F6B6A008D61DA /* FolderTableViewCell.swift in Sources */,
 				1BFE7DC2266F5C89008D61DA /* ViewController.swift in Sources */,
