@@ -72,21 +72,33 @@ class BottomCameraView: UIView {
         addSubview(shutterButton)
         shutterButton.center = CGPoint(x: frame.size.width / 2, y: frame.size.height - 35)
         
-        settingButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-        settingButton.layer.cornerRadius = 17
-        settingButton.layer.borderWidth = 10
+        settingButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         settingButton.addTarget(self, action: #selector(settingButtonSelector), for: .touchUpInside)
-        settingButton.backgroundColor = .white
+        settingButton.setBackgroundImage(UIImage(named: "setting"), for: .normal)
         addSubview(settingButton)
-        settingButton.center = CGPoint(x: (frame.size.width / 2) / 2, y: frame.size.height - shutterButton.frame.size.height / 2)
         
-        referencePointButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-        referencePointButton.layer.cornerRadius = 17
-        referencePointButton.layer.borderWidth = 10
+        let settingLabel = UILabel()
+        settingLabel.text = "Setting"
+        settingLabel.font = UIFont.systemFont(ofSize: 10)
+        settingLabel.frame.size = settingLabel.intrinsicContentSize
+        settingLabel.center = CGPoint(x: (frame.size.width / 2) / 2, y: frame.size.height - settingLabel.frame.height / 2)
+        addSubview(settingLabel)
+        
+        settingButton.center = CGPoint(x: (frame.size.width / 2) / 2, y: frame.size.height - shutterButton.frame.size.height / 2 - settingLabel.frame.height / 2)
+        
+        referencePointButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        referencePointButton.setBackgroundImage(UIImage(named: "referencePoint"), for: .normal)
         referencePointButton.addTarget(self, action: #selector(referencePointButtonSelector), for: .touchUpInside)
-        referencePointButton.backgroundColor = .white
         addSubview(referencePointButton)
-        referencePointButton.center = CGPoint(x: frame.width - (frame.size.width / 2) / 2, y: frame.size.height - shutterButton.frame.size.height / 2)
+        
+        let referenceLabel = UILabel()
+        referenceLabel.text = "Reference Point"
+        referenceLabel.font = UIFont.systemFont(ofSize: 10)
+        referenceLabel.frame.size = referenceLabel.intrinsicContentSize
+        referenceLabel.center = CGPoint(x: frame.width - (frame.size.width / 2) / 2, y: frame.size.height - referenceLabel.frame.height / 2)
+        addSubview(referenceLabel)
+        
+        referencePointButton.center = CGPoint(x: frame.width - (frame.size.width / 2) / 2, y: frame.size.height - shutterButton.frame.size.height / 2 - referenceLabel.frame.height / 2)
     }
     
     private func initPreviewButton() {

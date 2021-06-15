@@ -34,6 +34,7 @@
 		E12863212678A08800297B72 /* MainCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12863202678A08800297B72 /* MainCameraViewController.swift */; };
 		E12863232678A1B100297B72 /* PreviewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12863222678A1B100297B72 /* PreviewStoryboard.storyboard */; };
 		E12863252678A1E500297B72 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12863242678A1E500297B72 /* PreviewViewController.swift */; };
+		E12863262678A4B700297B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DC9266F5C8A008D61DA /* Assets.xcassets */; };
 		FBA325FA26734ADC00C98447 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */; };
 		FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
@@ -313,6 +314,7 @@
 				E12863232678A1B100297B72 /* PreviewStoryboard.storyboard in Resources */,
 				1BFE7DC5266F5C89008D61DA /* Main.storyboard in Resources */,
 				1BFE7E0F266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard in Resources */,
+				E12863262678A4B700297B72 /* Assets.xcassets in Resources */,
 				1BFE7E0A266F6F90008D61DA /* MainCameraStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
