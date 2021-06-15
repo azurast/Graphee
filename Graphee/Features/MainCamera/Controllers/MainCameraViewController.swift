@@ -58,28 +58,12 @@ class MainCameraViewController: UIViewController {
         view.layer.addSublayer(previewLayer)
         
         setupNavigationView(statusBarHeight: height)
-        
         checkCameraPermission()
-        
-        let veryBottomView = UIView(frame: CGRect(x: 0, y: view.frame.height - 50, width: view.frame.width, height: 50))
-        veryBottomView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
-        view.addSubview(veryBottomView)
-        
-        topView = UIView(frame: CGRect(x: 0, y: height + veryTopView.frame.height, width: view.frame.width, height: 50))
-        topView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1411764706, blue: 0.1411764706, alpha: 1).withAlphaComponent(0.5)
-        view.addSubview(topView)
-        
+        setupVeryBottomView()
+        setupTopView(statusBarHeight: height)
         addSegmentedControl()
-    
         setLabelMessage(statusBarHeight: height)
-        
-        bottomView = BottomCameraView(frame: CGRect(x: 0, y: view.frame.height - 150 - 50, width: view.frame.width, height: 150))
-        bottomView.createDirectionButton()
-        bottomView.createMainButton()
-        bottomView.directionButtonDelegate = self
-        bottomView.mainButtonDelegate = self
-        bottomView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1411764706, blue: 0.1411764706, alpha: 1).withAlphaComponent(0.5)
-        view.addSubview(bottomView)
+        setupBottomView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -181,6 +165,28 @@ class MainCameraViewController: UIViewController {
         else {
             veryTopView.changeTimerColorDeactivated()
         }
+    }
+    
+    private func setupVeryBottomView() {
+        let veryBottomView = UIView(frame: CGRect(x: 0, y: view.frame.height - 50, width: view.frame.width, height: 50))
+        veryBottomView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
+        view.addSubview(veryBottomView)
+    }
+    
+    private func setupTopView(statusBarHeight: CGFloat) {
+        topView = UIView(frame: CGRect(x: 0, y: statusBarHeight + veryTopView.frame.height, width: view.frame.width, height: 50))
+        topView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1411764706, blue: 0.1411764706, alpha: 1).withAlphaComponent(0.5)
+        view.addSubview(topView)
+    }
+    
+    private func setupBottomView() {
+        bottomView = BottomCameraView(frame: CGRect(x: 0, y: view.frame.height - 150 - 50, width: view.frame.width, height: 150))
+        bottomView.createDirectionButton()
+        bottomView.createMainButton()
+        bottomView.directionButtonDelegate = self
+        bottomView.mainButtonDelegate = self
+        bottomView.backgroundColor = #colorLiteral(red: 0.1568627451, green: 0.1411764706, blue: 0.1411764706, alpha: 1).withAlphaComponent(0.5)
+        view.addSubview(bottomView)
     }
     
     private func setLabelMessage(statusBarHeight: CGFloat) {

@@ -32,6 +32,8 @@
 		E12862F22678333900297B72 /* PreviewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12862F12678333900297B72 /* PreviewStoryboard.storyboard */; };
 		E12862F42678336800297B72 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12862F32678336800297B72 /* PreviewViewController.swift */; };
 		E12862F626783A7500297B72 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12862F526783A7500297B72 /* UIView+Extension.swift */; };
+		E12862F92678437800297B72 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12862F82678437800297B72 /* FolderTableViewCell.swift */; };
+		E12862FB2678437F00297B72 /* FolderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12862FA2678437F00297B72 /* FolderTableViewCell.xib */; };
 		FBA325FA26734ADC00C98447 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */; };
 		FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */; };
 		B713D0AC26786E020054DA86 /* FoldersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AB26786E020054DA86 /* FoldersController.swift */; };
@@ -67,6 +69,8 @@
 		E12862F12678333900297B72 /* PreviewStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreviewStoryboard.storyboard; sourceTree = "<group>"; };
 		E12862F32678336800297B72 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		E12862F526783A7500297B72 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		E12862F82678437800297B72 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
+		E12862FA2678437F00297B72 /* FolderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FolderTableViewCell.xib; sourceTree = "<group>"; };
 		FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B713D0AB26786E020054DA86 /* FoldersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersController.swift; sourceTree = "<group>"; };
@@ -129,8 +133,8 @@
 		1BFE7DD8266F5E19008D61DA /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E12862F72678425A00297B72 /* FolderTableViewCell */,
 				1BFE7E05266F6C2F008D61DA /* BottomBarView */,
-				1BFE7DDE266F66A1008D61DA /* FolderTableViewCell */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -172,15 +176,6 @@
 				1BFE7DE0266F66C9008D61DA /* MainCamera */,
 			);
 			path = Features;
-			sourceTree = "<group>";
-		};
-		1BFE7DDE266F66A1008D61DA /* FolderTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				1BFE7DFD266F6B6A008D61DA /* FolderTableViewCell.swift */,
-				1BFE7DFE266F6B6A008D61DA /* FolderTableViewCell.xib */,
-			);
-			path = FolderTableViewCell;
 			sourceTree = "<group>";
 		};
 		1BFE7DE0266F66C9008D61DA /* MainCamera */ = {
@@ -257,6 +252,15 @@
 			path = UIViews;
 			sourceTree = "<group>";
 		};
+		E12862F72678425A00297B72 /* FolderTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E12862FA2678437F00297B72 /* FolderTableViewCell.xib */,
+				E12862F82678437800297B72 /* FolderTableViewCell.swift */,
+			);
+			path = FolderTableViewCell;
+			sourceTree = "<group>";
+		};
 		FBA325FE26734AF800C98447 /* Core Data Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,12 +327,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BFE7DFB266F6859008D61DA /* Sora-SemiBold.ttf in Resources */,
-				1BFE7DEA266F684C008D61DA /* OFL.txt in Resources */,
 				E12862F22678333900297B72 /* PreviewStoryboard.storyboard in Resources */,
 				1BFE7DCD266F5C8A008D61DA /* LaunchScreen.storyboard in Resources */,
 				1BFE7E00266F6B6A008D61DA /* FolderTableViewCell.xib in Resources */,
 				1BFE7E0C266F6F9C008D61DA /* ARCameraStoryboard.storyboard in Resources */,
+				1BFE7E0C266F6F9C008D61DA /* ARCameraStoryboard.storyboard in Resources */,
+				E12862FB2678437F00297B72 /* FolderTableViewCell.xib in Resources */,
 				1BFE7DC5266F5C89008D61DA /* Main.storyboard in Resources */,
 				1BFE7E0F266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard in Resources */,
 				1BFE7E0A266F6F90008D61DA /* MainCameraStoryboard.storyboard in Resources */,
@@ -350,11 +354,11 @@
 				1BFE7DC8266F5C89008D61DA /* Graphee.xcdatamodeld in Sources */,
 				E12862EE267832D000297B72 /* BottomCameraView.swift in Sources */,
 				FBA325FA26734ADC00C98447 /* Photo+CoreDataClass.swift in Sources */,
-				1BFE7DFF266F6B6A008D61DA /* FolderTableViewCell.swift in Sources */,
 				1BFE7DC2266F5C89008D61DA /* ViewController.swift in Sources */,
 				E12862EA26782F0900297B72 /* SettingView.swift in Sources */,
 				E12862F42678336800297B72 /* PreviewViewController.swift in Sources */,
 				1BFE7E02266F6BD8008D61DA /* BottomBarView.swift in Sources */,
+				E12862F92678437800297B72 /* FolderTableViewCell.swift in Sources */,
 				FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */,
 				B713D0AC26786E020054DA86 /* FoldersController.swift in Sources */,
 				E12862E226782DA300297B72 /* TorchHelper.swift in Sources */,
