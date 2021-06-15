@@ -13,6 +13,8 @@
 		1BFE7DC5266F5C89008D61DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DC3266F5C89008D61DA /* Main.storyboard */; };
 		1BFE7DC8266F5C89008D61DA /* Graphee.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7DC6266F5C89008D61DA /* Graphee.xcdatamodeld */; };
 		1BFE7DCD266F5C8A008D61DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DCB266F5C8A008D61DA /* LaunchScreen.storyboard */; };
+		1BFE7DFF266F6B6A008D61DA /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7DFD266F6B6A008D61DA /* FolderTableViewCell.swift */; };
+		1BFE7E00266F6B6A008D61DA /* FolderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DFE266F6B6A008D61DA /* FolderTableViewCell.xib */; };
 		1BFE7E02266F6BD8008D61DA /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7E01266F6BD8008D61DA /* BottomBarView.swift */; };
 		1BFE7E0A266F6F90008D61DA /* MainCameraStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7E09266F6F90008D61DA /* MainCameraStoryboard.storyboard */; };
 		1BFE7E0C266F6F9C008D61DA /* ARCameraStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7E0B266F6F9C008D61DA /* ARCameraStoryboard.storyboard */; };
@@ -35,6 +37,8 @@
 		E12862FF2678587D00297B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DC9266F5C8A008D61DA /* Assets.xcassets */; };
 		FBA325FA26734ADC00C98447 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */; };
 		FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */; };
+		B713D0AC26786E020054DA86 /* FoldersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AB26786E020054DA86 /* FoldersController.swift */; };
+		B713D0AE26786E3A0054DA86 /* AddFolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AD26786E3A0054DA86 /* AddFolderController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +51,8 @@
 		1BFE7DC9266F5C8A008D61DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BFE7DCC266F5C8A008D61DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BFE7DCE266F5C8A008D61DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BFE7DFD266F6B6A008D61DA /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
+		1BFE7DFE266F6B6A008D61DA /* FolderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FolderTableViewCell.xib; sourceTree = "<group>"; };
 		1BFE7E01266F6BD8008D61DA /* BottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
 		1BFE7E09266F6F90008D61DA /* MainCameraStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainCameraStoryboard.storyboard; sourceTree = "<group>"; };
 		1BFE7E0B266F6F9C008D61DA /* ARCameraStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARCameraStoryboard.storyboard; sourceTree = "<group>"; };
@@ -68,6 +74,8 @@
 		E12862FA2678437F00297B72 /* FolderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FolderTableViewCell.xib; sourceTree = "<group>"; };
 		FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B713D0AB26786E020054DA86 /* FoldersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersController.swift; sourceTree = "<group>"; };
+		B713D0AD26786E3A0054DA86 /* AddFolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFolderController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				1BFE7E0E266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard */,
+				B713D0AB26786E020054DA86 /* FoldersController.swift */,
+				B713D0AD26786E3A0054DA86 /* AddFolderController.swift */,
 			);
 			path = "Album & Folder";
 			sourceTree = "<group>";
@@ -321,6 +331,9 @@
 				E12862F22678333900297B72 /* PreviewStoryboard.storyboard in Resources */,
 				1BFE7DCD266F5C8A008D61DA /* LaunchScreen.storyboard in Resources */,
 				1BFE7E0C266F6F9C008D61DA /* ARCameraStoryboard.storyboard in Resources */,
+				1BFE7E00266F6B6A008D61DA /* FolderTableViewCell.xib in Resources */,
+				1BFE7E0C266F6F9C008D61DA /* ARCameraStoryboard.storyboard in Resources */,
+				1BFE7E0C266F6F9C008D61DA /* ARCameraStoryboard.storyboard in Resources */,
 				E12862FB2678437F00297B72 /* FolderTableViewCell.xib in Resources */,
 				1BFE7DC5266F5C89008D61DA /* Main.storyboard in Resources */,
 				1BFE7E0F266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard in Resources */,
@@ -336,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B713D0AE26786E3A0054DA86 /* AddFolderController.swift in Sources */,
 				E12862F02678331300297B72 /* TimerView.swift in Sources */,
 				E12862EC26782FA000297B72 /* VeryTopView.swift in Sources */,
 				E12862E826782EB300297B72 /* CameraImages.swift in Sources */,
@@ -349,6 +363,7 @@
 				1BFE7E02266F6BD8008D61DA /* BottomBarView.swift in Sources */,
 				E12862F92678437800297B72 /* FolderTableViewCell.swift in Sources */,
 				FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */,
+				B713D0AC26786E020054DA86 /* FoldersController.swift in Sources */,
 				E12862E226782DA300297B72 /* TorchHelper.swift in Sources */,
 				E12862E426782DF600297B72 /* AngleView.swift in Sources */,
 				E12862E626782E2300297B72 /* SettingHelper.swift in Sources */,
@@ -504,6 +519,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = A5LXCCW6FT;
 				INFOPLIST_FILE = Graphee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -523,6 +539,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = A5LXCCW6FT;
 				INFOPLIST_FILE = Graphee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
