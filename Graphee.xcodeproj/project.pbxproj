@@ -23,6 +23,7 @@
 		B713D0AC26786E020054DA86 /* FoldersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AB26786E020054DA86 /* FoldersController.swift */; };
 		B713D0AE26786E3A0054DA86 /* AddFolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AD26786E3A0054DA86 /* AddFolderController.swift */; };
 		E128630C26789A4300297B72 /* SettingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128630B26789A4300297B72 /* SettingHelper.swift */; };
+		E128630E26789AAD00297B72 /* TorchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128630D26789AAD00297B72 /* TorchHelper.swift */; };
 		FBA325FA26734ADC00C98447 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */; };
 		FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,7 @@
 		B713D0AB26786E020054DA86 /* FoldersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersController.swift; sourceTree = "<group>"; };
 		B713D0AD26786E3A0054DA86 /* AddFolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFolderController.swift; sourceTree = "<group>"; };
 		E128630B26789A4300297B72 /* SettingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHelper.swift; sourceTree = "<group>"; };
+		E128630D26789AAD00297B72 /* TorchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorchHelper.swift; sourceTree = "<group>"; };
 		FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +137,7 @@
 			children = (
 				1BFE7E10266F73DD008D61DA /* SingletonSwiftFile.swift */,
 				E128630B26789A4300297B72 /* SettingHelper.swift */,
+				E128630D26789AAD00297B72 /* TorchHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				B713D0AC26786E020054DA86 /* FoldersController.swift in Sources */,
 				1BFE7DBE266F5C89008D61DA /* AppDelegate.swift in Sources */,
 				1BFE7DC0266F5C89008D61DA /* SceneDelegate.swift in Sources */,
+				E128630E26789AAD00297B72 /* TorchHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
