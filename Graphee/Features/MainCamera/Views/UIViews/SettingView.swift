@@ -87,6 +87,14 @@ class SettingView: UIView {
         ratio169Button.setBackgroundImage(UIImage(named: "ratio169"), for: .normal)
         ratio169Button.addTarget(self, action: #selector(ratioButtonSelector(sender:)), for: .touchUpInside)
         addSubview(ratio169Button)
+        
+        if SettingHelper.shared.isRatio11Activated() {
+            ratio11Button.setBackgroundImage(UIImage(named: "ratio11_selected"), for: .normal)
+        } else if SettingHelper.shared.isRatio43Activated() {
+            ratio43Button.setBackgroundImage(UIImage(named: "ratio43_selected"), for: .normal)
+        } else if SettingHelper.shared.isRatio169Activated() {
+            ratio169Button.setBackgroundImage(UIImage(named: "ratio169_selected"), for: .normal)
+        }
     }
     
     private func initTimerButtons(rowHeight: CGFloat) {
@@ -176,17 +184,24 @@ class SettingView: UIView {
     }
     
     @objc private func ratioButtonSelector(sender: UIButton) {
+        ratio11Button.setBackgroundImage(UIImage(named: "ratio11"), for: .normal)
+        ratio43Button.setBackgroundImage(UIImage(named: "ratio43"), for: .normal)
+        ratio169Button.setBackgroundImage(UIImage(named: "ratio169"), for: .normal)
+        
         if sender == ratio11Button {
+            ratio11Button.setBackgroundImage(UIImage(named: "ratio11_selected"), for: .normal)
             if SettingHelper.shared.setRatio11() {
                 delegate?.setRatioActivate()
             }
         }
         else if sender == ratio43Button {
+            ratio43Button.setBackgroundImage(UIImage(named: "ratio43_selected"), for: .normal)
             if SettingHelper.shared.setRatio43() {
                 delegate?.setRatioActivate()
             }
         }
         else if sender == ratio169Button {
+            ratio169Button.setBackgroundImage(UIImage(named: "ratio169_selected"), for: .normal)
             if SettingHelper.shared.setRatio169() {
                 delegate?.setRatioActivate()
             }

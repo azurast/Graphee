@@ -9,13 +9,13 @@ import UIKit
 
 class PreviewViewController: UIViewController {
 
+    // MARK: - Attributes
     private var topView: UIView!
     private var directionLabel: UILabel!
     private var photoImageView: UIImageView!
     private var bottomView: BottomCameraView!
     
-    
-
+    // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,6 +31,7 @@ class PreviewViewController: UIViewController {
         
     }
     
+    // MARK: - Setup UIView
     private func setupNavigationView(statusBarHeight: CGFloat) {
         
         topView = UIView(frame: CGRect(x: 0, y:  statusBarHeight, width: view.frame.width, height: 80))
@@ -83,6 +84,7 @@ class PreviewViewController: UIViewController {
 
 }
 
+// MARK: - PreviewButton Delegate
 extension PreviewViewController: PreviewButtonDelegate {
     func previewDoneButtonTapped() {
         print(CameraImages.shared.isAllDictImageAvailable())
