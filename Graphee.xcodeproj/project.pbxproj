@@ -24,6 +24,7 @@
 		B713D0AE26786E3A0054DA86 /* AddFolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AD26786E3A0054DA86 /* AddFolderController.swift */; };
 		E128630C26789A4300297B72 /* SettingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128630B26789A4300297B72 /* SettingHelper.swift */; };
 		E128630E26789AAD00297B72 /* TorchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128630D26789AAD00297B72 /* TorchHelper.swift */; };
+		E128631026789B1700297B72 /* CameraImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128630F26789B1700297B72 /* CameraImages.swift */; };
 		FBA325FA26734ADC00C98447 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */; };
 		FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,7 @@
 		B713D0AD26786E3A0054DA86 /* AddFolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFolderController.swift; sourceTree = "<group>"; };
 		E128630B26789A4300297B72 /* SettingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHelper.swift; sourceTree = "<group>"; };
 		E128630D26789AAD00297B72 /* TorchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorchHelper.swift; sourceTree = "<group>"; };
+		E128630F26789B1700297B72 /* CameraImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraImages.swift; sourceTree = "<group>"; };
 		FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +140,7 @@
 				1BFE7E10266F73DD008D61DA /* SingletonSwiftFile.swift */,
 				E128630B26789A4300297B72 /* SettingHelper.swift */,
 				E128630D26789AAD00297B72 /* TorchHelper.swift */,
+				E128630F26789B1700297B72 /* CameraImages.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E128631026789B1700297B72 /* CameraImages.swift in Sources */,
 				B713D0AE26786E3A0054DA86 /* AddFolderController.swift in Sources */,
 				1BFE7E11266F73DD008D61DA /* SingletonSwiftFile.swift in Sources */,
 				1BFE7DC8266F5C89008D61DA /* Graphee.xcdatamodeld in Sources */,
