@@ -17,16 +17,19 @@ class AlbumViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.navigationController?.navigationBar.backgroundColor = .yellow
+        self.navigationController?.navigationBar.backgroundColor = UIColor.init(named: "DarkColor")
+        view.backgroundColor = UIColor.init(named: "DarkColor")
+        albumTableView.backgroundColor = UIColor.init(named: "DarkColor")
         
-        view.backgroundColor = .yellow
-        
-        albumTableView.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
-        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "ARKitCamera", style: .plain, target: self, action: #selector(gotoArkitCamera))
         albumTableView.dataSource = self
         albumTableView.delegate = self
     }
     
+    @objc func gotoArkitCamera() {
+        let arcameraVC = self.storyboard?.instantiateViewController(identifier: "arcamera") as! ARCameraViewController
+        self.navigationController?.pushViewController(arcameraVC, animated: true)
+    }
 
     /*
     // MARK: - Navigation

@@ -21,9 +21,8 @@ class FolderViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = .yellow
-        
-        folderCollectionView.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
+        view.backgroundColor = UIColor.init(named: "DarkColor")
+        folderCollectionView.backgroundColor = UIColor.init(named: "DarkColor")
         
         folderCollectionView.dataSource = self
         folderCollectionView.delegate = self

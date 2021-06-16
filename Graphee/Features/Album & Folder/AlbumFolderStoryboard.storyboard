@@ -446,6 +446,14 @@
             </objects>
             <point key="canvasLocation" x="-523.07692307692309" y="775.59241706161129"/>
         </scene>
+        <!--arcamera-->
+        <scene sceneID="LM1-Vs-ylm">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="arcamera" storyboardName="ARCameraStoryboard" referencedIdentifier="arcamera" id="bzo-n0-kHu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HFr-bO-gRR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="407" y="494"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="sok-kj-2iD">
             <objects>
