@@ -17,21 +17,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qh5-St-QLJ">
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qh5-St-QLJ">
                                 <rect key="frame" x="0.0" y="44" width="414" height="813"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </arscnView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2U-gz-4Zk">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2U-gz-4Zk">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="DarkColor"/>
                             </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H96-40-pbk">
+                                <rect key="frame" x="100" y="759" width="214" height="38"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WNm-ny-Z0L">
+                                    <rect key="frame" x="0.0" y="0.0" width="214" height="38"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ah-p4-BFB">
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Dkn-9c-pmA">
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <constraints>
+                                                <constraint firstAttribute="width" id="qcV-gx-BiW"/>
+                                            </constraints>
+                                            <vibrancyEffect>
+                                                <blurEffect style="light"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SURFACE DETECTED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i67-FQ-ovN">
+                                            <rect key="frame" x="32" y="8" width="150" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="22" id="W1O-2U-auc"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <color key="highlightedColor" name="DarkColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="4Ah-p4-BFB" secondAttribute="bottom" constant="38" id="84L-HB-hbE"/>
+                                        <constraint firstItem="4Ah-p4-BFB" firstAttribute="leading" secondItem="WNm-ny-Z0L" secondAttribute="leading" id="IxK-pR-I2v"/>
+                                        <constraint firstItem="i67-FQ-ovN" firstAttribute="bottom" secondItem="WNm-ny-Z0L" secondAttribute="bottomMargin" id="PeK-7C-an1"/>
+                                        <constraint firstItem="i67-FQ-ovN" firstAttribute="centerY" secondItem="WNm-ny-Z0L" secondAttribute="centerY" id="PgP-Cc-H6Q"/>
+                                        <constraint firstItem="i67-FQ-ovN" firstAttribute="leading" secondItem="WNm-ny-Z0L" secondAttribute="leading" constant="32" id="fjz-Of-IGR"/>
+                                        <constraint firstItem="4Ah-p4-BFB" firstAttribute="top" secondItem="WNm-ny-Z0L" secondAttribute="top" id="jfu-EE-fiC"/>
+                                        <constraint firstItem="i67-FQ-ovN" firstAttribute="centerX" secondItem="WNm-ny-Z0L" secondAttribute="centerX" id="zlK-jZ-X3J"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="214" id="fXW-K0-9hB"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="z2U-gz-4Zk" firstAttribute="leading" secondItem="Qh5-St-QLJ" secondAttribute="leading" id="4LV-Jy-b4d"/>
+                            <constraint firstItem="H96-40-pbk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="100" id="7Id-ug-N2C"/>
+                            <constraint firstAttribute="bottom" secondItem="z2U-gz-4Zk" secondAttribute="bottom" constant="849" id="9LM-J4-Twe"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Qh5-St-QLJ" secondAttribute="bottom" constant="5" id="HvT-XE-l8E"/>
+                            <constraint firstItem="Qh5-St-QLJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Mhe-Ql-VFd"/>
+                            <constraint firstItem="z2U-gz-4Zk" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="topMargin" constant="-44" id="QLh-mL-ATf"/>
+                            <constraint firstItem="Qh5-St-QLJ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="dH7-Uq-40b"/>
+                            <constraint firstItem="z2U-gz-4Zk" firstAttribute="centerX" secondItem="H96-40-pbk" secondAttribute="centerX" id="kyC-MM-hed"/>
+                            <constraint firstItem="z2U-gz-4Zk" firstAttribute="trailing" secondItem="Qh5-St-QLJ" secondAttribute="trailing" id="p0C-6U-bQf"/>
+                            <constraint firstItem="z2U-gz-4Zk" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="s5Q-XP-eT5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="H96-40-pbk" secondAttribute="bottom" constant="65" id="vhI-Sv-EMP"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="sceneView" destination="Qh5-St-QLJ" id="rjy-2c-lNI"/>
+                        <outlet property="statusLabel" destination="i67-FQ-ovN" id="ltE-BG-MMl"/>
+                        <outlet property="statusPanel" destination="H96-40-pbk" id="ub0-vW-1g8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
