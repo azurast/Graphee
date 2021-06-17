@@ -50,6 +50,7 @@ public class CoreDataService{
     public func saveFolder(name: String) {
         let newFolder = Folder(context: self.context)
         newFolder.name = name
+        
         do {
             try context.save()
         }
