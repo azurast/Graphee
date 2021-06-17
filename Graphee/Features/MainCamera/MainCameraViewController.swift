@@ -306,7 +306,8 @@ class MainCameraViewController: UIViewController {
         timerDuration = Double(seconds)
         
         self.timerView = TimerView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
-        self.timerView?.backgroundColor = .black.withAlphaComponent(0.5)
+//        self.timerView?.backgroundColor = .black.withAlphaComponent(0.5)
+        
         view.addSubview(timerView!)
         
         self.timerView?.changeLabelText(number: String(seconds))

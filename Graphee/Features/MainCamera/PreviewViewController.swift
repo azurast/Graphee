@@ -60,7 +60,7 @@ class PreviewViewController: UIViewController {
         bottomView = BottomCameraView(frame: CGRect(x: 0, y: view.frame.height - 150 - 50, width: view.frame.width, height: 150))
         bottomView.createPreviewButton()
         bottomView.previewButtonDelegate = self
-        bottomView.backgroundColor = .black.withAlphaComponent(0.5)
+//        bottomView.backgroundColor = .black.withAlphaComponent(0.5)
         view.addSubview(bottomView)
         
         if CameraImages.shared.isAllDictImageAvailable() {

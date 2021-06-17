@@ -14,12 +14,21 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var statusPanel: UIVisualEffectView!
     @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var animationImageView: UIImageView!
+    var animationImages: [UIImage] = []
+    
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var bottomLabel: UILabel!
     
     var referencePoint : SCNNode!
     var hasBeenPlaced: Bool! = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupAnimation()
+        
+        
         statusPanel.isHidden = false
         // Add Replace Button
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Replace", style: .plain, target: self, action: #selector(replacePoint))
@@ -29,6 +38,59 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         configureLighting()
         
     }
+    
+    func setupAnimation() {
+        self.topLabel.text = "Tap anywhere to set reference point"
+        
+        UIView.animate(withDuration: 1.0, delay: 0.0, animations: {
+            self.topLabel.alpha = 1.0
+        }, completion: { [self]
+            finished in
+            
+                    if finished {
+                        //self.topLabel.text = "Tap anywhere to set reference point"
+                        
+                        UIView.animate(withDuration: 1.0, delay: 9.5, options: .curveEaseOut, animations: { self.topLabel.alpha = 0.0
+                        }, completion: nil)
+                    }
+                })
+    
+        self.bottomLabel.text = "Reference point can be used as a guidance \nwhen you adjust your product's rotation"
+        
+        UIView.animate(withDuration: 1.0, delay: 0.0, animations: {
+            self.bottomLabel.alpha = 1.0
+        }, completion: { [self]
+            finished in
+            
+                    if finished {
+                        
+                        UIView.animate(withDuration: 1.0, delay: 9.5, options: .curveEaseOut, animations: { self.bottomLabel.alpha = 0.0
+                        }, completion: nil)
+                    }
+                })
+    
+        animationImages = createImageArray(total: 1255, imagePrefix: "animateTest-")
+        animate(imageView: animationImageView, images: animationImages)
+    }
+    
+    func createImageArray(total: Int, imagePrefix: String) ->[UIImage] {
+        var imageArray: [UIImage] = []
+        for imageCount in 1000...total {
+            let imageName = "\(imagePrefix)\(imageCount).png"
+            let image = UIImage(named: imageName)!
+            imageArray.append(image)
+            print(imageArray.count)
+        }
+        return imageArray
+    }
+    
+    func animate(imageView: UIImageView, images: [UIImage]) {
+        imageView.animationImages = images
+        imageView.animationDuration = 10.25
+        imageView.animationRepeatCount = 1
+        imageView.startAnimating()
+    }
+    
     
     @objc func replacePoint() {
         print("Replace Point Tapped")
