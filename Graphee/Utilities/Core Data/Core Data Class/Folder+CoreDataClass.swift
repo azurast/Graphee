@@ -8,8 +8,10 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 @objc(Folder)
 public class Folder: NSManagedObject {
-
+    
 }
+
