@@ -12,7 +12,7 @@ class AlbumViewController: UIViewController {
 
     @IBOutlet weak var albumTableView: UITableView!
     
-    //var albumArray = ["Product A", "Product B", "Product C"]
+    var albumArray = ["Product A", "Product B", "Product C"]
     var arrayFolder: [Folder]?
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -25,7 +25,9 @@ class AlbumViewController: UIViewController {
         
         view.backgroundColor = UIColor.init(named: "AccentColor")
         
-        albumTableView.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
+        albumTableView.backgroundColor = UIColor.init(named: "DarkColor")
+        
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(named: "DarkColor")]
         
         albumTableView.dataSource = self
         albumTableView.delegate = self
@@ -149,6 +151,11 @@ extension AlbumViewController: UITableViewDataSource {
         cell.folderName.text = arrayFolder?[indexPath.row].name
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        return 112
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
