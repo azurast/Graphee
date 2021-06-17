@@ -6,26 +6,40 @@
 //
 
 import UIKit
+import CoreData
 
 class AlbumViewController: UIViewController {
 
     @IBOutlet weak var albumTableView: UITableView!
     
-    var albumArray = ["Product A", "Product B", "Product C"]
+    //var albumArray = ["Product A", "Product B", "Product C"]
+    var arrayFolder: [Folder]?
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.navigationController?.navigationBar.backgroundColor = .yellow
+        self.navigationController?.navigationBar.backgroundColor = UIColor.init(named: "AccentColor")
         
-        view.backgroundColor = .yellow
+        view.backgroundColor = UIColor.init(named: "AccentColor")
         
         albumTableView.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
         
         albumTableView.dataSource = self
         albumTableView.delegate = self
+        
+        fetchFolder()
     }
+    
+    func fetchFolder(){
+        arrayFolder = CoreDataService.instance.fetchAllFolders()
+        DispatchQueue.main.async {
+            self.albumTableView.reloadData()
+        }
+    }
+        
     
     @IBAction func addFolderButton(){
         showAlert()
@@ -36,6 +50,14 @@ class AlbumViewController: UIViewController {
         alert.view.tintColor = UIColor.init(named: "AccentColor")
         alert.view.layer.cornerRadius = 30
         alert.addTextField(configurationHandler: {action in
+            
+            //get textfield data
+            let textfield = alert.textFields![0]
+            
+            //create an object named Folder
+            let newFolder = Folder(context: self.context)
+            //newFolder.name = name
+
             print("typed")
         })
         
@@ -108,7 +130,7 @@ extension AlbumViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let folderViewController = self.storyboard?.instantiateViewController(identifier: "folder") as! FolderViewController
-        folderViewController.productName = albumArray[indexPath.row]
+    //folderViewController.productName = arrayFolder[indexPath.row]
         
         self.navigationController?.pushViewController(folderViewController, animated: true)
     }
@@ -116,7 +138,7 @@ extension AlbumViewController: UITableViewDelegate {
 
 extension AlbumViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return albumArray.count
+        return arrayFolder?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -124,7 +146,7 @@ extension AlbumViewController: UITableViewDataSource {
         let cell = albumTableView.dequeueReusableCell(withIdentifier: "albumCell", for: indexPath) as! AlbumTableViewCell
         cell.backgroundColor = .clear
         cell.contentView.backgroundColor = .clear
-        cell.folderName.text = albumArray[indexPath.row]
+        cell.folderName.text = arrayFolder?[indexPath.row].name
         
         return cell
     }

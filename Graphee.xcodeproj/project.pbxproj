@@ -24,6 +24,7 @@
 		1BFE7E11266F73DD008D61DA /* SingletonSwiftFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7E10266F73DD008D61DA /* SingletonSwiftFile.swift */; };
 		B713D0AC26786E020054DA86 /* FoldersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AB26786E020054DA86 /* FoldersController.swift */; };
 		B713D0AE26786E3A0054DA86 /* AddFolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AD26786E3A0054DA86 /* AddFolderController.swift */; };
+		B7BA792E267A33690064649D /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA792D267A33690064649D /* CoreDataService.swift */; };
 		E128630C26789A4300297B72 /* SettingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128630B26789A4300297B72 /* SettingHelper.swift */; };
 		E128630E26789AAD00297B72 /* TorchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128630D26789AAD00297B72 /* TorchHelper.swift */; };
 		E128631026789B1700297B72 /* CameraImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128630F26789B1700297B72 /* CameraImages.swift */; };
@@ -67,6 +68,7 @@
 		1BFE7E10266F73DD008D61DA /* SingletonSwiftFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonSwiftFile.swift; sourceTree = "<group>"; };
 		B713D0AB26786E020054DA86 /* FoldersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersController.swift; sourceTree = "<group>"; };
 		B713D0AD26786E3A0054DA86 /* AddFolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFolderController.swift; sourceTree = "<group>"; };
+		B7BA792D267A33690064649D /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		E128630B26789A4300297B72 /* SettingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHelper.swift; sourceTree = "<group>"; };
 		E128630D26789AAD00297B72 /* TorchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorchHelper.swift; sourceTree = "<group>"; };
 		E128630F26789B1700297B72 /* CameraImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraImages.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				E128630D26789AAD00297B72 /* TorchHelper.swift */,
 				E128630F26789B1700297B72 /* CameraImages.swift */,
 				E12863302678BC2500297B72 /* FileManagerHelper.swift */,
+				B7BA792D267A33690064649D /* CoreDataService.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				1BFE7E02266F6BD8008D61DA /* BottomBarView.swift in Sources */,
 				E12863252678A1E500297B72 /* PreviewViewController.swift in Sources */,
 				FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */,
+				B7BA792E267A33690064649D /* CoreDataService.swift in Sources */,
 				E128632F2678BB8600297B72 /* FolderViewController.swift in Sources */,
 				B713D0AC26786E020054DA86 /* FoldersController.swift in Sources */,
 				1BFE7DBE266F5C89008D61DA /* AppDelegate.swift in Sources */,
