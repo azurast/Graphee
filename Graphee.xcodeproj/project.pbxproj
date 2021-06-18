@@ -7,23 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B363D452678AC0700A1CA08 /* assetcatalog.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B363D442678AC0700A1CA08 /* assetcatalog.scnassets */; };
+		1B363D472678ACB100A1CA08 /* ARCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B363D462678ACB100A1CA08 /* ARCameraViewController.swift */; };
 		1BFE7DBE266F5C89008D61DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7DBD266F5C89008D61DA /* AppDelegate.swift */; };
 		1BFE7DC0266F5C89008D61DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7DBF266F5C89008D61DA /* SceneDelegate.swift */; };
 		1BFE7DC2266F5C89008D61DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7DC1266F5C89008D61DA /* ViewController.swift */; };
 		1BFE7DC5266F5C89008D61DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DC3266F5C89008D61DA /* Main.storyboard */; };
 		1BFE7DC8266F5C89008D61DA /* Graphee.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7DC6266F5C89008D61DA /* Graphee.xcdatamodeld */; };
 		1BFE7DCD266F5C8A008D61DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DCB266F5C8A008D61DA /* LaunchScreen.storyboard */; };
-		1BFE7DE9266F684C008D61DA /* Sora-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DE6266F684C008D61DA /* Sora-VariableFont_wght.ttf */; };
-		1BFE7DEA266F684C008D61DA /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DE7266F684C008D61DA /* OFL.txt */; };
-		1BFE7DEB266F684C008D61DA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DE8266F684C008D61DA /* README.txt */; };
-		1BFE7DF5266F6859008D61DA /* Sora-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DED266F6859008D61DA /* Sora-Thin.ttf */; };
-		1BFE7DF6266F6859008D61DA /* Sora-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DEE266F6859008D61DA /* Sora-ExtraBold.ttf */; };
-		1BFE7DF7266F6859008D61DA /* Sora-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DEF266F6859008D61DA /* Sora-Bold.ttf */; };
-		1BFE7DF8266F6859008D61DA /* Sora-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DF0266F6859008D61DA /* Sora-Light.ttf */; };
-		1BFE7DF9266F6859008D61DA /* Sora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DF1266F6859008D61DA /* Sora-Regular.ttf */; };
-		1BFE7DFA266F6859008D61DA /* Sora-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DF2266F6859008D61DA /* Sora-Medium.ttf */; };
-		1BFE7DFB266F6859008D61DA /* Sora-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DF3266F6859008D61DA /* Sora-SemiBold.ttf */; };
-		1BFE7DFC266F6859008D61DA /* Sora-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DF4266F6859008D61DA /* Sora-ExtraLight.ttf */; };
 		1BFE7DFF266F6B6A008D61DA /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7DFD266F6B6A008D61DA /* FolderTableViewCell.swift */; };
 		1BFE7E00266F6B6A008D61DA /* FolderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DFE266F6B6A008D61DA /* FolderTableViewCell.xib */; };
 		1BFE7E02266F6BD8008D61DA /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7E01266F6BD8008D61DA /* BottomBarView.swift */; };
@@ -31,9 +22,37 @@
 		1BFE7E0C266F6F9C008D61DA /* ARCameraStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7E0B266F6F9C008D61DA /* ARCameraStoryboard.storyboard */; };
 		1BFE7E0F266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7E0E266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard */; };
 		1BFE7E11266F73DD008D61DA /* SingletonSwiftFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7E10266F73DD008D61DA /* SingletonSwiftFile.swift */; };
+		B713D0AC26786E020054DA86 /* FoldersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AB26786E020054DA86 /* FoldersController.swift */; };
+		B713D0AE26786E3A0054DA86 /* AddFolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AD26786E3A0054DA86 /* AddFolderController.swift */; };
+		B7BA792E267A33690064649D /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA792D267A33690064649D /* CoreDataService.swift */; };
+		E128630C26789A4300297B72 /* SettingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128630B26789A4300297B72 /* SettingHelper.swift */; };
+		E128630E26789AAD00297B72 /* TorchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128630D26789AAD00297B72 /* TorchHelper.swift */; };
+		E128631026789B1700297B72 /* CameraImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128630F26789B1700297B72 /* CameraImages.swift */; };
+		E128631426789BC000297B72 /* AngleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128631326789BC000297B72 /* AngleView.swift */; };
+		E128631726789BFE00297B72 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128631626789BFE00297B72 /* UIView+Extension.swift */; };
+		E128631926789C7500297B72 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128631826789C7500297B72 /* TimerView.swift */; };
+		E128631B26789F3100297B72 /* VeryTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128631A26789F3100297B72 /* VeryTopView.swift */; };
+		E128631D26789F6300297B72 /* BottomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128631C26789F6300297B72 /* BottomCameraView.swift */; };
+		E128631F26789FA400297B72 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128631E26789FA400297B72 /* SettingView.swift */; };
+		E12863212678A08800297B72 /* MainCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12863202678A08800297B72 /* MainCameraViewController.swift */; };
+		E12863232678A1B100297B72 /* PreviewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12863222678A1B100297B72 /* PreviewStoryboard.storyboard */; };
+		E12863252678A1E500297B72 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12863242678A1E500297B72 /* PreviewViewController.swift */; };
+		E12863262678A4B700297B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DC9266F5C8A008D61DA /* Assets.xcassets */; };
+		E128632A2678B55900297B72 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12863292678B55900297B72 /* AlbumViewController.swift */; };
+		E128632D2678B73800297B72 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128632C2678B73800297B72 /* AlbumTableViewCell.swift */; };
+		E128632F2678BB8600297B72 /* FolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128632E2678BB8600297B72 /* FolderViewController.swift */; };
+		E12863312678BC2500297B72 /* FileManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12863302678BC2500297B72 /* FileManagerHelper.swift */; };
+		E12863332678BF0E00297B72 /* FolderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12863322678BF0E00297B72 /* FolderCollectionViewCell.swift */; };
+		E13E18C3267C2B1A0054FC36 /* PhotoDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13E18C2267C2B1A0054FC36 /* PhotoDetailStoryboard.storyboard */; };
+		E13E18C5267C2C740054FC36 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13E18C4267C2C740054FC36 /* PhotoDetailViewController.swift */; };
+		E13E18C7267C2CDA0054FC36 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13E18C6267C2CDA0054FC36 /* PhotoCollectionViewCell.swift */; };
+		FBA325FA26734ADC00C98447 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */; };
+		FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B363D442678AC0700A1CA08 /* assetcatalog.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = assetcatalog.scnassets; sourceTree = "<group>"; };
+		1B363D462678ACB100A1CA08 /* ARCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCameraViewController.swift; sourceTree = "<group>"; };
 		1BFE7DBA266F5C89008D61DA /* Graphee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Graphee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BFE7DBD266F5C89008D61DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BFE7DBF266F5C89008D61DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,17 +62,6 @@
 		1BFE7DC9266F5C8A008D61DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BFE7DCC266F5C8A008D61DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BFE7DCE266F5C8A008D61DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1BFE7DE6266F684C008D61DA /* Sora-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sora-VariableFont_wght.ttf"; path = "../../../../../../../Downloads/Sora/Sora-VariableFont_wght.ttf"; sourceTree = "<group>"; };
-		1BFE7DE7266F684C008D61DA /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = OFL.txt; path = ../../../../../../../Downloads/Sora/OFL.txt; sourceTree = "<group>"; };
-		1BFE7DE8266F684C008D61DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = ../../../../../../../Downloads/Sora/README.txt; sourceTree = "<group>"; };
-		1BFE7DED266F6859008D61DA /* Sora-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Thin.ttf"; sourceTree = "<group>"; };
-		1BFE7DEE266F6859008D61DA /* Sora-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-ExtraBold.ttf"; sourceTree = "<group>"; };
-		1BFE7DEF266F6859008D61DA /* Sora-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Bold.ttf"; sourceTree = "<group>"; };
-		1BFE7DF0266F6859008D61DA /* Sora-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Light.ttf"; sourceTree = "<group>"; };
-		1BFE7DF1266F6859008D61DA /* Sora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Regular.ttf"; sourceTree = "<group>"; };
-		1BFE7DF2266F6859008D61DA /* Sora-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Medium.ttf"; sourceTree = "<group>"; };
-		1BFE7DF3266F6859008D61DA /* Sora-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-SemiBold.ttf"; sourceTree = "<group>"; };
-		1BFE7DF4266F6859008D61DA /* Sora-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-ExtraLight.ttf"; sourceTree = "<group>"; };
 		1BFE7DFD266F6B6A008D61DA /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
 		1BFE7DFE266F6B6A008D61DA /* FolderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FolderTableViewCell.xib; sourceTree = "<group>"; };
 		1BFE7E01266F6BD8008D61DA /* BottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
@@ -61,6 +69,31 @@
 		1BFE7E0B266F6F9C008D61DA /* ARCameraStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ARCameraStoryboard.storyboard; sourceTree = "<group>"; };
 		1BFE7E0E266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlbumFolderStoryboard.storyboard; sourceTree = "<group>"; };
 		1BFE7E10266F73DD008D61DA /* SingletonSwiftFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonSwiftFile.swift; sourceTree = "<group>"; };
+		B713D0AB26786E020054DA86 /* FoldersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersController.swift; sourceTree = "<group>"; };
+		B713D0AD26786E3A0054DA86 /* AddFolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFolderController.swift; sourceTree = "<group>"; };
+		B7BA792D267A33690064649D /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		E128630B26789A4300297B72 /* SettingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHelper.swift; sourceTree = "<group>"; };
+		E128630D26789AAD00297B72 /* TorchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorchHelper.swift; sourceTree = "<group>"; };
+		E128630F26789B1700297B72 /* CameraImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraImages.swift; sourceTree = "<group>"; };
+		E128631326789BC000297B72 /* AngleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleView.swift; sourceTree = "<group>"; };
+		E128631626789BFE00297B72 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		E128631826789C7500297B72 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		E128631A26789F3100297B72 /* VeryTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeryTopView.swift; sourceTree = "<group>"; };
+		E128631C26789F6300297B72 /* BottomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCameraView.swift; sourceTree = "<group>"; };
+		E128631E26789FA400297B72 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		E12863202678A08800297B72 /* MainCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraViewController.swift; sourceTree = "<group>"; };
+		E12863222678A1B100297B72 /* PreviewStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreviewStoryboard.storyboard; sourceTree = "<group>"; };
+		E12863242678A1E500297B72 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		E12863292678B55900297B72 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		E128632C2678B73800297B72 /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
+		E128632E2678BB8600297B72 /* FolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewController.swift; sourceTree = "<group>"; };
+		E12863302678BC2500297B72 /* FileManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerHelper.swift; sourceTree = "<group>"; };
+		E12863322678BF0E00297B72 /* FolderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCollectionViewCell.swift; sourceTree = "<group>"; };
+		E13E18C2267C2B1A0054FC36 /* PhotoDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoDetailStoryboard.storyboard; sourceTree = "<group>"; };
+		E13E18C4267C2C740054FC36 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		E13E18C6267C2CDA0054FC36 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,22 +145,14 @@
 			isa = PBXGroup;
 			children = (
 				1BFE7DD8266F5E19008D61DA /* UI */,
-				1BFE7DD6266F5DFA008D61DA /* Fonts */,
 			);
 			path = Themes;
-			sourceTree = "<group>";
-		};
-		1BFE7DD6266F5DFA008D61DA /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				1BFE7DE5266F6837008D61DA /* Sora */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		1BFE7DD8266F5E19008D61DA /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E128631526789BED00297B72 /* Extension */,
 				1BFE7E05266F6C2F008D61DA /* BottomBarView */,
 				1BFE7DDE266F66A1008D61DA /* FolderTableViewCell */,
 			);
@@ -145,6 +170,7 @@
 		1BFE7DDA266F5E34008D61DA /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				FBA325FE26734AF800C98447 /* Core Data Class */,
 				1BFE7DC6266F5C89008D61DA /* Graphee.xcdatamodeld */,
 			);
 			path = "Core Data";
@@ -154,6 +180,11 @@
 			isa = PBXGroup;
 			children = (
 				1BFE7E10266F73DD008D61DA /* SingletonSwiftFile.swift */,
+				E128630B26789A4300297B72 /* SettingHelper.swift */,
+				E128630D26789AAD00297B72 /* TorchHelper.swift */,
+				E128630F26789B1700297B72 /* CameraImages.swift */,
+				E12863302678BC2500297B72 /* FileManagerHelper.swift */,
+				B7BA792D267A33690064649D /* CoreDataService.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -180,7 +211,11 @@
 		1BFE7DE0266F66C9008D61DA /* MainCamera */ = {
 			isa = PBXGroup;
 			children = (
+				E128631226789B6200297B72 /* Views */,
 				1BFE7E09266F6F90008D61DA /* MainCameraStoryboard.storyboard */,
+				E12863202678A08800297B72 /* MainCameraViewController.swift */,
+				E12863222678A1B100297B72 /* PreviewStoryboard.storyboard */,
+				E12863242678A1E500297B72 /* PreviewViewController.swift */,
 			);
 			path = MainCamera;
 			sourceTree = "<group>";
@@ -189,6 +224,8 @@
 			isa = PBXGroup;
 			children = (
 				1BFE7E0B266F6F9C008D61DA /* ARCameraStoryboard.storyboard */,
+				1B363D442678AC0700A1CA08 /* assetcatalog.scnassets */,
+				1B363D462678ACB100A1CA08 /* ARCameraViewController.swift */,
 			);
 			path = ARCamera;
 			sourceTree = "<group>";
@@ -196,36 +233,16 @@
 		1BFE7DE2266F6794008D61DA /* Album & Folder */ = {
 			isa = PBXGroup;
 			children = (
+				E128632B2678B71A00297B72 /* Cells */,
 				1BFE7E0E266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard */,
+				B713D0AB26786E020054DA86 /* FoldersController.swift */,
+				B713D0AD26786E3A0054DA86 /* AddFolderController.swift */,
+				E12863292678B55900297B72 /* AlbumViewController.swift */,
+				E128632E2678BB8600297B72 /* FolderViewController.swift */,
+				E13E18C2267C2B1A0054FC36 /* PhotoDetailStoryboard.storyboard */,
+				E13E18C4267C2C740054FC36 /* PhotoDetailViewController.swift */,
 			);
 			path = "Album & Folder";
-			sourceTree = "<group>";
-		};
-		1BFE7DE5266F6837008D61DA /* Sora */ = {
-			isa = PBXGroup;
-			children = (
-				1BFE7DEC266F6859008D61DA /* static */,
-				1BFE7DE7266F684C008D61DA /* OFL.txt */,
-				1BFE7DE8266F684C008D61DA /* README.txt */,
-				1BFE7DE6266F684C008D61DA /* Sora-VariableFont_wght.ttf */,
-			);
-			path = Sora;
-			sourceTree = "<group>";
-		};
-		1BFE7DEC266F6859008D61DA /* static */ = {
-			isa = PBXGroup;
-			children = (
-				1BFE7DED266F6859008D61DA /* Sora-Thin.ttf */,
-				1BFE7DEE266F6859008D61DA /* Sora-ExtraBold.ttf */,
-				1BFE7DEF266F6859008D61DA /* Sora-Bold.ttf */,
-				1BFE7DF0266F6859008D61DA /* Sora-Light.ttf */,
-				1BFE7DF1266F6859008D61DA /* Sora-Regular.ttf */,
-				1BFE7DF2266F6859008D61DA /* Sora-Medium.ttf */,
-				1BFE7DF3266F6859008D61DA /* Sora-SemiBold.ttf */,
-				1BFE7DF4266F6859008D61DA /* Sora-ExtraLight.ttf */,
-			);
-			name = static;
-			path = ../../../../../../../Downloads/Sora/static;
 			sourceTree = "<group>";
 		};
 		1BFE7E05266F6C2F008D61DA /* BottomBarView */ = {
@@ -234,6 +251,45 @@
 				1BFE7E01266F6BD8008D61DA /* BottomBarView.swift */,
 			);
 			path = BottomBarView;
+			sourceTree = "<group>";
+		};
+		E128631226789B6200297B72 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E128631326789BC000297B72 /* AngleView.swift */,
+				E128631826789C7500297B72 /* TimerView.swift */,
+				E128631A26789F3100297B72 /* VeryTopView.swift */,
+				E128631C26789F6300297B72 /* BottomCameraView.swift */,
+				E128631E26789FA400297B72 /* SettingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E128631526789BED00297B72 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E128631626789BFE00297B72 /* UIView+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		E128632B2678B71A00297B72 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E12863322678BF0E00297B72 /* FolderCollectionViewCell.swift */,
+				E128632C2678B73800297B72 /* AlbumTableViewCell.swift */,
+				E13E18C6267C2CDA0054FC36 /* PhotoCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FBA325FE26734AF800C98447 /* Core Data Class */ = {
+			isa = PBXGroup;
+			children = (
+				FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */,
+				FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */,
+			);
+			path = "Core Data Class";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,22 +349,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BFE7DFB266F6859008D61DA /* Sora-SemiBold.ttf in Resources */,
-				1BFE7DEA266F684C008D61DA /* OFL.txt in Resources */,
 				1BFE7DCD266F5C8A008D61DA /* LaunchScreen.storyboard in Resources */,
-				1BFE7DF8266F6859008D61DA /* Sora-Light.ttf in Resources */,
-				1BFE7DF5266F6859008D61DA /* Sora-Thin.ttf in Resources */,
-				1BFE7DFC266F6859008D61DA /* Sora-ExtraLight.ttf in Resources */,
+				1B363D452678AC0700A1CA08 /* assetcatalog.scnassets in Resources */,
+				E13E18C3267C2B1A0054FC36 /* PhotoDetailStoryboard.storyboard in Resources */,
 				1BFE7E00266F6B6A008D61DA /* FolderTableViewCell.xib in Resources */,
-				1BFE7DF7266F6859008D61DA /* Sora-Bold.ttf in Resources */,
-				1BFE7DFA266F6859008D61DA /* Sora-Medium.ttf in Resources */,
 				1BFE7E0C266F6F9C008D61DA /* ARCameraStoryboard.storyboard in Resources */,
-				1BFE7DE9266F684C008D61DA /* Sora-VariableFont_wght.ttf in Resources */,
-				1BFE7DF6266F6859008D61DA /* Sora-ExtraBold.ttf in Resources */,
-				1BFE7DF9266F6859008D61DA /* Sora-Regular.ttf in Resources */,
-				1BFE7DEB266F684C008D61DA /* README.txt in Resources */,
+				E12863232678A1B100297B72 /* PreviewStoryboard.storyboard in Resources */,
 				1BFE7DC5266F5C89008D61DA /* Main.storyboard in Resources */,
 				1BFE7E0F266F6FC6008D61DA /* AlbumFolderStoryboard.storyboard in Resources */,
+				E12863262678A4B700297B72 /* Assets.xcassets in Resources */,
 				1BFE7E0A266F6F90008D61DA /* MainCameraStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,13 +369,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E128631B26789F3100297B72 /* VeryTopView.swift in Sources */,
+				E128631F26789FA400297B72 /* SettingView.swift in Sources */,
+				E128631D26789F6300297B72 /* BottomCameraView.swift in Sources */,
+				E128631026789B1700297B72 /* CameraImages.swift in Sources */,
+				B713D0AE26786E3A0054DA86 /* AddFolderController.swift in Sources */,
+				E128631726789BFE00297B72 /* UIView+Extension.swift in Sources */,
 				1BFE7E11266F73DD008D61DA /* SingletonSwiftFile.swift in Sources */,
 				1BFE7DC8266F5C89008D61DA /* Graphee.xcdatamodeld in Sources */,
+				FBA325FA26734ADC00C98447 /* Photo+CoreDataClass.swift in Sources */,
+				E128630C26789A4300297B72 /* SettingHelper.swift in Sources */,
+				E128632D2678B73800297B72 /* AlbumTableViewCell.swift in Sources */,
+				1B363D472678ACB100A1CA08 /* ARCameraViewController.swift in Sources */,
+				E128631926789C7500297B72 /* TimerView.swift in Sources */,
+				E128632A2678B55900297B72 /* AlbumViewController.swift in Sources */,
 				1BFE7DFF266F6B6A008D61DA /* FolderTableViewCell.swift in Sources */,
 				1BFE7DC2266F5C89008D61DA /* ViewController.swift in Sources */,
+				E128631426789BC000297B72 /* AngleView.swift in Sources */,
 				1BFE7E02266F6BD8008D61DA /* BottomBarView.swift in Sources */,
+				E13E18C5267C2C740054FC36 /* PhotoDetailViewController.swift in Sources */,
+				E12863252678A1E500297B72 /* PreviewViewController.swift in Sources */,
+				FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */,
+				B7BA792E267A33690064649D /* CoreDataService.swift in Sources */,
+				E13E18C7267C2CDA0054FC36 /* PhotoCollectionViewCell.swift in Sources */,
+				E128632F2678BB8600297B72 /* FolderViewController.swift in Sources */,
+				B713D0AC26786E020054DA86 /* FoldersController.swift in Sources */,
 				1BFE7DBE266F5C89008D61DA /* AppDelegate.swift in Sources */,
 				1BFE7DC0266F5C89008D61DA /* SceneDelegate.swift in Sources */,
+				E12863332678BF0E00297B72 /* FolderCollectionViewCell.swift in Sources */,
+				E12863212678A08800297B72 /* MainCameraViewController.swift in Sources */,
+				E128630E26789AAD00297B72 /* TorchHelper.swift in Sources */,
+				E12863312678BC2500297B72 /* FileManagerHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +547,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A5LXCCW6FT;
 				INFOPLIST_FILE = Graphee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -492,6 +566,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A5LXCCW6FT;
 				INFOPLIST_FILE = Graphee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
