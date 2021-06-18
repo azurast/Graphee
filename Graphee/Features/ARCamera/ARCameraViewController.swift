@@ -27,8 +27,6 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         super.viewDidLoad()
         
         setupAnimation()
-        
-        
         statusPanel.isHidden = false
         // Add Replace Button
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Replace", style: .plain, target: self, action: #selector(replacePoint))
@@ -105,6 +103,8 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // Navigation controller
+        self.navigationController?.isNavigationBarHidden = false
         // Setup scene view
         setupSceneView()
     }
