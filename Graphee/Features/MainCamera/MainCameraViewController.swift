@@ -11,6 +11,9 @@ import CoreMotion
 
 class MainCameraViewController: UIViewController {
     // MARK: - Attributes
+    
+    var directionArray = [Photo?]()
+    
     // Capture Session
     var session: AVCaptureSession?
     // Photo Output
@@ -50,14 +53,15 @@ class MainCameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
+        // Do any additional setup after loading the view.\
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         var height = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
         
         if height == 0 {
             height = UIApplication.shared.statusBarFrame.size.height
         }
+        
+        CameraImages.shared.setStarterImageNil()
         
         view.backgroundColor =  #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
 
@@ -399,11 +403,33 @@ class MainCameraViewController: UIViewController {
 // MARK: - VeryTopView Delegate
 extension MainCameraViewController: VeryTopViewDelegate {
     func doneButtonTapped() {
+        for (_, element) in directionArray.enumerated() {
+            
+            guard let image = CameraImages.shared.realImageDict[(element?.direction)!] else { continue }
+            
+//            print(element?.direction)
+            
+            guard let image2 = image else { return }
+            
+//
+            if let directoryId = element?.directory {
+                FileManagerHelper.instance.deleteImageInStorage(imageName: directoryId)
+            }
+//
+            let imageName = UUID().uuidString
+            FileManagerHelper.instance.saveImageToStorage(image: image2, imageName: imageName)
+
+            CoreDataService.instance.updatePhotoImage(photo: element!, imageId: imageName)
+        }
         
+        NotificationCenter.default.post(name: Notification.Name("updateAction"), object: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     func cancelButtonTapped() {
-        
+        CameraImages.shared.setNextDirection(direction: "Front")
+        CameraImages.shared.removeAllDictionary()
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
@@ -553,8 +579,9 @@ extension MainCameraViewController: AVCapturePhotoCaptureDelegate {
         session?.stopRunning()
         
         let croppedImage = cropToPreviewLayer(originalImage: image)
-        CameraImages.shared.addImage(direction: CameraImages.shared.getNextDirectionInString(), image: croppedImage)
         
+        CameraImages.shared.addImage(direction: CameraImages.shared.getNextDirectionInString(), image: croppedImage)
+    
         navigateToPreviewStoryboard()
         
     }

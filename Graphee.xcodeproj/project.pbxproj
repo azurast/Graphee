@@ -43,6 +43,9 @@
 		E128632F2678BB8600297B72 /* FolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128632E2678BB8600297B72 /* FolderViewController.swift */; };
 		E12863312678BC2500297B72 /* FileManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12863302678BC2500297B72 /* FileManagerHelper.swift */; };
 		E12863332678BF0E00297B72 /* FolderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12863322678BF0E00297B72 /* FolderCollectionViewCell.swift */; };
+		E13E18C3267C2B1A0054FC36 /* PhotoDetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13E18C2267C2B1A0054FC36 /* PhotoDetailStoryboard.storyboard */; };
+		E13E18C5267C2C740054FC36 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13E18C4267C2C740054FC36 /* PhotoDetailViewController.swift */; };
+		E13E18C7267C2CDA0054FC36 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13E18C6267C2CDA0054FC36 /* PhotoCollectionViewCell.swift */; };
 		FBA325FA26734ADC00C98447 /* Photo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */; };
 		FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
@@ -86,6 +89,9 @@
 		E128632E2678BB8600297B72 /* FolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewController.swift; sourceTree = "<group>"; };
 		E12863302678BC2500297B72 /* FileManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerHelper.swift; sourceTree = "<group>"; };
 		E12863322678BF0E00297B72 /* FolderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCollectionViewCell.swift; sourceTree = "<group>"; };
+		E13E18C2267C2B1A0054FC36 /* PhotoDetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoDetailStoryboard.storyboard; sourceTree = "<group>"; };
+		E13E18C4267C2C740054FC36 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		E13E18C6267C2CDA0054FC36 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		FBA325F626734ADC00C98447 /* Photo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FBA325F826734ADC00C98447 /* Folder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder+CoreDataClass.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -233,6 +239,8 @@
 				B713D0AD26786E3A0054DA86 /* AddFolderController.swift */,
 				E12863292678B55900297B72 /* AlbumViewController.swift */,
 				E128632E2678BB8600297B72 /* FolderViewController.swift */,
+				E13E18C2267C2B1A0054FC36 /* PhotoDetailStoryboard.storyboard */,
+				E13E18C4267C2C740054FC36 /* PhotoDetailViewController.swift */,
 			);
 			path = "Album & Folder";
 			sourceTree = "<group>";
@@ -270,6 +278,7 @@
 			children = (
 				E12863322678BF0E00297B72 /* FolderCollectionViewCell.swift */,
 				E128632C2678B73800297B72 /* AlbumTableViewCell.swift */,
+				E13E18C6267C2CDA0054FC36 /* PhotoCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -342,6 +351,7 @@
 			files = (
 				1BFE7DCD266F5C8A008D61DA /* LaunchScreen.storyboard in Resources */,
 				1B363D452678AC0700A1CA08 /* assetcatalog.scnassets in Resources */,
+				E13E18C3267C2B1A0054FC36 /* PhotoDetailStoryboard.storyboard in Resources */,
 				1BFE7E00266F6B6A008D61DA /* FolderTableViewCell.xib in Resources */,
 				1BFE7E0C266F6F9C008D61DA /* ARCameraStoryboard.storyboard in Resources */,
 				E12863232678A1B100297B72 /* PreviewStoryboard.storyboard in Resources */,
@@ -377,9 +387,11 @@
 				1BFE7DC2266F5C89008D61DA /* ViewController.swift in Sources */,
 				E128631426789BC000297B72 /* AngleView.swift in Sources */,
 				1BFE7E02266F6BD8008D61DA /* BottomBarView.swift in Sources */,
+				E13E18C5267C2C740054FC36 /* PhotoDetailViewController.swift in Sources */,
 				E12863252678A1E500297B72 /* PreviewViewController.swift in Sources */,
 				FBA325FC26734ADC00C98447 /* Folder+CoreDataClass.swift in Sources */,
 				B7BA792E267A33690064649D /* CoreDataService.swift in Sources */,
+				E13E18C7267C2CDA0054FC36 /* PhotoCollectionViewCell.swift in Sources */,
 				E128632F2678BB8600297B72 /* FolderViewController.swift in Sources */,
 				B713D0AC26786E020054DA86 /* FoldersController.swift in Sources */,
 				1BFE7DBE266F5C89008D61DA /* AppDelegate.swift in Sources */,
@@ -535,7 +547,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = A5LXCCW6FT;
 				INFOPLIST_FILE = Graphee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -554,7 +566,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = A5LXCCW6FT;
 				INFOPLIST_FILE = Graphee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

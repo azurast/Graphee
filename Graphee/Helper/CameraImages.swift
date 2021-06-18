@@ -21,8 +21,11 @@ public class CameraImages {
     
     private var directionDict = [String:UIImage?]()
     private var directionRatio = [String:String]()
+    public var mainCameraCapture = [String:Bool]()
     
-    private var nextDirection = "Front"
+    public var realImageDict = [String: UIImage?]()
+    
+    private var nextDirection = ""
     
     public func addImage(direction: String, image: UIImage?) {
         
@@ -31,6 +34,14 @@ public class CameraImages {
         } else {
             directionDict[direction] = nil
         }
+    }
+    
+    public func setStarterImageNil() {
+        realImageDict[Direction.front.rawValue] = nil
+        realImageDict[Direction.back.rawValue] = nil
+        realImageDict[Direction.right.rawValue] = nil
+        realImageDict[Direction.left.rawValue] = nil
+        realImageDict[Direction.detail.rawValue] = nil
     }
     
     public func addRatio(direction: String, ratio: String) {

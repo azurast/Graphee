@@ -35,6 +35,8 @@ public class SettingHelper {
             
             userDefaults.setValue(true, forKey: firstTimeKey)
         }
+        
+        FileManagerHelper.instance.preDefineImageStorageFolder()
     }
     
 }

@@ -127,7 +127,7 @@ class SettingView: UIView {
     }
     
     private func initTorchButtons(rowHeight: CGFloat) {
-        torchButton = UIButton(frame: CGRect(x: frame.width / 2 - ((rowHeight / 2) / 2), y: frame.height - rowHeight * 2 - (rowHeight / 2) - ((rowHeight / 2) / 2), width: rowHeight / 2, height: rowHeight / 2))
+        torchButton = UIButton(frame: CGRect(x: frame.width / 2 - ((rowHeight / 2) / 2), y: frame.height - rowHeight * 2 - (rowHeight / 2) - ((rowHeight / 2) / 2), width: 50, height: 50))
         
         if SettingHelper.shared.isTorchActivated() {
             torchButton.tintColor = .yellow

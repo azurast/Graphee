@@ -11,17 +11,20 @@ import CoreData
 class AlbumViewController: UIViewController {
 
     @IBOutlet weak var albumTableView: UITableView!
-    
-    var albumArray = ["Product A", "Product B", "Product C"]
+
     var arrayFolder: [Folder]?
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var indexPathOfAlbum: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.navigationController?.navigationBar.backgroundColor = UIColor.init(named: "AccentColor")
+        
+        setUpMenuButton()
         
         view.backgroundColor = UIColor.init(named: "AccentColor")
         
@@ -33,6 +36,26 @@ class AlbumViewController: UIViewController {
         albumTableView.delegate = self
         
         fetchFolder()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateAction), name: Notification.Name("updateAction"), object: nil)
+    }
+    
+    @objc private func updateAction() {
+        fetchFolder()
+    }
+    
+    func setUpMenuButton(){
+        let menuBtn = UIButton(type: .custom)
+        menuBtn.frame = CGRect(x: 0.0, y: 0.0, width: 40, height: 30)
+        menuBtn.setBackgroundImage(UIImage(systemName: "folder.fill.badge.plus"), for: .normal)
+        menuBtn.addTarget(self, action: #selector(addFolder), for: .touchUpInside)
+
+        let menuBarItem = UIBarButtonItem(customView: menuBtn)
+//        let currWidth = menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 54)
+//        currWidth?.isActive = true
+//        let currHeight = menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 54)
+//        currHeight?.isActive = true
+        self.navigationItem.rightBarButtonItem = menuBarItem
     }
     
     func fetchFolder(){
@@ -46,30 +69,34 @@ class AlbumViewController: UIViewController {
     @IBAction func addFolderButton(){
         showAlert()
     }
+    
+    @objc func addFolder() {
+        showAlert()
+    }
+    
     func showAlert(){
         let alert = UIAlertController(title: "Create a Folder", message: "To start taking pictures, create a new folder to store it", preferredStyle: .alert)
         alert.view.backgroundColor = UIColor.init(named: "DarkColor")
         alert.view.tintColor = UIColor.init(named: "AccentColor")
         alert.view.layer.cornerRadius = 30
-        alert.addTextField(configurationHandler: {action in
-            
-            //get textfield data
-            let textfield = alert.textFields![0]
-            
-            //create an object named Folder
-            let newFolder = Folder(context: self.context)
-            //newFolder.name = name
-
-            print("typed")
-        })
+        alert.addTextField()
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {action in
             print("tapped cancel")
         }))
         present(alert, animated: true)
         
-        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: {action in
-            print("tapped save")
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
+            
+            guard let text = alert.textFields?[0].text else { return }
+            
+            if text == "" {
+                return
+            }
+            
+            CoreDataService.instance.saveFolder(name: text)
+            
+            self.fetchFolder()
         }))
         
     }
@@ -79,9 +106,7 @@ class AlbumViewController: UIViewController {
         alert.view.backgroundColor = UIColor.init(named: "DarkColor")
         alert.view.tintColor = UIColor.init(named: "AccentColor")
         alert.view.layer.cornerRadius = 30
-        alert.addTextField(configurationHandler: {action in
-            print("typed")
-        })
+        alert.addTextField()
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {action in
             print("tapped cancel")
@@ -89,7 +114,21 @@ class AlbumViewController: UIViewController {
         present(alert, animated: true)
         
         alert.addAction(UIAlertAction(title: "Save", style: .default, handler: {action in
-            print("tapped save")
+            guard let text = alert.textFields?[0].text else { return }
+            
+            if text == "" {
+                return
+            }
+            
+            guard let indexPath = self.indexPathOfAlbum else { return }
+            
+            guard let wantUpdateFolder = self.arrayFolder?[indexPath.row] else { return }
+            
+            CoreDataService.instance.updateFolder(folder: wantUpdateFolder, name: text)
+            
+            self.indexPathOfAlbum = nil
+            
+            self.fetchFolder()
         }))
         
     }
@@ -105,8 +144,17 @@ class AlbumViewController: UIViewController {
         }))
         present(alert, animated: true)
         
-        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {action in
-            print("tapped delete")
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+            
+            guard let indexPath = self.indexPathOfAlbum else { return }
+            
+            guard let wantDeleteFolder = self.arrayFolder?[indexPath.row] else { return }
+            
+            CoreDataService.instance.deleteFolder(folder: wantDeleteFolder)
+            
+            self.indexPathOfAlbum = nil
+            
+            self.fetchFolder()
         }))
         
     }
@@ -132,6 +180,7 @@ extension AlbumViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let folderViewController = self.storyboard?.instantiateViewController(identifier: "folder") as! FolderViewController
+        folderViewController.parentFolder = arrayFolder![indexPath.row]
     //folderViewController.productName = arrayFolder[indexPath.row]
         
         self.navigationController?.pushViewController(folderViewController, animated: true)
@@ -148,7 +197,17 @@ extension AlbumViewController: UITableViewDataSource {
         let cell = albumTableView.dequeueReusableCell(withIdentifier: "albumCell", for: indexPath) as! AlbumTableViewCell
         cell.backgroundColor = .clear
         cell.contentView.backgroundColor = .clear
+        
+        cell.folderFirstImage.layer.cornerRadius = 10
+        
         cell.folderName.text = arrayFolder?[indexPath.row].name
+        
+        let imageID = arrayFolder?[indexPath.row].fetchFirstImageFromChild()
+        if let id = imageID {
+            cell.folderFirstImage.image = FileManagerHelper.instance.getImageFromStorage(imageName: id)
+        }
+        
+        cell.folderStatus.text = "\(arrayFolder![indexPath.row].fetchPhotosStatus()) of 5 Completed"
         
         return cell
     }
@@ -162,12 +221,19 @@ extension AlbumViewController: UITableViewDataSource {
         
         //rename
         
-        let rename = UIContextualAction(style: .normal, title: "Rename", handler:{(action, view, completionHandler) in self.renameAlert()
+        let rename = UIContextualAction(style: .normal, title: "Rename", handler:{(action, view, completionHandler) in
+            
+            self.indexPathOfAlbum = indexPath
+            self.renameAlert()
+            completionHandler(true)
         })
         
         //delete
         
-        let delete = UIContextualAction(style: .destructive, title: "Delete", handler:{(action, view, completionHandler) in self.deleteAlert()
+        let delete = UIContextualAction(style: .destructive, title: "Delete", handler:{(action, view, completionHandler) in
+            
+            self.indexPathOfAlbum = indexPath
+            self.deleteAlert()
             completionHandler(true)
         })
     

@@ -63,9 +63,9 @@ class PreviewViewController: UIViewController {
         bottomView.backgroundColor = .black.withAlphaComponent(0.5)
         view.addSubview(bottomView)
         
-        if CameraImages.shared.isAllDictImageAvailable() {
-            bottomView.hideDoneButton()
-        }
+//        if CameraImages.shared.isAllDictImageAvailable() {
+//            bottomView.hideDoneButton()
+//        }
     }
     
     private func setupImageView(statusBarHeight: CGFloat) {
@@ -88,12 +88,9 @@ class PreviewViewController: UIViewController {
 
 extension PreviewViewController: PreviewButtonDelegate {
     func previewDoneButtonTapped() {
-        print("hoho")
-        print(CameraImages.shared.isAllDictImageAvailable())
-        if !CameraImages.shared.isAllDictImageAvailable() {
-            CameraImages.shared.configureTheNextDirection()
-            self.navigationController?.popViewController(animated: true)
-        }
+        CameraImages.shared.realImageDict[CameraImages.shared.getNextDirectionInString()] = CameraImages.shared.returnImageFromDirection(direction: CameraImages.shared.getNextDirectionInString())
+        CameraImages.shared.configureTheNextDirection()
+        self.navigationController?.popViewController(animated: true)
     }
     
     func previewRetakeButtonTapped() {

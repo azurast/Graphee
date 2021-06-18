@@ -13,7 +13,11 @@ class FolderViewController: UIViewController {
     public var productName: String?
     
     // INI Ubah tipe datanya jadi Folder
-    public var directionArray = ["Front", "Back", "Right", "Left", "Detail"]
+    public var parentFolder: Folder?
+    private var directionArray: [Photo?] = [nil, nil, nil, nil, nil]
+    private var images = [UIImage]()
+    
+    private var isFirstTime = true
     
     @IBOutlet weak var folderCollectionView: UICollectionView!
     
@@ -21,18 +25,62 @@ class FolderViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = .yellow
+        view.backgroundColor = UIColor.init(named: "AccentColor")
         
-        folderCollectionView.backgroundColor = #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
+        folderCollectionView.backgroundColor = UIColor.init(named: "DarkColor")
+        
+        self.title = parentFolder?.name
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(named: "DarkColor")]
+        
+        fetchPhotos()
         
         folderCollectionView.dataSource = self
         folderCollectionView.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateAction), name: Notification.Name("updateAction"), object: nil)
+        
+    }
+    
+    @objc private func updateAction() {
+        updateUI()
+    }
+    
+    private func updateUI() {
+        fetchPhotos()
+        reloadCollectionView()
+    }
+    
+    public func reloadCollectionView() {
+        DispatchQueue.main.async {
+            self.folderCollectionView.reloadData()
+        }
+    }
+    
+    public func fetchPhotos() {
+        let photoArray = parentFolder!.fetchAllPhotosFromFolder()!
+        
+        for photo in photoArray {
+            if photo.direction == "Front" {
+                directionArray[0] = photo
+            } else if photo.direction == "Back" {
+                directionArray[1] = photo
+            } else if photo.direction == "Right" {
+                directionArray[2] = photo
+            } else if photo.direction == "Left" {
+                directionArray[3] = photo
+            } else if photo.direction == "Detail" {
+                directionArray[4] = photo
+            }
+
+        }
+        
+        print(directionArray[0]?.directory)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
+        self.navigationItem.largeTitleDisplayMode = .always
     }
 
     /*
@@ -45,6 +93,21 @@ class FolderViewController: UIViewController {
     }
     */
 
+    private func navigateToPhotoDetailStoryboard(indexPath: IndexPath) {
+        folderCollectionView.deselectItem(at: indexPath, animated: true)
+        
+        let photoDetailStoryboard = UIStoryboard(name: "PhotoDetailStoryboard", bundle: nil)
+        let photoDetailViewController = photoDetailStoryboard.instantiateViewController(identifier: "photoDetailStoryboard") as! PhotoDetailViewController
+        
+        photoDetailViewController.title = directionArray[indexPath.row]?.direction
+        photoDetailViewController.initialIndexPath = indexPath
+        photoDetailViewController.imageArray = self.images
+        photoDetailViewController.directionArray = self.directionArray
+        photoDetailViewController.parentFolder = self.parentFolder
+        
+        self.navigationController?.pushViewController(photoDetailViewController, animated: true)
+    }
+    
 }
 
 extension FolderViewController: UICollectionViewDelegate {
@@ -59,28 +122,43 @@ extension FolderViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = folderCollectionView.dequeueReusableCell(withReuseIdentifier: "folderCell", for: indexPath) as! FolderCollectionViewCell
-        cell.directionLabel.text = directionArray[indexPath.row]
+        cell.directionLabel.text = directionArray[indexPath.row]?.direction
         
-        cell.photoImageView.widthAnchor.constraint(equalToConstant: view.frame.size.width * 0.4).isActive = true
-        cell.photoImageView.heightAnchor.constraint(equalToConstant: view.frame.size.width * 0.4).isActive = true
+        if isFirstTime {
+            let size = (collectionView.frame.size.width - 60) / 2
+            
+            cell.photoImageView.widthAnchor.constraint(equalToConstant: size).isActive = true
+            cell.photoImageView.heightAnchor.constraint(equalToConstant: size - cell.directionLabel.frame.height).isActive = true
+        }
+        
         cell.photoImageView.layer.cornerRadius = 10
         
-        cell.photoImageView.image = UIImage(systemName: "photo")
+        let imageID = directionArray[indexPath.row]?.directory
+        if let id = imageID {
+            cell.photoImageView.image = FileManagerHelper.instance.getImageFromStorage(imageName: id)
+            self.images.append(cell.photoImageView.image!)
+        } else {
+            cell.photoImageView.image = UIImage(systemName: "photo.fill")
+            self.images.append(UIImage(systemName: "photo.fill")!)
+        }
+        
+        if indexPath.row == directionArray.count - 1 {
+            isFirstTime = false
+        }
         
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        navigateToPhotoDetailStoryboard(indexPath: indexPath)
+    }
     
 }
 
 extension FolderViewController: UICollectionViewDelegateFlowLayout {
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print("test")
-        let height = view.frame.size.width * 0.4 + 26
-        let width = view.frame.size.width
-        
-            // each size of cell will be 30%
-        return CGSize(width: width * 0.4, height: height)
+        let size = (collectionView.frame.size.width - 60) / 2
+        return CGSize(width: size, height: size + 17)
     }
 }
