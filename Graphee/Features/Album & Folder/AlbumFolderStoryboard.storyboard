@@ -130,7 +130,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s4n-c7-jsI">
-                                                    <rect key="frame" x="0.0" y="1.6666666666666643" width="150" height="155.33333333333334"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="158.33333333333334"/>
                                                 </imageView>
                                                 <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guy-JS-NaZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="158.33333333333334"/>

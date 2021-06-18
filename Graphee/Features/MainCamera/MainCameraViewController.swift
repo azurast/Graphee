@@ -545,6 +545,8 @@ extension MainCameraViewController: MainButtonDelegate {
     
     func referencePointButtonTapped() {
         print("Reference Point Tapped")
+        let arcameraVC = self.storyboard?.instantiateViewController(identifier: "arcamera") as! ARCameraViewController
+        self.navigationController?.pushViewController(arcameraVC, animated: true)
     }
 }
 
