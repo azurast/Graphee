@@ -10,32 +10,29 @@ import CoreData
 
 class AlbumViewController: UIViewController {
 
+    // MARK: - Outlet
     @IBOutlet weak var albumTableView: UITableView!
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var backgroundImage: UIImageView!
 
-    var arrayFolder: [Folder]?
-    
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    var indexPathOfAlbum: IndexPath?
+    // MARK: - Attributes
+    private var arrayFolder: [Folder]?
+    private var indexPathOfAlbum: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        self.navigationController?.navigationBar.backgroundColor = UIColor.init(named: "AccentColor")
+        setUpNavigationView()
         
-        setUpMenuButton()
         
         view.backgroundColor = UIColor.init(named: "AccentColor")
-        
         albumTableView.backgroundColor = UIColor.init(named: "DarkColor")
-        
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(named: "DarkColor")]
         
         albumTableView.dataSource = self
         albumTableView.delegate = self
         
         fetchFolder()
+        setupBackgroundImage()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateAction), name: Notification.Name("updateAction"), object: nil)
     }
@@ -44,37 +41,55 @@ class AlbumViewController: UIViewController {
         fetchFolder()
     }
     
-    func setUpMenuButton(){
+    private func setupBackgroundImage() {
+        if arrayFolder?.count == 0 {
+            stackView.isHidden = false
+            lightDarkBackground()
+        } else {
+            stackView.isHidden = true
+        }
+    }
+    
+    private func lightDarkBackground() {
+        switch traitCollection.userInterfaceStyle {
+                case .light, .unspecified:
+                    backgroundImage.image = UIImage(named: "folder_background")
+                    break
+                case .dark:
+                    backgroundImage.image = UIImage(named: "folder_background_dark")
+                    break
+            }
+    }
+    
+    private func setUpNavigationView(){
+        self.navigationController?.navigationBar.backgroundColor = UIColor.init(named: "AccentColor")
+        
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(named: "Title")]
+        
         let menuBtn = UIButton(type: .custom)
         menuBtn.frame = CGRect(x: 0.0, y: 0.0, width: 40, height: 30)
         menuBtn.setBackgroundImage(UIImage(systemName: "folder.fill.badge.plus"), for: .normal)
         menuBtn.addTarget(self, action: #selector(addFolder), for: .touchUpInside)
 
         let menuBarItem = UIBarButtonItem(customView: menuBtn)
-//        let currWidth = menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 54)
-//        currWidth?.isActive = true
-//        let currHeight = menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 54)
-//        currHeight?.isActive = true
         self.navigationItem.rightBarButtonItem = menuBarItem
     }
     
-    func fetchFolder(){
+    private func fetchFolder(){
         arrayFolder = CoreDataService.instance.fetchAllFolders()
+        
+        setupBackgroundImage()
+        
         DispatchQueue.main.async {
             self.albumTableView.reloadData()
         }
-    }
-        
-    
-    @IBAction func addFolderButton(){
-        showAlert()
     }
     
     @objc func addFolder() {
         showAlert()
     }
     
-    func showAlert(){
+    private func showAlert() {
         let alert = UIAlertController(title: "Create a Folder", message: "To start taking pictures, create a new folder to store it", preferredStyle: .alert)
         alert.view.backgroundColor = UIColor.init(named: "DarkColor")
         alert.view.tintColor = UIColor.init(named: "AccentColor")
@@ -101,7 +116,7 @@ class AlbumViewController: UIViewController {
         
     }
     
-    func renameAlert(){
+    private func renameAlert() {
         let alert = UIAlertController(title: "Rename Album", message: nil, preferredStyle: .alert)
         alert.view.backgroundColor = UIColor.init(named: "DarkColor")
         alert.view.tintColor = UIColor.init(named: "AccentColor")
@@ -133,15 +148,13 @@ class AlbumViewController: UIViewController {
         
     }
     
-    func deleteAlert(){
+    private func deleteAlert() {
         let alert = UIAlertController(title: "Delete Product?", message: "All of the photos inside will be permanently deleted", preferredStyle: .alert)
         alert.view.backgroundColor = UIColor.init(named: "DarkColor")
         alert.view.tintColor = UIColor.init(named: "AccentColor")
         alert.view.layer.cornerRadius = 30
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {action in
-            print("tapped cancel")
-        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
         present(alert, animated: true)
         
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
@@ -158,18 +171,6 @@ class AlbumViewController: UIViewController {
         }))
         
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -181,7 +182,6 @@ extension AlbumViewController: UITableViewDelegate {
         
         let folderViewController = self.storyboard?.instantiateViewController(identifier: "folder") as! FolderViewController
         folderViewController.parentFolder = arrayFolder![indexPath.row]
-    //folderViewController.productName = arrayFolder[indexPath.row]
         
         self.navigationController?.pushViewController(folderViewController, animated: true)
     }
@@ -205,6 +205,8 @@ extension AlbumViewController: UITableViewDataSource {
         let imageID = arrayFolder?[indexPath.row].fetchFirstImageFromChild()
         if let id = imageID {
             cell.folderFirstImage.image = FileManagerHelper.instance.getImageFromStorage(imageName: id)
+        } else {
+            cell.folderFirstImage.image = UIImage(systemName: "photo.fill")
         }
         
         cell.folderStatus.text = "\(arrayFolder![indexPath.row].fetchPhotosStatus()) of 5 Completed"
@@ -242,8 +244,4 @@ extension AlbumViewController: UITableViewDataSource {
     let swipe = UISwipeActionsConfiguration(actions: [delete,rename])
     return swipe
 }
-
-
-
-
 }

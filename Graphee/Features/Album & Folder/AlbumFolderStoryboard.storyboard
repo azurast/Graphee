@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="112" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sl7-hL-xPd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="112" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sl7-hL-xPd">
                                 <rect key="frame" x="0.0" y="88" width="390" height="756"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -37,7 +37,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 of 5 Completed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzC-vE-ntx">
-                                                    <rect key="frame" x="130" y="52" width="210" height="16"/>
+                                                    <rect key="frame" x="130" y="51.333333333333336" width="210" height="15.666666666666664"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -51,14 +51,22 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMY-bE-Zev">
-                                                    <rect key="frame" x="130" y="26" width="210" height="21"/>
+                                                    <rect key="frame" x="130" y="26" width="210" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="LightColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pim-m4-ssg">
+                                                    <rect key="frame" x="130" y="100" width="240" height="1"/>
+                                                    <color key="backgroundColor" name="GreyColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="Vr1-W7-oR7"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="RMY-bE-Zev" firstAttribute="leading" secondItem="3oS-ys-LtX" secondAttribute="trailing" constant="20" id="3gG-EV-2rV"/>
+                                                <constraint firstItem="pim-m4-ssg" firstAttribute="trailing" secondItem="jS5-ZS-LuH" secondAttribute="trailingMargin" id="AJS-lc-4Ht"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="XOd-LT-jUr" secondAttribute="trailing" constant="5" id="Ho5-iD-bte"/>
                                                 <constraint firstItem="RMY-bE-Zev" firstAttribute="top" secondItem="jS5-ZS-LuH" secondAttribute="topMargin" constant="15" id="PUp-Ti-fmQ"/>
                                                 <constraint firstItem="3oS-ys-LtX" firstAttribute="top" secondItem="jS5-ZS-LuH" secondAttribute="top" constant="5" id="WjW-KX-RyX"/>
@@ -66,6 +74,8 @@
                                                 <constraint firstItem="TzC-vE-ntx" firstAttribute="top" secondItem="RMY-bE-Zev" secondAttribute="bottom" constant="5" id="cev-MG-V70"/>
                                                 <constraint firstItem="XOd-LT-jUr" firstAttribute="centerY" secondItem="jS5-ZS-LuH" secondAttribute="centerY" id="dTi-bc-tGm"/>
                                                 <constraint firstItem="3oS-ys-LtX" firstAttribute="leading" secondItem="jS5-ZS-LuH" secondAttribute="leading" constant="10" id="geO-2G-m7L"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="pim-m4-ssg" secondAttribute="bottom" id="k1n-6U-2Vt"/>
+                                                <constraint firstItem="pim-m4-ssg" firstAttribute="leading" secondItem="jS5-ZS-LuH" secondAttribute="leadingMargin" constant="110" id="pWK-zQ-8p7"/>
                                                 <constraint firstItem="TzC-vE-ntx" firstAttribute="leading" secondItem="3oS-ys-LtX" secondAttribute="trailing" constant="20" id="rYV-2w-gcq"/>
                                                 <constraint firstItem="XOd-LT-jUr" firstAttribute="leading" secondItem="RMY-bE-Zev" secondAttribute="trailing" constant="5" id="tEw-vn-HpS"/>
                                                 <constraint firstItem="XOd-LT-jUr" firstAttribute="leading" secondItem="TzC-vE-ntx" secondAttribute="trailing" constant="5" id="wwj-QN-Vkg"/>
@@ -79,24 +89,52 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yyN-hN-cYH">
+                                <rect key="frame" x="70" y="256.33333333333337" width="250" height="331.33333333333337"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder_background" translatesAutoresizingMaskIntoConstraints="NO" id="GgJ-oU-ODg">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="SUW-gs-aSe"/>
+                                            <constraint firstAttribute="height" constant="250" id="mEf-dU-mR6"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No photos available yet." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZZ-vg-Nak">
+                                        <rect key="frame" x="11" y="260.00000000000006" width="228" height="25.333333333333314"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                        <color key="textColor" name="GreyColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start taking photos by creating a folder" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlJ-5K-Eys">
+                                        <rect key="frame" x="13" y="295.33333333333331" width="224" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" name="GreyColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.14117647058823529" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="sl7-hL-xPd" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Ece-Mx-YPO"/>
+                            <constraint firstItem="yyN-hN-cYH" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="FPa-OL-W6Y"/>
                             <constraint firstItem="sl7-hL-xPd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="dI2-sr-XTM"/>
                             <constraint firstItem="sl7-hL-xPd" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="rgB-vB-jYD"/>
+                            <constraint firstItem="yyN-hN-cYH" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="yaB-8c-FP8"/>
                             <constraint firstAttribute="bottom" secondItem="sl7-hL-xPd" secondAttribute="bottom" id="zvY-np-Xs6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Album" id="NFZ-cP-sYP"/>
                     <connections>
                         <outlet property="albumTableView" destination="sl7-hL-xPd" id="99v-7M-wbX"/>
+                        <outlet property="backgroundImage" destination="GgJ-oU-ODg" id="4op-HI-vKf"/>
+                        <outlet property="stackView" destination="yyN-hN-cYH" id="cgh-mF-00h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="285" y="99"/>
+            <point key="canvasLocation" x="284.61538461538458" y="98.815165876777243"/>
         </scene>
         <!--Folder View Controller-->
         <scene sceneID="M9f-41-Hgh">
@@ -210,9 +248,13 @@
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="folder_background" width="257" height="181"/>
         <image name="photo.fill" catalog="system" width="128" height="93"/>
         <namedColor name="DarkColor">
             <color red="0.97299998998641968" green="0.98799997568130493" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GreyColor">
+            <color red="0.57599997520446777" green="0.58399999141693115" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="LightColor">
             <color red="0.14100000262260437" green="0.14100000262260437" blue="0.14100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
