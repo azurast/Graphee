@@ -35,9 +35,15 @@ class AlbumViewController: UIViewController {
         setupBackgroundImage()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateAction), name: Notification.Name("updateAction"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteAction), name: Notification.Name("deleteAction"), object: nil)
     }
     
     @objc private func updateAction() {
+        fetchFolder()
+    }
+    
+    @objc private func deleteAction() {
         fetchFolder()
     }
     

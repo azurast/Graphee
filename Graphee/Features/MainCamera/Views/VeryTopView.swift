@@ -49,12 +49,12 @@ class VeryTopView: UIView {
     }
     
     public func createImage() {
-        torchImageView = UIImageView(frame: CGRect(x: frame.width / 2 - (frame.height / 2) / 2 - (frame.height / 2), y: frame.height / 2 - (frame.height / 2) / 2, width: frame.height / 2, height: frame.height / 2))
+        torchImageView = UIImageView(frame: CGRect(x: frame.width / 2 - (frame.height / 2) / 2 - (frame.height / 2), y: frame.height / 2 - (frame.height / 2) / 2, width: 30, height: 30))
         torchImageView!.image = UIImage(systemName: "bolt.fill")
         torchImageView!.contentMode = .scaleAspectFill
         addSubview(torchImageView!)
         
-        timerImageView = UIImageView(frame: CGRect(x: frame.width / 2 - (frame.height / 2) / 2 + (frame.height / 2), y: frame.height / 2 - (frame.height / 2) / 2, width: frame.height / 2, height: frame.height / 2))
+        timerImageView = UIImageView(frame: CGRect(x: frame.width / 2 - (frame.height / 2) / 2 + (frame.height / 2), y: frame.height / 2 - (frame.height / 2) / 2, width: 30, height: 30))
         timerImageView!.image = UIImage(systemName: "timer")
         timerImageView!.contentMode = .scaleAspectFill
         addSubview(timerImageView!)
@@ -66,7 +66,7 @@ class VeryTopView: UIView {
     }
     
     public func hideDoneButton() {
-        doneButton.isHidden = false
+        doneButton.isHidden = true
     }
     
     @objc private func cancelButtonSelector() {

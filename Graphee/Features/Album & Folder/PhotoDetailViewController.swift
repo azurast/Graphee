@@ -10,6 +10,8 @@ import UIKit
 class PhotoDetailViewController: UIViewController {
 
     @IBOutlet weak var photoCollectionView: UICollectionView!
+    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var takePhotoButton: UIButton!
     
     public var parentFolder: Folder!
     public var directionArray: [Photo?]!
@@ -23,23 +25,34 @@ class PhotoDetailViewController: UIViewController {
 
     private var isInitialized = true
     
+    private var deleteButton: UIButton!
+    private var saveButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+        takePhotoButton.layer.cornerRadius = 10
         setRightBarButton()
         
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
         
+        view.backgroundColor = UIColor.init(named: "Title")
+        photoCollectionView.backgroundColor = UIColor.init(named: "DarkColor")
+        
         DispatchQueue.main.async {
             self.photoCollectionView.scrollToItem(at: self.initialIndexPath, at: .centeredHorizontally, animated: false)
+            self.pageControl.currentPage = self.initialIndexPath.row
         }
         
         insideIndexPath = initialIndexPath
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateAction), name: Notification.Name("updateAction"), object: nil)
+        
+        setBottomButton()
+        enableDisableRetake()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +60,10 @@ class PhotoDetailViewController: UIViewController {
         
         navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.backgroundColor = UIColor.init(named: "Title")
+        self.navigationController?.navigationBar.tintColor = UIColor.init(named: "LightColor")
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -54,6 +71,10 @@ class PhotoDetailViewController: UIViewController {
         
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.sizeToFit()
+        self.navigationController?.navigationBar.tintColor = UIColor.init(named: "Title")
+        self.navigationController?.navigationBar.backgroundColor = UIColor.init(named: "AccentColor")
+        self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+            self.navigationController?.navigationBar.shadowImage = nil
     }
     
     @objc private func updateAction() {
@@ -63,12 +84,37 @@ class PhotoDetailViewController: UIViewController {
     private func updateUI() {
         fetchPhotos()
         reloadCollectionView()
+        enableDisableRetake()
     }
     
     private func reloadCollectionView() {
         DispatchQueue.main.async {
             self.photoCollectionView.reloadData()
         }
+    }
+    
+    private func enableDisableRetake() {
+        if directionArray?[insideIndexPath.row]?.directory == nil {
+            disableRightBarButton()
+        } else {
+            enableRightBarButton()
+        }
+    }
+    
+    private func enableRightBarButton() {
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
+        self.navigationItem.rightBarButtonItem?.tintColor = nil
+        takePhotoButton.isHidden = true
+        deleteButton.isHidden = false
+        saveButton.isHidden = false
+    }
+    
+    private func disableRightBarButton() {
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        self.navigationItem.rightBarButtonItem?.tintColor = .clear
+        takePhotoButton.isHidden = false
+        deleteButton.isHidden = true
+        saveButton.isHidden = true
     }
     
     private func fetchPhotos() {
@@ -97,55 +143,69 @@ class PhotoDetailViewController: UIViewController {
     }
     
     @objc private func retakeSelector() {
+        capturePhotoButtonNavigation()
+    }
+    
+    @IBAction func takeButtonTapped(sender: UIButton) {
+        capturePhotoButtonNavigation()
+    }
+    
+    private func capturePhotoButtonNavigation() {
         CameraImages.shared.setNextDirection(direction: (self.directionArray[self.insideIndexPath.row]?.direction)!)
         
         for photo in directionArray {
-            if photo?.direction == Direction.front.rawValue {
-                if imageArray[0] == UIImage(systemName: "photo.fill") {
-                    CameraImages.shared.addImage(direction: (photo?.direction)!, image: nil)
-                } else {
-                    CameraImages.shared.addImage(direction: (photo?.direction)!, image: imageArray[0])
-                }
-                
-            } else if photo?.direction == Direction.back.rawValue {
-                if imageArray[1] == UIImage(systemName: "photo.fill") {
-                    CameraImages.shared.addImage(direction: (photo?.direction)!, image: nil)
-                } else {
-                    CameraImages.shared.addImage(direction: (photo?.direction)!, image: imageArray[1])
-                }
-            } else if photo?.direction == Direction.right.rawValue {
-                if imageArray[2] == UIImage(systemName: "photo.fill") {
-                    CameraImages.shared.addImage(direction: (photo?.direction)!, image: nil)
-                } else {
-                    CameraImages.shared.addImage(direction: (photo?.direction)!, image: imageArray[2])
-                }
-            } else if photo?.direction == Direction.left.rawValue {
-                if imageArray[3] == UIImage(systemName: "photo.fill") {
-                    CameraImages.shared.addImage(direction: (photo?.direction)!, image: nil)
-                } else {
-                    CameraImages.shared.addImage(direction: (photo?.direction)!, image: imageArray[3])
-                }
-            } else if photo?.direction == Direction.detail.rawValue {
-                if imageArray[4] == UIImage(systemName: "photo.fill") {
-                    CameraImages.shared.addImage(direction: (photo?.direction)!, image: nil)
-                } else {
-                    CameraImages.shared.addImage(direction: (photo?.direction)!, image: imageArray[4])
-                }
+            if photo?.directory == nil {
+                CameraImages.shared.addImage(direction: (photo?.direction)!, image: nil)
+            } else {
+                CameraImages.shared.addImage(direction: (photo?.direction)!, image: FileManagerHelper.instance.getImageFromStorage(imageName: (photo?.directory)!))
             }
         }
         
         self.navigateToMainCameraStoryboard()
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setBottomButton() {
+        deleteButton = UIButton(frame: CGRect(x: 20, y: view.frame.height - 60, width: 30, height: 30))
+        deleteButton.setBackgroundImage(UIImage(systemName: "trash.fill"), for: .normal)
+        deleteButton.tintColor = UIColor.init(named: "AccentColor")
+        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+        view.addSubview(deleteButton)
+        
+        saveButton = UIButton(frame: CGRect(x: view.frame.width - 50, y: view.frame.height - 60, width: 30, height: 30))
+        saveButton.setBackgroundImage(UIImage(systemName: "square.and.arrow.down"), for: .normal)
+        saveButton.tintColor = UIColor.init(named: "AccentColor")
+        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+        view.addSubview(saveButton)
     }
-    */
+    
+    @objc private func saveButtonTapped() {
+        let image = FileManagerHelper.instance.getImageFromStorage(imageName: (self.directionArray![insideIndexPath.row]?.directory)!)
+        
+        guard let currentImage = image else { return }
+        
+        UIImageWriteToSavedPhotosAlbum(currentImage, nil, nil, nil)
+    }
+    
+    @objc private func deleteButtonTapped() {
+        let alert = UIAlertController(title: "Delete Photo", message: "Do you really want to delete this photo ?", preferredStyle: .alert)
+        alert.view.backgroundColor = UIColor.init(named: "DarkColor")
+        alert.view.tintColor = UIColor.init(named: "AccentColor")
+        alert.view.layer.cornerRadius = 30
+        
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+            
+            FileManagerHelper.instance.deleteImageInStorage(imageName: (self.directionArray[self.insideIndexPath.row]?.directory)!)
+            CoreDataService.instance.updatePhotoNilImage(photo: self.directionArray[self.insideIndexPath.row]!)
+            
+            self.updateUI()
+            
+            NotificationCenter.default.post(name: Notification.Name("deleteAction"), object: nil)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        
+        present(alert, animated: true)
+    }
     
     private func navigateToMainCameraStoryboard() {
         let mainCameraStoryboard = UIStoryboard(name: "MainCameraStoryboard", bundle: nil)
@@ -178,7 +238,10 @@ extension PhotoDetailViewController: UICollectionViewDelegate {
         } else {
             insideIndexPath = centreIndexPath
             self.title = directionArray[centreIndexPath.row]?.direction
+            enableDisableRetake()
         }
+        
+        pageControl.currentPage = centreIndexPath.row
     }
 }
 
@@ -191,19 +254,22 @@ extension PhotoDetailViewController: UICollectionViewDataSource {
         
         let cell = photoCollectionView.dequeueReusableCell(withReuseIdentifier: "photoDetailCell", for: indexPath) as! PhotoCollectionViewCell
         
-        cell.photoImageView.widthAnchor.constraint(equalToConstant: photoCollectionView.frame.size.width).isActive = true
-        cell.photoImageView.heightAnchor.constraint(equalToConstant: photoCollectionView.frame.size.height).isActive = true
+        cell.backgroundColor = .clear
+        cell.contentView.backgroundColor = .clear
         
         if isFirstTime {
-            cell.photoImageView.image = imageArray[indexPath.row]
-        } else {
-            let imageID = directionArray[indexPath.row]?.directory
-            if let id = imageID {
-                cell.photoImageView.image = FileManagerHelper.instance.getImageFromStorage(imageName: id)
-            } else {
-                cell.photoImageView.image = UIImage(systemName: "photo.fill")
-            }
+            cell.photoImageView.widthAnchor.constraint(equalToConstant: photoCollectionView.frame.size.width).isActive = true
+            cell.photoImageView.heightAnchor.constraint(equalToConstant: photoCollectionView.frame.size.height).isActive = true
         }
+        
+        let imageID = directionArray[indexPath.row]?.directory
+        if let id = imageID {
+            cell.photoImageView.image = FileManagerHelper.instance.getImageFromStorage(imageName: id)
+        } else {
+            cell.photoImageView.image = returnLightOrDarkImage()
+        }
+        
+        cell.photoImageView.contentMode = .scaleAspectFit
         
         if indexPath.row == directionArray.count - 1 {
             isFirstTime = false
@@ -212,7 +278,14 @@ extension PhotoDetailViewController: UICollectionViewDataSource {
         return cell
     }
     
-    
+    private func returnLightOrDarkImage() -> UIImage {
+        switch traitCollection.userInterfaceStyle {
+                case .light, .unspecified:
+                    return UIImage(named: "no_photo_light")!
+                case .dark:
+                    return UIImage(named: "no_photo_dark")!
+            }
+    }
 }
 
 extension PhotoDetailViewController: UICollectionViewDelegateFlowLayout {

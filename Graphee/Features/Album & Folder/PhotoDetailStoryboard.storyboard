@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -17,11 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="kdB-hw-kX2">
-                                <rect key="frame" x="146" y="814" width="122" height="28"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="kdB-hw-kX2">
+                                <rect key="frame" x="128" y="824" width="158" height="28"/>
+                                <color key="pageIndicatorTintColor" name="GreyColor"/>
+                                <color key="currentPageIndicatorTintColor" name="LightColor"/>
                             </pageControl>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DJz-l8-kSa">
-                                <rect key="frame" x="0.0" y="44" width="414" height="750"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DJz-l8-kSa">
+                                <rect key="frame" x="0.0" y="44" width="414" height="775"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="aBz-Ac-0RI">
                                     <size key="itemSize" width="128" height="128"/>
@@ -55,20 +58,39 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8e3-R4-vDa">
+                                <rect key="frame" x="30" y="759" width="354" height="50"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="hjL-TQ-rnx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Take a Photo">
+                                    <color key="titleColor" name="DarkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="takeButtonTappedWithSender:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5Or-I8-uYa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="kdB-hw-kX2" secondAttribute="bottom" constant="20" id="IkR-jb-AWZ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8e3-R4-vDa" secondAttribute="trailing" constant="30" id="IN8-c1-rUz"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="kdB-hw-kX2" secondAttribute="bottom" constant="10" id="IkR-jb-AWZ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DJz-l8-kSa" secondAttribute="trailing" id="dFu-Pv-lul"/>
                             <constraint firstItem="DJz-l8-kSa" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="eYd-17-wp3"/>
-                            <constraint firstItem="kdB-hw-kX2" firstAttribute="top" secondItem="DJz-l8-kSa" secondAttribute="bottom" constant="20" id="h4Y-9s-YwX"/>
+                            <constraint firstItem="kdB-hw-kX2" firstAttribute="top" secondItem="DJz-l8-kSa" secondAttribute="bottom" constant="5" id="h4Y-9s-YwX"/>
+                            <constraint firstItem="kdB-hw-kX2" firstAttribute="top" secondItem="8e3-R4-vDa" secondAttribute="bottom" constant="15" id="niu-p3-Llm"/>
                             <constraint firstItem="kdB-hw-kX2" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="olM-kx-o3Y"/>
+                            <constraint firstItem="8e3-R4-vDa" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="r7q-hw-tax"/>
                             <constraint firstItem="DJz-l8-kSa" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="vP3-tj-hYv"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="pageControl" destination="kdB-hw-kX2" id="YeI-FW-P55"/>
                         <outlet property="photoCollectionView" destination="DJz-l8-kSa" id="WNS-Hr-x9D"/>
+                        <outlet property="takePhotoButton" destination="8e3-R4-vDa" id="wya-mX-XtZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -77,6 +99,18 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.14100000262260437" green="0.14100000262260437" blue="0.14100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="DarkColor">
+            <color red="0.97299998998641968" green="0.98799997568130493" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GreyColor">
+            <color red="0.57599997520446777" green="0.58399999141693115" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LightColor">
+            <color red="0.14100000262260437" green="0.14100000262260437" blue="0.14100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

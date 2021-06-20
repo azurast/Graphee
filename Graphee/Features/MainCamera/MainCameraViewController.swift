@@ -83,6 +83,13 @@ class MainCameraViewController: UIViewController {
         if cameraInitialized {
             self.session?.startRunning()
             bottomView.setButtonYellow()
+            
+            for (key, value) in CameraImages.shared.realImageDict {
+                if value != nil {
+                    veryTopView.unhideDoneButton()
+                    return
+                }
+            }
         } else {
             self.navigationController?.isNavigationBarHidden = true
             cameraInitialized = true
@@ -165,6 +172,7 @@ class MainCameraViewController: UIViewController {
         veryTopView.backgroundColor =  #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
         veryTopView.createImage()
         veryTopView.delegate = self
+        veryTopView.hideDoneButton()
         view.addSubview(veryTopView)
         
         if SettingHelper.shared.isTorchActivated() {
@@ -581,6 +589,8 @@ extension MainCameraViewController: AVCapturePhotoCaptureDelegate {
         session?.stopRunning()
         
         let croppedImage = cropToPreviewLayer(originalImage: image)
+        
+        print("Cropped Image")
         
         CameraImages.shared.addImage(direction: CameraImages.shared.getNextDirectionInString(), image: croppedImage)
     

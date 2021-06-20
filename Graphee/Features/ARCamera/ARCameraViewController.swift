@@ -113,6 +113,7 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         super.viewWillDisappear(animated)
         // Pause session
         sceneView.session.pause()
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     func setupSceneView() {
