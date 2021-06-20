@@ -16,7 +16,7 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var animationImageView: UIImageView!
     var animationImages: [UIImage] = []
-    
+    static var arWorldMap: ARWorldMap!
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
     
@@ -112,16 +112,27 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Pause session
+        sceneView.session.getCurrentWorldMap(completionHandler: { [weak self] world, error in
+            self!.sceneView.session.pause()
+            ARCameraViewController.arWorldMap = world
+        })
         sceneView.session.pause()
         self.navigationController?.isNavigationBarHidden = true
     }
     
     func setupSceneView() {
         let configuration = ARWorldTrackingConfiguration()
+        // Setup configurations
+        configuration.videoFormat = ARWorldTrackingConfiguration.supportedVideoFormats[0]
+        configuration.isLightEstimationEnabled = true
         configuration.planeDetection = .horizontal
+        // Save world map state
+        if ARCameraViewController.arWorldMap != nil {
+            configuration.initialWorldMap = ARCameraViewController.arWorldMap
+        }
         sceneView.session.run(configuration)
         sceneView.delegate = self
-        sceneView.debugOptions = .showFeaturePoints
+//        sceneView.debugOptions = .showFeaturePoints
     }
     
     func configureLighting() {
@@ -137,27 +148,6 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         let results = sceneView.session.raycast(query)
         guard let result = results.first else { return }
         let translation = result.worldTransform.columns
-        
-        // MARK : 3D Ref Point
-        //        let referencePointScene = SCNScene(named: "assetcatalog.scnassets/ReferencePoint.scn")
-        //        guard let referencePointNode = referencePointScene?.rootNode.childNode(withName: "refPointNode", recursively: false) else { return }
-        //
-        //        let shader = "float u = _surface.diffuseTexcoord.x; \n" +
-        //                    "float v = _surface.diffuseTexcoord.y; \n" +
-        //                    "int u100 = int(u * 100); \n" +
-        //                    "int v100 = int(v * 100); \n" +
-        //                    "if (u100 % 99 == 0 || v100 % 99 == 0) { \n" +
-        //                    "  // do nothing \n" +
-        //                    "} else { \n" +
-        //                    "    discard_fragment(); \n" +
-        //                    "} \n"
-        //
-        //        referencePointNode.geometry?.firstMaterial?.emission.contents = UIColor.yellow
-        //        referencePointNode.geometry?.firstMaterial?.shaderModifiers = [SCNShaderModifierEntryPoint.surface: shader]
-        //        referencePointNode.geometry?.firstMaterial?.isDoubleSided = true
-                
-        //        referencePointNode.position = SCNVector3(translation.3.x, translation.3.y, translation.3.z)
-        //        sceneView.scene.rootNode.addChildNode(referencePointNode)
         
         // MARK : PLANAR 2D Ref Point
         let image = UIImage(named: "RefPoint")
