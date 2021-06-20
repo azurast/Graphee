@@ -11,19 +11,6 @@ class FolderCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var directionLabel: UILabel!
-    @IBOutlet weak var highlightView: UIView!
-    @IBOutlet weak var selectedImageView: UIView!
+    @IBOutlet weak var selectedImageView: UIImageView!
     
-    override var isHighlighted: Bool {
-        didSet {
-            highlightView.isHidden = !isHighlighted
-        }
-    }
-    
-    override var isSelected: Bool {
-        didSet {
-            highlightView.isHidden = !isSelected
-            selectedImageView.isHidden = !isSelected
-        }
-    }
 }

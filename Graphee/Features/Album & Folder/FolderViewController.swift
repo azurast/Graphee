@@ -7,19 +7,32 @@
 
 import UIKit
 
-class FolderViewController: UIViewController {
+enum Mode {
+    case unselect
+    case selected
+}
 
-    // Folder Array from CoreData (VARIABEL YG D BAWAH INI COBA2, DI DELETE AJA KALAU UDAH ADA DATA ASLI)
-    public var productName: String?
+class FolderViewController: UIViewController {
     
-    // INI Ubah tipe datanya jadi Folder
-    public var parentFolder: Folder?
+    public var parentFolder: Folder!
     private var directionArray: [Photo?] = [nil, nil, nil, nil, nil]
     private var images = [UIImage]()
+    private var cellArray = [FolderCollectionViewCell]()
+    private var dictionarySelectedIndexPath: [IndexPath:Bool] = [:]
+    
+    private var mode: Mode = .unselect {
+        didSet {
+            switchMode()
+        }
+    }
     
     private var isFirstTime = true
     
     @IBOutlet weak var folderCollectionView: UICollectionView!
+    
+    private var modeSelectionButton: UIButton!
+    private var deleteButton: UIButton!
+    private var saveButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +42,9 @@ class FolderViewController: UIViewController {
         
         folderCollectionView.backgroundColor = UIColor.init(named: "DarkColor")
         
-        self.title = parentFolder?.name
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(named: "DarkColor")]
+        self.title = parentFolder.name
+//        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(named: "DarkColor")]
+        setRightBarButton()
         
         fetchPhotos()
         
@@ -39,10 +53,19 @@ class FolderViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateAction), name: Notification.Name("updateAction"), object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteAction), name: Notification.Name("deleteAction"), object: nil)
+        
+        setBottomButton()
+        
     }
     
     @objc private func updateAction() {
         updateUI()
+    }
+    
+    @objc private func deleteAction() {
+        fetchPhotos()
+        reloadCollectionView()
     }
     
     private func updateUI() {
@@ -51,13 +74,15 @@ class FolderViewController: UIViewController {
     }
     
     public func reloadCollectionView() {
+        self.images.removeAll()
+        cellArray.removeAll()
         DispatchQueue.main.async {
             self.folderCollectionView.reloadData()
         }
     }
     
     public func fetchPhotos() {
-        let photoArray = parentFolder!.fetchAllPhotosFromFolder()!
+        let photoArray = parentFolder.fetchAllPhotosFromFolder()!
         
         for photo in photoArray {
             if photo.direction == "Front" {
@@ -74,7 +99,6 @@ class FolderViewController: UIViewController {
 
         }
         
-        print(directionArray[0]?.directory)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,16 +106,134 @@ class FolderViewController: UIViewController {
         
         self.navigationItem.largeTitleDisplayMode = .always
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    private func setBottomButton() {
+        deleteButton = UIButton(frame: CGRect(x: 20, y: view.frame.height - 60, width: 30, height: 30))
+        deleteButton.setBackgroundImage(UIImage(systemName: "trash.fill"), for: .normal)
+        deleteButton.tintColor = UIColor.init(named: "AccentColor")
+        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+        view.addSubview(deleteButton)
+        
+        saveButton = UIButton(frame: CGRect(x: view.frame.width - 50, y: view.frame.height - 60, width: 30, height: 30))
+        saveButton.setBackgroundImage(UIImage(systemName: "square.and.arrow.down"), for: .normal)
+        saveButton.tintColor = UIColor.init(named: "AccentColor")
+        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+        view.addSubview(saveButton)
+        
+        deleteButton.isHidden = true
+        saveButton.isHidden = true
     }
-    */
+    
+    @objc private func deleteButtonTapped() {
+        
+        let alert = UIAlertController(title: "Delete Photo", message: "Do you really want to delete this photo(s) ?", preferredStyle: .alert)
+        alert.view.backgroundColor = UIColor.init(named: "DarkColor")
+        alert.view.tintColor = UIColor.init(named: "AccentColor")
+        alert.view.layer.cornerRadius = 30
+        
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+            
+            for (key, value) in self.dictionarySelectedIndexPath {
+                if value {
+                    
+                    FileManagerHelper.instance.deleteImageInStorage(imageName: (self.directionArray[key.row]?.directory)!)
+                    CoreDataService.instance.updatePhotoNilImage(photo: self.directionArray[key.row]!)
+                }
+            }
+            
+            self.dictionarySelectedIndexPath.removeAll()
+            self.checkSelectedCell()
+            
+            NotificationCenter.default.post(name: Notification.Name("deleteAction"), object: nil)
+            
+            self.selectedMode()
+            
+            for cell in self.cellArray {
+                if cell.photoImageView.image != UIImage(named: "add_photo") && cell.photoImageView.image != UIImage(named: "add_photo_dark") {
+                    cell.selectedImageView.isHidden = false
+                } else {
+                    cell.selectedImageView.isHidden = true
+                }
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        
+        present(alert, animated: true)
+    }
+    
+    @objc private func saveButtonTapped() {
+        
+        for (key, value) in self.dictionarySelectedIndexPath {
+            if value {
+                UIImageWriteToSavedPhotosAlbum(cellArray[key.row].photoImageView.image!, nil, nil, nil)
+            }
+        }
+        
+        print("Success Save")
+    }
+    
+    private func setRightBarButton() {
+        modeSelectionButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 15))
+        modeSelectionButton.backgroundColor = UIColor.init(named: "Title")
+        modeSelectionButton.layer.cornerRadius = 15
+        modeSelectionButton.setTitle("Select", for: .normal)
+        modeSelectionButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        modeSelectionButton.setTitleColor(UIColor.init(named: "LightColor"), for: .normal)
+        modeSelectionButton.addTarget(self, action: #selector(modeButtonSelector), for: .touchUpInside)
+        
+        let rightBarItem = UIBarButtonItem(customView: modeSelectionButton)
+        self.navigationItem.rightBarButtonItem = rightBarItem
+    }
+    
+    @objc private func modeButtonSelector() {
+        mode = (mode == .unselect) ? .selected : .unselect; setCanceledUI()
+    }
+    
+    private func setCanceledUI() {
+        dictionarySelectedIndexPath.removeAll()
+        
+        guard let selectedItems = folderCollectionView.indexPathsForSelectedItems else { return }
+        
+        for indexPath in selectedItems {
+            folderCollectionView.deselectItem(at: indexPath, animated:true)
+        }
+        
+        for cell in cellArray {
+            cell.selectedImageView.image = UIImage(systemName: "circle")
+        }
+    }
+    
+    private func switchMode() {
+        switch mode {
+            case .unselect:
+                unselectMode()
+            case .selected:
+                selectedMode()
+        }
+    }
+    
+    private func unselectMode() {
+        modeSelectionButton.setTitle("Select", for: .normal)
+        folderCollectionView.allowsMultipleSelection = false
+        deleteButton.isHidden = true
+        saveButton.isHidden = true
+        
+        for cell in cellArray {
+            cell.selectedImageView.isHidden = true
+        }
+    }
+    
+    private func selectedMode() {
+        modeSelectionButton.setTitle("Cancel", for: .normal)
+        folderCollectionView.allowsMultipleSelection = true
+        
+        for cell in cellArray {
+            if cell.photoImageView.image != UIImage(named: "add_photo") && cell.photoImageView.image != UIImage(named: "add_photo_dark") {
+                cell.selectedImageView.isHidden = false
+            }
+        }
+    }
 
     private func navigateToPhotoDetailStoryboard(indexPath: IndexPath) {
         folderCollectionView.deselectItem(at: indexPath, animated: true)
@@ -136,23 +278,93 @@ extension FolderViewController: UICollectionViewDataSource {
         let imageID = directionArray[indexPath.row]?.directory
         if let id = imageID {
             cell.photoImageView.image = FileManagerHelper.instance.getImageFromStorage(imageName: id)
+            cell.photoImageView.contentMode = .scaleAspectFill
             self.images.append(cell.photoImageView.image!)
+            
+            if mode == .selected {
+                cell.selectedImageView.isHidden = false
+            }
         } else {
-            cell.photoImageView.image = UIImage(systemName: "photo.fill")
-            self.images.append(UIImage(systemName: "photo.fill")!)
+            cell.photoImageView.image = returnLightOrDarkImage()
+            cell.photoImageView.contentMode = .scaleAspectFit
+            self.images.append(cell.photoImageView.image!)
+            cell.selectedImageView.isHidden = true
         }
+        
+        cell.selectedImageView.image = UIImage(systemName: "circle")
         
         if indexPath.row == directionArray.count - 1 {
             isFirstTime = false
         }
         
+        cellArray.append(cell)
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigateToPhotoDetailStoryboard(indexPath: indexPath)
+    private func returnLightOrDarkImage() -> UIImage {
+        switch traitCollection.userInterfaceStyle {
+                case .light, .unspecified:
+                    return UIImage(named: "add_photo")!
+                case .dark:
+                    return UIImage(named: "add_photo_dark")!
+            }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        switch mode {
+        case .unselect:
+            navigateToPhotoDetailStoryboard(indexPath: indexPath)
+            break
+        case .selected:
+            didSelectedCellMode(indexPath: indexPath)
+            break
+        }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
+        didDeselectedCellMode(indexPath: indexPath)
+        
+    }
+    
+    private func didSelectedCellMode(indexPath: IndexPath) {
+        if cellArray[indexPath.row].photoImageView.image != UIImage(named: "add_photo_dark") && cellArray[indexPath.row].photoImageView.image != UIImage(named: "add_photo") {
+            dictionarySelectedIndexPath[indexPath] = true
+            cellArray[indexPath.row].selectedImageView.image = UIImage(systemName: "checkmark.circle.fill")
+            deleteButton.isHidden = false
+            saveButton.isHidden = false
+        }
+    }
+    
+    private func didDeselectedCellMode(indexPath: IndexPath) {
+        if mode == .selected {
+            if cellArray[indexPath.row].photoImageView.image != UIImage(named: "add_photo_dark") && cellArray[indexPath.row].photoImageView.image != UIImage(named: "add_photo") {
+                dictionarySelectedIndexPath[indexPath] = false
+                cellArray[indexPath.row].selectedImageView.image = UIImage(systemName: "circle")
+                
+                checkSelectedCell()
+            }
+            
+        }
+        
+    }
+    
+    private func checkSelectedCell() {
+        var check = false
+        for value in dictionarySelectedIndexPath.values {
+            if value {
+                check = true
+                break
+            }
+        }
+        
+        if check == false {
+            deleteButton.isHidden = true
+            saveButton.isHidden = true
+        }
+    }
 }
 
 extension FolderViewController: UICollectionViewDelegateFlowLayout {

@@ -107,4 +107,16 @@ public class CoreDataService{
             print(error.localizedDescription)
         }
     }
+    
+    public func updatePhotoNilImage(photo: Photo) {
+        let currentPhoto = photo
+        currentPhoto.directory = nil
+        
+        do {
+            try self.context.save()
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+    }
 }
