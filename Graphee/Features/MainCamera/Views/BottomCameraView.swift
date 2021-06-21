@@ -79,7 +79,7 @@ class BottomCameraView: UIView {
         
         let settingLabel = UILabel()
         settingLabel.text = "Setting"
-        settingLabel.font = UIFont.systemFont(ofSize: 10)
+        settingLabel.font = UIFont(name: "Sora-Regular", size: 12)
         settingLabel.textColor = UIColor(red: 248, green: 252, blue: 255, alpha: 1)
         settingLabel.frame.size = settingLabel.intrinsicContentSize
         settingLabel.center = CGPoint(x: (frame.size.width / 2) / 2, y: frame.size.height - settingLabel.frame.height / 2)
@@ -94,7 +94,7 @@ class BottomCameraView: UIView {
         
         let referenceLabel = UILabel()
         referenceLabel.text = "Reference Point"
-        referenceLabel.font = UIFont.systemFont(ofSize: 10)
+        referenceLabel.font = UIFont(name: "Sora-Regular", size: 12)
         referenceLabel.textColor = UIColor(red: 248, green: 252, blue: 255, alpha: 1)
         referenceLabel.frame.size = referenceLabel.intrinsicContentSize
         referenceLabel.center = CGPoint(x: frame.width - (frame.size.width / 2) / 2, y: frame.size.height - referenceLabel.frame.height / 2)
@@ -107,7 +107,7 @@ class BottomCameraView: UIView {
         retakeButton = UIButton(frame: CGRect(x: 0, y: 0, width: 120, height: 40))
         retakeButton.setTitle("Retake", for: .normal)
         retakeButton.setTitleColor(.white, for: .normal)
-        retakeButton.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        retakeButton.titleLabel?.font = UIFont(name: "Sora-Regular", size: 24)
         addSubview(retakeButton)
         retakeButton.center = CGPoint(x: (frame.size.width / 2) / 2, y: frame.size.height / 2)
         retakeButton.addTarget(self, action: #selector(retakeButtonSelector), for: .touchUpInside)
@@ -115,7 +115,7 @@ class BottomCameraView: UIView {
         doneButton = UIButton(frame: CGRect(x: 0, y: 0, width: 80, height: 40))
         doneButton.setTitle("Done", for: .normal)
         doneButton.setTitleColor(UIColor.init(named: "YellowColor"), for: .normal)
-        doneButton.titleLabel?.font = UIFont.systemFont(ofSize: 30)
+        doneButton.titleLabel?.font = UIFont(name: "Sora-Regular", size: 24)
         addSubview(doneButton)
         doneButton.center = CGPoint(x: frame.size.width - (frame.size.width / 2) / 2, y: frame.size.height / 2)
         doneButton.addTarget(self, action: #selector(doneButtonSelector), for: .touchUpInside)
@@ -125,31 +125,36 @@ class BottomCameraView: UIView {
         let spaceBetweenButton = (frame.width - (50 * 5)) / 6
         
         frontButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
-        frontButton.setTitle("Front", for: .normal)
+        frontButton.setTitle("FRONT", for: .normal)
+        frontButton.titleLabel?.font = UIFont(name:"Sora-Regular", size: 14)
         frontButton.addTarget(self, action: #selector(directionButtonSelector(sender:)), for: .touchUpInside)
         addSubview(frontButton)
         frontButton.center = CGPoint(x: spaceBetweenButton + (frontButton.frame.width / 2), y: 20)
         
         backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
-        backButton.setTitle("Back", for: .normal)
+        backButton.setTitle("BACK", for: .normal)
+        backButton.titleLabel?.font = UIFont(name:"Sora-Regular", size: 14)
         backButton.addTarget(self, action: #selector(directionButtonSelector(sender:)), for: .touchUpInside)
         addSubview(backButton)
         backButton.center = CGPoint(x: spaceBetweenButton * 2 + frontButton.frame.width + (backButton.frame.width / 2), y: 20)
         
         rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
-        rightButton.setTitle("Right", for: .normal)
+        rightButton.setTitle("RIGHT", for: .normal)
+        rightButton.titleLabel?.font = UIFont(name:"Sora-Regular", size: 14)
         rightButton.addTarget(self, action: #selector(directionButtonSelector(sender:)), for: .touchUpInside)
         addSubview(rightButton)
         rightButton.center = CGPoint(x: spaceBetweenButton * 3 + frontButton.frame.width + backButton.frame.width + (rightButton.frame.width / 2), y: 20)
         
         leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
-        leftButton.setTitle("Left", for: .normal)
+        leftButton.setTitle("LEFT", for: .normal)
+        leftButton.titleLabel?.font = UIFont(name:"Sora-Regular", size: 14)
         leftButton.addTarget(self, action: #selector(directionButtonSelector(sender:)), for: .touchUpInside)
         addSubview(leftButton)
         leftButton.center = CGPoint(x: spaceBetweenButton * 4 + frontButton.frame.width + backButton.frame.width + leftButton.frame.width + (leftButton.frame.width / 2), y: 20)
         
         detailButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
-        detailButton.setTitle("Detail", for: .normal)
+        detailButton.setTitle("DETAIL", for: .normal)
+        detailButton.titleLabel?.font = UIFont(name:"Sora-Regular", size: 14)
         detailButton.addTarget(self, action: #selector(directionButtonSelector(sender:)), for: .touchUpInside)
         addSubview(detailButton)
         detailButton.center = CGPoint(x: spaceBetweenButton * 5 + frontButton.frame.width + backButton.frame.width + leftButton.frame.width + rightButton.frame.width + (detailButton.frame.width / 2), y: 20)
