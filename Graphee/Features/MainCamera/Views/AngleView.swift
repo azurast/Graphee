@@ -60,11 +60,11 @@ class AngleView: UIView {
         
         let middleGyroWidth = frame.width - (columnWidth * 2) - 2
         middleGyroHorizontalLine = UIView(frame: CGRect(x: columnWidth + 1, y: frame.height - rowHeight, width: middleGyroWidth, height: 3))
-        middleGyroHorizontalLine.backgroundColor = .yellow
+        middleGyroHorizontalLine.backgroundColor = UIColor.init(named: "YellowColor")
         addSubview(middleGyroHorizontalLine)
         
         mainAngleHorizontalLine = UIView(frame: CGRect(x: 0, y: frame.height / 2, width: frame.width, height: 3))
-        mainAngleHorizontalLine.backgroundColor = .yellow
+        mainAngleHorizontalLine.backgroundColor = UIColor.init(named: "YellowColor")
         addSubview(mainAngleHorizontalLine)
         
         originTransform = middleGyroHorizontalLine.transform
@@ -80,7 +80,7 @@ class AngleView: UIView {
         } else if mainAngleHorizontalLine.frame.origin.y > leftLowAngleHorizontalLine.frame.origin.y {
             completion("Phone in Low Angle", .lightGray)
         } else {
-            completion("Perfect Leveling", .yellow)
+            completion("Perfect Leveling", UIColor.init(named: "YellowColor") ?? .yellow)
         }
     }
     

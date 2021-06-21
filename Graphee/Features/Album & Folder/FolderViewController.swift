@@ -105,6 +105,7 @@ class FolderViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     private func setBottomButton() {
@@ -157,6 +158,7 @@ class FolderViewController: UIViewController {
             }
         }))
         
+        
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         
         present(alert, animated: true)
@@ -170,6 +172,14 @@ class FolderViewController: UIViewController {
             }
         }
         
+        let savedAlert = UIAlertController(title: "Saved", message: "Photos successfully saved", preferredStyle: .alert)
+        
+        savedAlert.view.backgroundColor = UIColor.init(named: "DarkColor")
+        savedAlert.view.tintColor = UIColor.init(named: "AccentColor")
+        savedAlert.view.layer.cornerRadius = 30
+        savedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ _ in self.unselectMode()}))
+        present(savedAlert, animated: true, completion: nil)
+        
         print("Success Save")
     }
     
@@ -178,7 +188,7 @@ class FolderViewController: UIViewController {
         modeSelectionButton.backgroundColor = UIColor.init(named: "Title")
         modeSelectionButton.layer.cornerRadius = 15
         modeSelectionButton.setTitle("Select", for: .normal)
-        modeSelectionButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        modeSelectionButton.titleLabel?.font = UIFont(name: "Sora-Regular", size: 15)
         modeSelectionButton.setTitleColor(UIColor.init(named: "LightColor"), for: .normal)
         modeSelectionButton.addTarget(self, action: #selector(modeButtonSelector), for: .touchUpInside)
         

@@ -52,7 +52,7 @@ class MainCameraViewController: UIViewController {
     // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.\
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         var height = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
@@ -220,6 +220,7 @@ class MainCameraViewController: UIViewController {
         
         messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: messageView.frame.width, height: 0))
         messageLabel.text = "Hello World"
+        messageLabel.font = UIFont(name: "Sora-Regular", size: 12)
         messageLabel.textColor = .black
         messageLabel.numberOfLines = 0
         messageLabel.frame.size.height = messageLabel.intrinsicContentSize.height
@@ -279,6 +280,7 @@ class MainCameraViewController: UIViewController {
         let titles = ["Light", "Angle"]
         
         segmentedControl = UISegmentedControl(items: titles)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Sora-Regular", size: 12)], for: .normal)
         segmentedControl.tintColor = .white
         segmentedControl.backgroundColor = .darkGray
         segmentedControl.selectedSegmentIndex = 0
@@ -431,7 +433,9 @@ extension MainCameraViewController: VeryTopViewDelegate {
         }
         
         NotificationCenter.default.post(name: Notification.Name("updateAction"), object: nil)
-        self.navigationController?.popViewController(animated: true)
+        
+        let destinationVC = navigationController?.viewControllers.filter {$0 is FolderViewController}.first as! FolderViewController
+        self.navigationController?.popToViewController(destinationVC, animated: true)
     }
     
     func cancelButtonTapped() {
@@ -630,7 +634,7 @@ extension MainCameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate
                     self.messageView.backgroundColor = .lightGray
                     self.messageLabel.text = "Need Less Light"
                 } else {
-                    self.messageView.backgroundColor = .yellow
+                    self.messageView.backgroundColor = UIColor.init(named: "YellowColor")
                     self.messageLabel.text = "Perfect Light"
                 }
             }

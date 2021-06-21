@@ -265,6 +265,17 @@
 		1B6FCECE267C8F7C00FEB554 /* animateTest-1147.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B6FCDCE267C8F7C00FEB554 /* animateTest-1147.png */; };
 		1B6FCECF267C8F7C00FEB554 /* animateTest-1190.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B6FCDCF267C8F7C00FEB554 /* animateTest-1190.png */; };
 		1B6FCED0267C8F7C00FEB554 /* animateTest-1184.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B6FCDD0267C8F7C00FEB554 /* animateTest-1184.png */; };
+		1B74E2ED26802F8F0080D610 /* Sora-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B74E2E226802F8E0080D610 /* Sora-Thin.ttf */; };
+		1B74E2EE26802F8F0080D610 /* Sora-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B74E2E326802F8E0080D610 /* Sora-ExtraBold.ttf */; };
+		1B74E2EF26802F8F0080D610 /* Sora-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B74E2E426802F8E0080D610 /* Sora-Bold.ttf */; };
+		1B74E2F026802F8F0080D610 /* Sora-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B74E2E526802F8E0080D610 /* Sora-Light.ttf */; };
+		1B74E2F126802F8F0080D610 /* Sora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B74E2E626802F8E0080D610 /* Sora-Regular.ttf */; };
+		1B74E2F226802F8F0080D610 /* Sora-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B74E2E726802F8E0080D610 /* Sora-Medium.ttf */; };
+		1B74E2F326802F8F0080D610 /* Sora-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B74E2E826802F8F0080D610 /* Sora-SemiBold.ttf */; };
+		1B74E2F426802F8F0080D610 /* Sora-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B74E2E926802F8F0080D610 /* Sora-ExtraLight.ttf */; };
+		1B74E2F526802F8F0080D610 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B74E2EA26802F8F0080D610 /* OFL.txt */; };
+		1B74E2F626802F8F0080D610 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B74E2EB26802F8F0080D610 /* README.txt */; };
+		1B74E2F726802F8F0080D610 /* Sora-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B74E2EC26802F8F0080D610 /* Sora-VariableFont_wght.ttf */; };
 		1BFE7DBE266F5C89008D61DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7DBD266F5C89008D61DA /* AppDelegate.swift */; };
 		1BFE7DC0266F5C89008D61DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7DBF266F5C89008D61DA /* SceneDelegate.swift */; };
 		1BFE7DC2266F5C89008D61DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFE7DC1266F5C89008D61DA /* ViewController.swift */; };
@@ -565,6 +576,17 @@
 		1B6FCDCE267C8F7C00FEB554 /* animateTest-1147.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "animateTest-1147.png"; sourceTree = "<group>"; };
 		1B6FCDCF267C8F7C00FEB554 /* animateTest-1190.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "animateTest-1190.png"; sourceTree = "<group>"; };
 		1B6FCDD0267C8F7C00FEB554 /* animateTest-1184.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "animateTest-1184.png"; sourceTree = "<group>"; };
+		1B74E2E226802F8E0080D610 /* Sora-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Thin.ttf"; sourceTree = "<group>"; };
+		1B74E2E326802F8E0080D610 /* Sora-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-ExtraBold.ttf"; sourceTree = "<group>"; };
+		1B74E2E426802F8E0080D610 /* Sora-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Bold.ttf"; sourceTree = "<group>"; };
+		1B74E2E526802F8E0080D610 /* Sora-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Light.ttf"; sourceTree = "<group>"; };
+		1B74E2E626802F8E0080D610 /* Sora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Regular.ttf"; sourceTree = "<group>"; };
+		1B74E2E726802F8E0080D610 /* Sora-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-Medium.ttf"; sourceTree = "<group>"; };
+		1B74E2E826802F8F0080D610 /* Sora-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-SemiBold.ttf"; sourceTree = "<group>"; };
+		1B74E2E926802F8F0080D610 /* Sora-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-ExtraLight.ttf"; sourceTree = "<group>"; };
+		1B74E2EA26802F8F0080D610 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		1B74E2EB26802F8F0080D610 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		1B74E2EC26802F8F0080D610 /* Sora-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sora-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		1BFE7DBA266F5C89008D61DA /* Graphee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Graphee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BFE7DBD266F5C89008D61DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BFE7DBF266F5C89008D61DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -882,6 +904,40 @@
 			path = "animate PNG 2";
 			sourceTree = "<group>";
 		};
+		1B74E2DF26802F720080D610 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				1B74E2E026802F8E0080D610 /* Sora */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		1B74E2E026802F8E0080D610 /* Sora */ = {
+			isa = PBXGroup;
+			children = (
+				1B74E2E126802F8E0080D610 /* static */,
+				1B74E2EA26802F8F0080D610 /* OFL.txt */,
+				1B74E2EB26802F8F0080D610 /* README.txt */,
+				1B74E2EC26802F8F0080D610 /* Sora-VariableFont_wght.ttf */,
+			);
+			path = Sora;
+			sourceTree = "<group>";
+		};
+		1B74E2E126802F8E0080D610 /* static */ = {
+			isa = PBXGroup;
+			children = (
+				1B74E2E226802F8E0080D610 /* Sora-Thin.ttf */,
+				1B74E2E326802F8E0080D610 /* Sora-ExtraBold.ttf */,
+				1B74E2E426802F8E0080D610 /* Sora-Bold.ttf */,
+				1B74E2E526802F8E0080D610 /* Sora-Light.ttf */,
+				1B74E2E626802F8E0080D610 /* Sora-Regular.ttf */,
+				1B74E2E726802F8E0080D610 /* Sora-Medium.ttf */,
+				1B74E2E826802F8F0080D610 /* Sora-SemiBold.ttf */,
+				1B74E2E926802F8F0080D610 /* Sora-ExtraLight.ttf */,
+			);
+			path = static;
+			sourceTree = "<group>";
+		};
 		1BFE7DB1266F5C89008D61DA = {
 			isa = PBXGroup;
 			children = (
@@ -927,6 +983,7 @@
 		1BFE7DD8266F5E19008D61DA /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1B74E2DF26802F720080D610 /* Font */,
 				E128631526789BED00297B72 /* Extension */,
 				1BFE7E05266F6C2F008D61DA /* BottomBarView */,
 				1BFE7DDE266F66A1008D61DA /* FolderTableViewCell */,
@@ -1127,6 +1184,7 @@
 			files = (
 				1B6FCEAA267C8F7C00FEB554 /* animateTest-1196.png in Resources */,
 				1B6FCEBA267C8F7C00FEB554 /* animateTest-1144.png in Resources */,
+				1B74E2F126802F8F0080D610 /* Sora-Regular.ttf in Resources */,
 				1B6FCE8C267C8F7C00FEB554 /* animateTest-1037.png in Resources */,
 				1B6FCE71267C8F7C00FEB554 /* animateTest-1119.png in Resources */,
 				1B6FCECF267C8F7C00FEB554 /* animateTest-1190.png in Resources */,
@@ -1157,10 +1215,12 @@
 				1B6FCE3E267C8F7C00FEB554 /* animateTest-1139.png in Resources */,
 				1B6FCEC4267C8F7C00FEB554 /* animateTest-1230.png in Resources */,
 				1B6FCDF5267C8F7C00FEB554 /* animateTest-1212.png in Resources */,
+				1B74E2F026802F8F0080D610 /* Sora-Light.ttf in Resources */,
 				1B6FCEBC267C8F7C00FEB554 /* animateTest-1178.png in Resources */,
 				1B6FCDDE267C8F7C00FEB554 /* animateTest-1177.png in Resources */,
 				1B6FCECA267C8F7C00FEB554 /* animateTest-1225.png in Resources */,
 				1B6FCE8E267C8F7C00FEB554 /* animateTest-1022.png in Resources */,
+				1B74E2F726802F8F0080D610 /* Sora-VariableFont_wght.ttf in Resources */,
 				1B6FCE3C267C8F7C00FEB554 /* animateTest-1111.png in Resources */,
 				1B6FCEA3267C8F7C00FEB554 /* animateTest-1021.png in Resources */,
 				1B6FCE45267C8F7C00FEB554 /* animateTest-1054.png in Resources */,
@@ -1192,6 +1252,7 @@
 				1B6FCE47267C8F7C00FEB554 /* animateTest-1068.png in Resources */,
 				1B6FCDE7267C8F7C00FEB554 /* animateTest-1015.png in Resources */,
 				1B6FCE81267C8F7C00FEB554 /* animateTest-1252.png in Resources */,
+				1B74E2ED26802F8F0080D610 /* Sora-Thin.ttf in Resources */,
 				1B6FCEA1267C8F7C00FEB554 /* animateTest-1009.png in Resources */,
 				1B6FCECB267C8F7C00FEB554 /* animateTest-1231.png in Resources */,
 				1B6FCE69267C8F7C00FEB554 /* animateTest-1053.png in Resources */,
@@ -1241,6 +1302,7 @@
 				1B6FCE35267C8F7C00FEB554 /* animateTest-1110.png in Resources */,
 				1B6FCE75267C8F7C00FEB554 /* animateTest-1247.png in Resources */,
 				1B6FCE05267C8F7C00FEB554 /* animateTest-1211.png in Resources */,
+				1B74E2EE26802F8F0080D610 /* Sora-ExtraBold.ttf in Resources */,
 				1B6FCE39267C8F7C00FEB554 /* animateTest-1065.png in Resources */,
 				1BFE7E0C266F6F9C008D61DA /* ARCameraStoryboard.storyboard in Resources */,
 				1B6FCEC3267C8F7C00FEB554 /* animateTest-1218.png in Resources */,
@@ -1279,6 +1341,7 @@
 				1B6FCE66267C8F7C00FEB554 /* animateTest-1091.png in Resources */,
 				1B6FCE9E267C8F7C00FEB554 /* animateTest-1020.png in Resources */,
 				1B6FCDD5267C8F7C00FEB554 /* animateTest-1200.png in Resources */,
+				1B74E2F226802F8F0080D610 /* Sora-Medium.ttf in Resources */,
 				1B6FCE84267C8F7C00FEB554 /* animateTest-1118.png in Resources */,
 				1B6FCE16267C8F7C00FEB554 /* animateTest-1049.png in Resources */,
 				1B6FCE36267C8F7C00FEB554 /* animateTest-1058.png in Resources */,
@@ -1310,6 +1373,7 @@
 				1B6FCDFD267C8F7C00FEB554 /* animateTest-1207.png in Resources */,
 				1B6FCEBD267C8F7C00FEB554 /* animateTest-1187.png in Resources */,
 				1B6FCE88267C8F7C00FEB554 /* animateTest-1157.png in Resources */,
+				1B74E2F626802F8F0080D610 /* README.txt in Resources */,
 				1B6FCE0D267C8F7C00FEB554 /* animateTest-1238.png in Resources */,
 				1B6FCEC9267C8F7C00FEB554 /* animateTest-1033.png in Resources */,
 				1B6FCE43267C8F7C00FEB554 /* animateTest-1097.png in Resources */,
@@ -1328,6 +1392,7 @@
 				1B6FCE13267C8F7C00FEB554 /* animateTest-1129.png in Resources */,
 				1B6FCEAE267C8F7C00FEB554 /* animateTest-1151.png in Resources */,
 				1B6FCE30267C8F7C00FEB554 /* animateTest-1099.png in Resources */,
+				1B74E2F326802F8F0080D610 /* Sora-SemiBold.ttf in Resources */,
 				1B6FCE2C267C8F7C00FEB554 /* animateTest-1067.png in Resources */,
 				1B6FCDFA267C8F7C00FEB554 /* animateTest-1005.png in Resources */,
 				1B6FCE60267C8F7C00FEB554 /* animateTest-1136.png in Resources */,
@@ -1350,6 +1415,7 @@
 				1B6FCEB4267C8F7C00FEB554 /* animateTest-1031.png in Resources */,
 				1B6FCE2D267C8F7C00FEB554 /* animateTest-1073.png in Resources */,
 				1B6FCE27267C8F7C00FEB554 /* animateTest-1103.png in Resources */,
+				1B74E2F426802F8F0080D610 /* Sora-ExtraLight.ttf in Resources */,
 				1B6FCE93267C8F7C00FEB554 /* animateTest-1156.png in Resources */,
 				1B6FCEB2267C8F7C00FEB554 /* animateTest-1019.png in Resources */,
 				1B6FCE65267C8F7C00FEB554 /* animateTest-1085.png in Resources */,
@@ -1371,6 +1437,7 @@
 				1B6FCEC5267C8F7C00FEB554 /* animateTest-1224.png in Resources */,
 				1B6FCE02267C8F7C00FEB554 /* animateTest-1167.png in Resources */,
 				1B6FCE46267C8F7C00FEB554 /* animateTest-1040.png in Resources */,
+				1B74E2EF26802F8F0080D610 /* Sora-Bold.ttf in Resources */,
 				1B6FCEAB267C8F7C00FEB554 /* animateTest-1192.png in Resources */,
 				1B6FCE0B267C8F7C00FEB554 /* animateTest-1204.png in Resources */,
 				1B6FCE4D267C8F7C00FEB554 /* animateTest-1243.png in Resources */,
@@ -1382,6 +1449,7 @@
 				1B6FCE82267C8F7C00FEB554 /* animateTest-1130.png in Resources */,
 				1B6FCE06267C8F7C00FEB554 /* animateTest-1205.png in Resources */,
 				1B6FCE59267C8F7C00FEB554 /* animateTest-1056.png in Resources */,
+				1B74E2F526802F8F0080D610 /* OFL.txt in Resources */,
 				1B6FCDED267C8F7C00FEB554 /* animateTest-1202.png in Resources */,
 				1B6FCEB9267C8F7C00FEB554 /* animateTest-1226.png in Resources */,
 				1B6FCEC6267C8F7C00FEB554 /* animateTest-1032.png in Resources */,
@@ -1579,7 +1647,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A5LXCCW6FT;
+				DEVELOPMENT_TEAM = 6K96V6Z2MC;
 				INFOPLIST_FILE = Graphee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1598,7 +1666,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A5LXCCW6FT;
+				DEVELOPMENT_TEAM = 6K96V6Z2MC;
 				INFOPLIST_FILE = Graphee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

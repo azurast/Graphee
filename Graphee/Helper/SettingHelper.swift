@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import ARKit
 
 public class SettingHelper {
     public static let shared = SettingHelper()
@@ -25,6 +26,8 @@ public class SettingHelper {
     public let ratio43 = "Ratio 4:3"
     public let ratio169 = "Ratio 16:9"
     
+    public let aranimation = "ARAnimation"
+    
     public func setFirstTimeAction() {
         if userDefaults.bool(forKey: firstTimeKey) == false {
             userDefaults.setValue(true, forKey: torchOff)
@@ -32,7 +35,7 @@ public class SettingHelper {
             
             userDefaults.setValue(false, forKey: timer3Sec)
             userDefaults.setValue(false, forKey: timer10Sec)
-            
+            userDefaults.setValue(false, forKey: aranimation)
             userDefaults.setValue(true, forKey: firstTimeKey)
         }
         
@@ -166,4 +169,16 @@ extension SettingHelper {
     public func isRatio169Activated() -> Bool {
         return userDefaults.bool(forKey: ratio169)
     }
+}
+
+// MARK: - Set AR Preferences
+extension SettingHelper {
+    public func setAnimationBeenPlayed(status: Bool) {
+        userDefaults.setValue(status, forKey: aranimation)
+    }
+    
+    public func getAnimationBeenPlayed() -> Bool {
+        return userDefaults.bool(forKey: aranimation)
+    }
+    
 }
