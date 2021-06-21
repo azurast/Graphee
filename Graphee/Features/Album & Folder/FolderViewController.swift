@@ -105,6 +105,7 @@ class FolderViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     private func setBottomButton() {

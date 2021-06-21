@@ -433,7 +433,9 @@ extension MainCameraViewController: VeryTopViewDelegate {
         }
         
         NotificationCenter.default.post(name: Notification.Name("updateAction"), object: nil)
-        self.navigationController?.popViewController(animated: true)
+        
+        let destinationVC = navigationController?.viewControllers.filter {$0 is FolderViewController}.first as! FolderViewController
+        self.navigationController?.popToViewController(destinationVC, animated: true)
     }
     
     func cancelButtonTapped() {

@@ -29,24 +29,24 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        SettingHelper.shared.setAnimationBeenPlayed(status: false)
+        self.view.backgroundColor = UIColor.init(named: "Title")
+        topLabel.isHidden = true
+        bottomLabel.isHidden = true
         hasAnimationBeenPlayed = SettingHelper.shared.getAnimationBeenPlayed()
         if !hasAnimationBeenPlayed {
             setupAnimation()
+            SettingHelper.shared.setAnimationBeenPlayed(status: true)
         }
         
-        if hasAnimationFinished {
-            // Add Replace Button
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Replace", style: .plain, target: self, action: #selector(replacePoint))
-            // Add tap gesture recognizer
-            addTapGestureRecognizer()
-            // Configure lighting
-            configureLighting()
-            // Check
-            if let res = ARCameraViewController.arRaycastResult {
-                createReferencePoint(result: res)
-            }
+        // Add Replace Button
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Replace", style: .plain, target: self, action: #selector(replacePoint))
+        // Add tap gesture recognizer
+        addTapGestureRecognizer()
+        // Configure lighting
+        configureLighting()
+        // Check
+        if let res = ARCameraViewController.arRaycastResult {
+            createReferencePoint(result: res)
         }
     }
     
@@ -96,8 +96,6 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         imageView.animationDuration = 10.25
         imageView.animationRepeatCount = 1
         imageView.startAnimating()
-        hasAnimationFinished = true
-        SettingHelper.shared.setAnimationBeenPlayed(status: true)
     }
     
     @objc func replacePoint() {
@@ -106,7 +104,9 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         actionSheet.addAction(UIAlertAction(title: "Replace", style: .destructive, handler: {_ in
             self.referencePoint?.removeFromParentNode()
             self.hasBeenPlaced = false
+            ARCameraViewController.arRaycastResult = nil
             SettingHelper.shared.setAnimationBeenPlayed(status: false)
+            self.setupAnimation()
         }))
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(actionSheet, animated: true, completion: nil)
@@ -116,6 +116,10 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         super.viewWillAppear(animated)
         // Navigation controller
         self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.backgroundColor = UIColor.init(named: "Title")
+        self.navigationController?.navigationBar.tintColor = UIColor.init(named: "LightColor")
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         // Setup scene view
         setupSceneView()
         statusPanel.contentView.layer.cornerRadius = 30
@@ -126,13 +130,11 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         super.viewWillDisappear(animated)
         // Pause session
         self.sceneView.session.pause()
-//        sceneView.session.getCurrentWorldMap(completionHandler: { [weak self] world, error in
-//            self!.sceneView.session.pause()
-//            ARCameraViewController.arWorldMap = world
-//            print("kesave nilainya")
-//        })
-        
         self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.navigationBar.tintColor = UIColor.init(named: "Title")
+        self.navigationController?.navigationBar.backgroundColor = UIColor.init(named: "AccentColor")
+        self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        self.navigationController?.navigationBar.shadowImage = nil
     }
     
     func setupSceneView() {

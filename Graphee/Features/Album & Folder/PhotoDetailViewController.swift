@@ -74,7 +74,7 @@ class PhotoDetailViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.init(named: "Title")
         self.navigationController?.navigationBar.backgroundColor = UIColor.init(named: "AccentColor")
         self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-            self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.shadowImage = nil
     }
     
     @objc private func updateAction() {

@@ -35,7 +35,7 @@ public class SettingHelper {
             
             userDefaults.setValue(false, forKey: timer3Sec)
             userDefaults.setValue(false, forKey: timer10Sec)
-            
+            userDefaults.setValue(false, forKey: aranimation)
             userDefaults.setValue(true, forKey: firstTimeKey)
         }
         
