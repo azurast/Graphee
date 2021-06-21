@@ -80,6 +80,7 @@ class BottomCameraView: UIView {
         let settingLabel = UILabel()
         settingLabel.text = "Setting"
         settingLabel.font = UIFont.systemFont(ofSize: 10)
+        settingLabel.textColor = UIColor(red: 248, green: 252, blue: 255, alpha: 1)
         settingLabel.frame.size = settingLabel.intrinsicContentSize
         settingLabel.center = CGPoint(x: (frame.size.width / 2) / 2, y: frame.size.height - settingLabel.frame.height / 2)
         addSubview(settingLabel)
@@ -94,6 +95,7 @@ class BottomCameraView: UIView {
         let referenceLabel = UILabel()
         referenceLabel.text = "Reference Point"
         referenceLabel.font = UIFont.systemFont(ofSize: 10)
+        referenceLabel.textColor = UIColor(red: 248, green: 252, blue: 255, alpha: 1)
         referenceLabel.frame.size = referenceLabel.intrinsicContentSize
         referenceLabel.center = CGPoint(x: frame.width - (frame.size.width / 2) / 2, y: frame.size.height - referenceLabel.frame.height / 2)
         addSubview(referenceLabel)
