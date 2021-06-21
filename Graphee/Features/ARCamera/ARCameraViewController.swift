@@ -22,22 +22,32 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
     
     var referencePoint : SCNNode!
     var hasBeenPlaced: Bool! = false
+    var hasAnimationBeenPlayed: Bool! = false
+    var hasAnimationFinished: Bool! = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        topLabel.isHidden = true
+//        bottomLabel.isHidden = true
+//        hasAnimationBeenPlayed = SettingHelper.shared.hasAnimationBeenPlayed()
+//        if !hasAnimationBeenPlayed {
+//            setupAnimation()
+//        }
+//        SettingHelper.shared.setARAnimation()
         setupAnimation()
-        statusPanel.isHidden = false
-        // Add Replace Button
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Replace", style: .plain, target: self, action: #selector(replacePoint))
-        // Add tap gesture recognizer
-        addTapGestureRecognizer()
-        // Configure lighting
-        configureLighting()
-        
+        if hasAnimationFinished {
+            // Add Replace Button
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Replace", style: .plain, target: self, action: #selector(replacePoint))
+            // Add tap gesture recognizer
+            addTapGestureRecognizer()
+            // Configure lighting
+            configureLighting()
+        }
     }
     
     func setupAnimation() {
+        topLabel.isHidden = false
+        bottomLabel.isHidden = false
         self.topLabel.text = "Tap anywhere to set reference point"
         
         UIView.animate(withDuration: 1.0, delay: 0.0, animations: {
@@ -69,6 +79,8 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
     
         animationImages = createImageArray(total: 1255, imagePrefix: "animateTest-")
         animate(imageView: animationImageView, images: animationImages)
+        SettingHelper.shared.setARAnimation()
+        hasAnimationFinished = true
     }
     
     func createImageArray(total: Int, imagePrefix: String) ->[UIImage] {
@@ -174,6 +186,10 @@ extension ARCameraViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         print("didAdd")
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        
+        DispatchQueue.main.async {
+            self.statusLabel.text = "Surface Detected"
+        }
         
         let width = CGFloat(planeAnchor.extent.x)
         let height = CGFloat(planeAnchor.extent.z)
