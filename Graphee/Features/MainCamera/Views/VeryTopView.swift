@@ -42,7 +42,7 @@ class VeryTopView: UIView {
         
         doneButton = UIButton(frame: CGRect(x: frame.width - 30 - 50, y: frame.height / 2 - 15, width: 50, height: 30))
         doneButton.setTitle("Done", for: .normal)
-        doneButton.setTitleColor(.yellow, for: .normal)
+        doneButton.setTitleColor(UIColor.init(named: "YellowColor"), for: .normal)
         doneButton.addTarget(self, action: #selector(doneButtonSelector), for: .touchUpInside)
         addSubview(doneButton)
         
@@ -78,7 +78,7 @@ class VeryTopView: UIView {
     }
     
     public func changeTorchColorActivated() {
-        torchImageView!.tintColor = .yellow
+        torchImageView!.tintColor = UIColor.init(named: "YellowColor")
     }
     
     public func changeTorchColorDeactivated() {
@@ -86,7 +86,7 @@ class VeryTopView: UIView {
     }
     
     public func changeTimerColorActivated() {
-        timerImageView!.tintColor = .yellow
+        timerImageView!.tintColor = UIColor.init(named: "YellowColor")
     }
     
     public func changeTimerColorDeactivated() {

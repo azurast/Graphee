@@ -112,7 +112,7 @@ class BottomCameraView: UIView {
         
         doneButton = UIButton(frame: CGRect(x: 0, y: 0, width: 80, height: 40))
         doneButton.setTitle("Done", for: .normal)
-        doneButton.setTitleColor(.yellow, for: .normal)
+        doneButton.setTitleColor(UIColor.init(named: "YellowColor"), for: .normal)
         doneButton.titleLabel?.font = UIFont.systemFont(ofSize: 30)
         addSubview(doneButton)
         doneButton.center = CGPoint(x: frame.size.width - (frame.size.width / 2) / 2, y: frame.size.height / 2)
@@ -164,15 +164,15 @@ class BottomCameraView: UIView {
         
         switch CameraImages.shared.getNextDirectionInDirection() {
         case .front:
-            frontButton.setTitleColor(.yellow, for: .normal)
+            frontButton.setTitleColor(UIColor.init(named: "YellowColor"), for: .normal)
         case .back:
-            backButton.setTitleColor(.yellow, for: .normal)
+            backButton.setTitleColor(UIColor.init(named: "YellowColor"), for: .normal)
         case .right:
-            rightButton.setTitleColor(.yellow, for: .normal)
+            rightButton.setTitleColor(UIColor.init(named: "YellowColor"), for: .normal)
         case .left:
-            leftButton.setTitleColor(.yellow, for: .normal)
+            leftButton.setTitleColor(UIColor.init(named: "YellowColor"), for: .normal)
         case .detail:
-            detailButton.setTitleColor(.yellow, for: .normal)
+            detailButton.setTitleColor(UIColor.init(named: "YellowColor"), for: .normal)
         }
     }
     
@@ -211,23 +211,23 @@ class BottomCameraView: UIView {
         
         if sender == frontButton {
             direction = .front
-            frontButton.setTitleColor(.yellow, for: .normal)
+            frontButton.setTitleColor(UIColor.init(named: "YellowColor"), for: .normal)
 
         } else if sender == backButton {
             direction = .back
-            backButton.setTitleColor(.yellow, for: .normal)
+            backButton.setTitleColor(UIColor.init(named: "YellowColor"), for: .normal)
             
         } else if sender == rightButton {
             direction = .right
-            rightButton.setTitleColor(.yellow, for: .normal)
+            rightButton.setTitleColor(UIColor.init(named: "YellowColor"), for: .normal)
             
         } else if sender == leftButton {
             direction = .left
-            leftButton.setTitleColor(.yellow, for: .normal)
+            leftButton.setTitleColor(UIColor.init(named: "YellowColor"), for: .normal)
             
         } else {
             direction = .detail
-            detailButton.setTitleColor(.yellow, for: .normal)
+            detailButton.setTitleColor(UIColor.init(named: "YellowColor"), for: .normal)
             
         }
         

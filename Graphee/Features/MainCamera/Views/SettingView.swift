@@ -130,7 +130,7 @@ class SettingView: UIView {
         torchButton = UIButton(frame: CGRect(x: frame.width / 2 - ((64) / 2), y: frame.height - rowHeight * 2 - (rowHeight / 2) - ((64) / 2), width: 64, height: 64))
         
         if SettingHelper.shared.isTorchActivated() {
-            torchButton.tintColor = .yellow
+            torchButton.tintColor = UIColor.init(named: "YellowColor")
             torchButton.setBackgroundImage(UIImage(systemName: "bolt.fill"), for: .normal)
         } else {
             torchButton.tintColor = .white
@@ -146,7 +146,7 @@ class SettingView: UIView {
         SettingHelper.shared.setTorchOff()
         
         if SettingHelper.shared.isTorchActivated() {
-            torchButton.tintColor = .yellow
+            torchButton.tintColor = UIColor.init(named: "YellowColor")
             torchButton.setBackgroundImage(UIImage(systemName: "bolt.fill"), for: .normal)
             delegate?.setTorchImageActivate()
         }

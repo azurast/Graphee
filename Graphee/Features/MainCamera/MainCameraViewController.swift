@@ -630,7 +630,7 @@ extension MainCameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate
                     self.messageView.backgroundColor = .lightGray
                     self.messageLabel.text = "Need Less Light"
                 } else {
-                    self.messageView.backgroundColor = .yellow
+                    self.messageView.backgroundColor = UIColor.init(named: "YellowColor")
                     self.messageLabel.text = "Perfect Light"
                 }
             }
