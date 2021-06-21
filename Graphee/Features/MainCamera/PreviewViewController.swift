@@ -88,7 +88,11 @@ class PreviewViewController: UIViewController {
 
 extension PreviewViewController: PreviewButtonDelegate {
     func previewDoneButtonTapped() {
-        CameraImages.shared.realImageDict[CameraImages.shared.getNextDirectionInString()] = CameraImages.shared.returnImageFromDirection(direction: CameraImages.shared.getNextDirectionInString())
+        
+        if CameraImages.shared.mainCameraCapture[CameraImages.shared.getNextDirectionInString()]! {
+            CameraImages.shared.realImageDict[CameraImages.shared.getNextDirectionInString()] = CameraImages.shared.returnImageFromDirection(direction: CameraImages.shared.getNextDirectionInString())
+        }
+        
         CameraImages.shared.configureTheNextDirection()
         self.navigationController?.popViewController(animated: true)
     }

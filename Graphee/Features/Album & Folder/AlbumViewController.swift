@@ -50,21 +50,10 @@ class AlbumViewController: UIViewController {
     private func setupBackgroundImage() {
         if arrayFolder?.count == 0 {
             stackView.isHidden = false
-            lightDarkBackground()
+            backgroundImage.image = UIImage.init(named: "folder_background")
         } else {
             stackView.isHidden = true
         }
-    }
-    
-    private func lightDarkBackground() {
-        switch traitCollection.userInterfaceStyle {
-                case .light, .unspecified:
-                    backgroundImage.image = UIImage(named: "folder_background")
-                    break
-                case .dark:
-                    backgroundImage.image = UIImage(named: "folder_background_dark")
-                    break
-            }
     }
     
     private func setUpNavigationView(){

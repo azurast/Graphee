@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PhotoDetailViewController: UIViewController {
 
@@ -151,13 +152,56 @@ class PhotoDetailViewController: UIViewController {
     }
     
     private func capturePhotoButtonNavigation() {
+        
+        AVCaptureDevice.requestAccess(for: .video) { granted in
+            DispatchQueue.main.async {
+                guard granted else {
+                    self.giveAlertOpenSettings()
+                    return
+                }
+                
+                self.configureBeforeGoToNextPage()
+            }
+        }
+        
+    }
+    
+    private func giveAlertOpenSettings() {
+        let alert = UIAlertController(title: "No Permission", message: "To access camera, you have to give permission", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Open Setting", style: .default, handler: { action in
+            let settingURLString = UIApplication.openSettingsURLString
+            if let settingsURL = URL(string: settingURLString) {
+                UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+            }
+        }))
+        
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(alert, animated: true)
+    }
+    
+    private func configureBeforeGoToNextPage() {
         CameraImages.shared.setNextDirection(direction: (self.directionArray[self.insideIndexPath.row]?.direction)!)
         
         for photo in directionArray {
+            
             if photo?.directory == nil {
                 CameraImages.shared.addImage(direction: (photo?.direction)!, image: nil)
             } else {
                 CameraImages.shared.addImage(direction: (photo?.direction)!, image: FileManagerHelper.instance.getImageFromStorage(imageName: (photo?.directory)!))
+                
+                let image = CameraImages.shared.returnImageFromDirection(direction: photo!.direction!)
+                let result = (image?.size.height)! / (image?.size.width)!
+                
+                if result < 1.1 {
+                    CameraImages.shared.addRatio(direction: photo!.direction!, ratio: SettingHelper.shared.ratio11)
+                } else if result >= 1.1 && result < 1.6 {
+                    CameraImages.shared.addRatio(direction: photo!.direction!, ratio: SettingHelper.shared.ratio43)
+                } else {
+                    CameraImages.shared.addRatio(direction: photo!.direction!, ratio: SettingHelper.shared.ratio169)
+                }
             }
         }
         
@@ -274,7 +318,7 @@ extension PhotoDetailViewController: UICollectionViewDataSource {
         if let id = imageID {
             cell.photoImageView.image = FileManagerHelper.instance.getImageFromStorage(imageName: id)
         } else {
-            cell.photoImageView.image = returnLightOrDarkImage()
+            cell.photoImageView.image = UIImage.init(named: "no_photo_light")!
         }
         
         cell.photoImageView.contentMode = .scaleAspectFit
@@ -284,15 +328,6 @@ extension PhotoDetailViewController: UICollectionViewDataSource {
         }
         
         return cell
-    }
-    
-    private func returnLightOrDarkImage() -> UIImage {
-        switch traitCollection.userInterfaceStyle {
-                case .light, .unspecified:
-                    return UIImage(named: "no_photo_light")!
-                case .dark:
-                    return UIImage(named: "no_photo_dark")!
-            }
     }
 }
 
