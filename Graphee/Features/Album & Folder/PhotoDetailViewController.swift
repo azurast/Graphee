@@ -184,6 +184,14 @@ class PhotoDetailViewController: UIViewController {
         guard let currentImage = image else { return }
         
         UIImageWriteToSavedPhotosAlbum(currentImage, nil, nil, nil)
+        
+        let savedAlert = UIAlertController(title: "Saved", message: "Photo successfully saved", preferredStyle: .alert)
+        
+        savedAlert.view.backgroundColor = UIColor.init(named: "DarkColor")
+        savedAlert.view.tintColor = UIColor.init(named: "AccentColor")
+        savedAlert.view.layer.cornerRadius = 30
+        savedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(savedAlert, animated: true, completion: nil)
     }
     
     @objc private func deleteButtonTapped() {
