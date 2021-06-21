@@ -67,12 +67,12 @@ class BottomCameraView: UIView {
         shutterButton = UIButton(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
         shutterButton.layer.cornerRadius = 35
         shutterButton.layer.borderWidth = 10
-        shutterButton.layer.borderColor = UIColor.white.cgColor
+        shutterButton.layer.borderColor = UIColor(named: "YellowColor")?.cgColor
         shutterButton.addTarget(self, action: #selector(mainButtonSelector), for: .touchUpInside)
         addSubview(shutterButton)
         shutterButton.center = CGPoint(x: frame.size.width / 2, y: frame.size.height - 35)
         
-        settingButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        settingButton = UIButton(frame: CGRect(x: 0, y: 0, width: 33, height: 33))
         settingButton.addTarget(self, action: #selector(settingButtonSelector), for: .touchUpInside)
         settingButton.setBackgroundImage(UIImage(named: "setting"), for: .normal)
         addSubview(settingButton)
@@ -87,7 +87,7 @@ class BottomCameraView: UIView {
         
         settingButton.center = CGPoint(x: (frame.size.width / 2) / 2, y: frame.size.height - shutterButton.frame.size.height / 2 - settingLabel.frame.height / 2)
         
-        referencePointButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        referencePointButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 41))
         referencePointButton.setBackgroundImage(UIImage(named: "referencePoint"), for: .normal)
         referencePointButton.addTarget(self, action: #selector(referencePointButtonSelector), for: .touchUpInside)
         addSubview(referencePointButton)

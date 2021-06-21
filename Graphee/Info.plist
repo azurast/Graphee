@@ -22,6 +22,20 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Please allow to take camera</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Please give permission in order to save the image into camera roll.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Sora-ExtraBold.ttf</string>
+		<string>Sora-VariableFont_wght.ttf</string>
+		<string>Sora-Thin.ttf</string>
+		<string>Sora-Light.ttf</string>
+		<string>Sora-Medium.ttf</string>
+		<string>Sora-Regular.ttf</string>
+		<string>Sora-SemiBold.ttf</string>
+		<string>Sora-ExtraLight.ttf</string>
+		<string>Sora-Bold.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -54,8 +68,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -63,20 +75,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Please give permission in order to save the image into camera roll.</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Sora-ExtraBold.ttf</string>
-		<string>Sora-VariableFont_wght.ttf</string>
-		<string>Sora-Thin.ttf</string>
-		<string>Sora-Light.ttf</string>
-		<string>Sora-Medium.ttf</string>
-		<string>Sora-Regular.ttf</string>
-		<string>Sora-SemiBold.ttf</string>
-		<string>Sora-ExtraLight.ttf</string>
-		<string>Sora-Bold.ttf</string>
 	</array>
 </dict>
 </plist>

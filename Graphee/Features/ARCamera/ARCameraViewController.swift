@@ -16,7 +16,7 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var animationImageView: UIImageView!
     var animationImages: [UIImage] = []
-    static var arWorldMap: ARWorldMap!
+    static var arWorldMap: ARWorldMap?
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
     
@@ -24,17 +24,18 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
     var hasBeenPlaced: Bool! = false
     var hasAnimationBeenPlayed: Bool! = false
     var hasAnimationFinished: Bool! = false
+    static var arRaycastResult: ARRaycastResult!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        topLabel.isHidden = true
-//        bottomLabel.isHidden = true
-//        hasAnimationBeenPlayed = SettingHelper.shared.hasAnimationBeenPlayed()
-//        if !hasAnimationBeenPlayed {
-//            setupAnimation()
-//        }
-//        SettingHelper.shared.setARAnimation()
-        setupAnimation()
+        
+        SettingHelper.shared.setAnimationBeenPlayed(status: false)
+        hasAnimationBeenPlayed = SettingHelper.shared.getAnimationBeenPlayed()
+        if !hasAnimationBeenPlayed {
+            setupAnimation()
+        }
+        
         if hasAnimationFinished {
             // Add Replace Button
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Replace", style: .plain, target: self, action: #selector(replacePoint))
@@ -42,6 +43,10 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
             addTapGestureRecognizer()
             // Configure lighting
             configureLighting()
+            // Check
+            if let res = ARCameraViewController.arRaycastResult {
+                createReferencePoint(result: res)
+            }
         }
     }
     
@@ -54,10 +59,7 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
             self.topLabel.alpha = 1.0
         }, completion: { [self]
             finished in
-            
                     if finished {
-                        //self.topLabel.text = "Tap anywhere to set reference point"
-                        
                         UIView.animate(withDuration: 1.0, delay: 9.5, options: .curveEaseOut, animations: { self.topLabel.alpha = 0.0
                         }, completion: nil)
                     }
@@ -69,9 +71,7 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
             self.bottomLabel.alpha = 1.0
         }, completion: { [self]
             finished in
-            
                     if finished {
-                        
                         UIView.animate(withDuration: 1.0, delay: 9.5, options: .curveEaseOut, animations: { self.bottomLabel.alpha = 0.0
                         }, completion: nil)
                     }
@@ -79,8 +79,6 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
     
         animationImages = createImageArray(total: 1255, imagePrefix: "animateTest-")
         animate(imageView: animationImageView, images: animationImages)
-        SettingHelper.shared.setARAnimation()
-        hasAnimationFinished = true
     }
     
     func createImageArray(total: Int, imagePrefix: String) ->[UIImage] {
@@ -89,7 +87,6 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
             let imageName = "\(imagePrefix)\(imageCount).png"
             let image = UIImage(named: imageName)!
             imageArray.append(image)
-            print(imageArray.count)
         }
         return imageArray
     }
@@ -99,8 +96,9 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         imageView.animationDuration = 10.25
         imageView.animationRepeatCount = 1
         imageView.startAnimating()
+        hasAnimationFinished = true
+        SettingHelper.shared.setAnimationBeenPlayed(status: true)
     }
-    
     
     @objc func replacePoint() {
         print("Replace Point Tapped")
@@ -108,6 +106,7 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         actionSheet.addAction(UIAlertAction(title: "Replace", style: .destructive, handler: {_ in
             self.referencePoint?.removeFromParentNode()
             self.hasBeenPlaced = false
+            SettingHelper.shared.setAnimationBeenPlayed(status: false)
         }))
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(actionSheet, animated: true, completion: nil)
@@ -119,16 +118,20 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         self.navigationController?.isNavigationBarHidden = false
         // Setup scene view
         setupSceneView()
+        statusPanel.contentView.layer.cornerRadius = 30
+        statusPanel.clipsToBounds = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Pause session
-        sceneView.session.getCurrentWorldMap(completionHandler: { [weak self] world, error in
-            self!.sceneView.session.pause()
-            ARCameraViewController.arWorldMap = world
-        })
-        sceneView.session.pause()
+        self.sceneView.session.pause()
+//        sceneView.session.getCurrentWorldMap(completionHandler: { [weak self] world, error in
+//            self!.sceneView.session.pause()
+//            ARCameraViewController.arWorldMap = world
+//            print("kesave nilainya")
+//        })
+        
         self.navigationController?.isNavigationBarHidden = true
     }
     
@@ -142,12 +145,14 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         if ARCameraViewController.arWorldMap != nil {
             configuration.initialWorldMap = ARCameraViewController.arWorldMap
         }
-        sceneView.session.run(configuration)
+        sceneView.session.run(configuration, options: [])
         sceneView.delegate = self
 //        sceneView.debugOptions = .showFeaturePoints
     }
     
     func configureLighting() {
+        let scene = SCNScene()
+        sceneView.scene = scene
         sceneView.autoenablesDefaultLighting = true
         sceneView.automaticallyUpdatesLighting = true
     }
@@ -159,8 +164,13 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         guard let query = sceneView.raycastQuery(from: tapLocation, allowing: .estimatedPlane, alignment: .horizontal) else { return  }
         let results = sceneView.session.raycast(query)
         guard let result = results.first else { return }
+        createReferencePoint(result: result)
+        ARCameraViewController.arRaycastResult = result
+        hasBeenPlaced = true
+    }
+    
+    func createReferencePoint(result: ARRaycastResult) {
         let translation = result.worldTransform.columns
-        
         // MARK : PLANAR 2D Ref Point
         let image = UIImage(named: "RefPoint")
         referencePoint = SCNNode(geometry: SCNPlane(width: 0.1, height: 0.1))
@@ -170,9 +180,6 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         referencePoint.opacity = 0.7
         referencePoint.position = SCNVector3(translation.3.x, translation.3.y, translation.3.z)
         sceneView.scene.rootNode.addChildNode(referencePoint)
-        
-        
-        hasBeenPlaced = true
     }
     
     func addTapGestureRecognizer() {
@@ -184,7 +191,7 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
 
 extension ARCameraViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        print("didAdd")
+//        print("didAdd")
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         
         DispatchQueue.main.async {
@@ -217,7 +224,7 @@ extension ARCameraViewController: ARSCNViewDelegate {
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        print("didUpdate")
+//        print("didUpdate")
         guard let planeAnchor = anchor as? ARPlaneAnchor,
               let planeNode = node.childNodes.first,
               let plane = planeNode.geometry as? SCNPlane else { return }

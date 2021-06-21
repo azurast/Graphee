@@ -173,11 +173,11 @@ extension SettingHelper {
 
 // MARK: - Set AR Preferences
 extension SettingHelper {
-    public func setARAnimation() {
-        userDefaults.setValue(true, forKey: aranimation)
+    public func setAnimationBeenPlayed(status: Bool) {
+        userDefaults.setValue(status, forKey: aranimation)
     }
     
-    public func hasAnimationBeenPlayed() -> Bool {
+    public func getAnimationBeenPlayed() -> Bool {
         return userDefaults.bool(forKey: aranimation)
     }
     
