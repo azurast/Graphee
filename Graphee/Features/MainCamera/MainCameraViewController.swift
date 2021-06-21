@@ -12,7 +12,7 @@ import CoreMotion
 class MainCameraViewController: UIViewController {
     // MARK: - Attributes
     
-    var directionArray = [Photo?]()
+    var directionArray: [Photo?]!
     
     // Capture Session
     var session: AVCaptureSession?
@@ -62,6 +62,7 @@ class MainCameraViewController: UIViewController {
         }
         
         CameraImages.shared.setStarterImageNil()
+        CameraImages.shared.setMainCaptureToFalse()
         
         view.backgroundColor =  #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
 
@@ -417,15 +418,14 @@ extension MainCameraViewController: VeryTopViewDelegate {
             
             guard let image = CameraImages.shared.realImageDict[(element?.direction)!] else { continue }
             
-//            print(element?.direction)
+           print(element?.direction)
             
             guard let image2 = image else { return }
-            
-//
+
             if let directoryId = element?.directory {
                 FileManagerHelper.instance.deleteImageInStorage(imageName: directoryId)
             }
-//
+
             let imageName = UUID().uuidString
             FileManagerHelper.instance.saveImageToStorage(image: image2, imageName: imageName)
 
@@ -594,9 +594,10 @@ extension MainCameraViewController: AVCapturePhotoCaptureDelegate {
         
         let croppedImage = cropToPreviewLayer(originalImage: image)
         
-        print("Cropped Image")
+        print(croppedImage)
         
         CameraImages.shared.addImage(direction: CameraImages.shared.getNextDirectionInString(), image: croppedImage)
+        CameraImages.shared.mainCameraCapture[CameraImages.shared.getNextDirectionInString()] = true
     
         navigateToPreviewStoryboard()
         

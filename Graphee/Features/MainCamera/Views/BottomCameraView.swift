@@ -82,10 +82,10 @@ class BottomCameraView: UIView {
         settingLabel.font = UIFont(name: "Sora-Regular", size: 12)
         settingLabel.textColor = UIColor(red: 248, green: 252, blue: 255, alpha: 1)
         settingLabel.frame.size = settingLabel.intrinsicContentSize
-        settingLabel.center = CGPoint(x: (frame.size.width / 2) / 2, y: frame.size.height - settingLabel.frame.height / 2)
+        settingLabel.center = CGPoint(x: (frame.size.width / 2) / 2 - (settingButton.frame.width / 2), y: frame.size.height - settingLabel.frame.height / 2)
         addSubview(settingLabel)
         
-        settingButton.center = CGPoint(x: (frame.size.width / 2) / 2, y: frame.size.height - shutterButton.frame.size.height / 2 - settingLabel.frame.height / 2)
+        settingButton.center = CGPoint(x: (frame.size.width / 2) / 2 - (settingButton.frame.width / 2), y: frame.size.height - shutterButton.frame.size.height / 2 - settingLabel.frame.height / 2)
         
         referencePointButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 41))
         referencePointButton.setBackgroundImage(UIImage(named: "referencePoint"), for: .normal)
@@ -97,10 +97,10 @@ class BottomCameraView: UIView {
         referenceLabel.font = UIFont(name: "Sora-Regular", size: 12)
         referenceLabel.textColor = UIColor(red: 248, green: 252, blue: 255, alpha: 1)
         referenceLabel.frame.size = referenceLabel.intrinsicContentSize
-        referenceLabel.center = CGPoint(x: frame.width - (frame.size.width / 2) / 2, y: frame.size.height - referenceLabel.frame.height / 2)
+        referenceLabel.center = CGPoint(x: frame.width - (frame.size.width / 2) / 2 + (referencePointButton.frame.width / 2), y: frame.size.height - referenceLabel.frame.height / 2)
         addSubview(referenceLabel)
         
-        referencePointButton.center = CGPoint(x: frame.width - (frame.size.width / 2) / 2, y: frame.size.height - shutterButton.frame.size.height / 2 - referenceLabel.frame.height / 2)
+        referencePointButton.center = CGPoint(x: frame.width - (frame.size.width / 2) / 2 + (referencePointButton.frame.width / 2), y: frame.size.height - shutterButton.frame.size.height / 2 - referenceLabel.frame.height / 2)
     }
     
     private func initPreviewButton() {

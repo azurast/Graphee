@@ -130,6 +130,14 @@ public class CameraImages {
         return true
     }
     
+    public func setMainCaptureToFalse() {
+        mainCameraCapture[Direction.front.rawValue] = false
+        mainCameraCapture[Direction.back.rawValue] = false
+        mainCameraCapture[Direction.right.rawValue] = false
+        mainCameraCapture[Direction.left.rawValue] = false
+        mainCameraCapture[Direction.detail.rawValue] = false
+    }
+    
     public func configureTheNextDirection() {
         if !isAllDictImageAvailable() {
             let arrayOfDirections = [Direction.front.rawValue, Direction.back.rawValue, Direction.right.rawValue, Direction.left.rawValue, Direction.detail.rawValue]

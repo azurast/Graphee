@@ -20,6 +20,9 @@ class FolderViewController: UIViewController {
     private var cellArray = [FolderCollectionViewCell]()
     private var dictionarySelectedIndexPath: [IndexPath:Bool] = [:]
     
+    private let lightTraits = UITraitCollection(userInterfaceStyle: .light)
+    private let darkTraits = UITraitCollection(userInterfaceStyle: .dark)
+    
     private var mode: Mode = .unselect {
         didSet {
             switchMode()
@@ -45,8 +48,10 @@ class FolderViewController: UIViewController {
         self.title = parentFolder.name
 //        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(named: "DarkColor")]
         setRightBarButton()
+        setBottomButton()
         
         fetchPhotos()
+        checkImageAvailable()
         
         folderCollectionView.dataSource = self
         folderCollectionView.delegate = self
@@ -54,8 +59,6 @@ class FolderViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateAction), name: Notification.Name("updateAction"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(deleteAction), name: Notification.Name("deleteAction"), object: nil)
-        
-        setBottomButton()
         
     }
     
@@ -79,6 +82,7 @@ class FolderViewController: UIViewController {
         DispatchQueue.main.async {
             self.folderCollectionView.reloadData()
         }
+        checkImageAvailable()
     }
     
     public func fetchPhotos() {
@@ -150,7 +154,7 @@ class FolderViewController: UIViewController {
             self.selectedMode()
             
             for cell in self.cellArray {
-                if cell.photoImageView.image != UIImage(named: "add_photo") && cell.photoImageView.image != UIImage(named: "add_photo_dark") {
+                if cell.photoImageView.image != UIImage.init(named: "add_photo", in: nil, compatibleWith: self.lightTraits) && cell.photoImageView.image != UIImage.init(named: "add_photo", in: nil, compatibleWith: self.darkTraits) {
                     cell.selectedImageView.isHidden = false
                 } else {
                     cell.selectedImageView.isHidden = true
@@ -159,9 +163,24 @@ class FolderViewController: UIViewController {
         }))
         
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(alert, animated: true)
+    }
+    
+    private func checkImageAvailable() {
+        
+        for photo in directionArray {
+            if photo?.directory != nil {
+//                mode = .unselect
+                self.modeSelectionButton.isHidden = false
+                return
+            }
+        }
+        
+        mode = .unselect
+        setCanceledUI()
+        self.modeSelectionButton.isHidden = true
     }
     
     @objc private func saveButtonTapped() {
@@ -177,7 +196,10 @@ class FolderViewController: UIViewController {
         savedAlert.view.backgroundColor = UIColor.init(named: "DarkColor")
         savedAlert.view.tintColor = UIColor.init(named: "AccentColor")
         savedAlert.view.layer.cornerRadius = 30
-        savedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ _ in self.unselectMode()}))
+        savedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ _ in
+            self.mode = .unselect
+            self.setCanceledUI()
+        }))
         present(savedAlert, animated: true, completion: nil)
         
         print("Success Save")
@@ -239,9 +261,10 @@ class FolderViewController: UIViewController {
         folderCollectionView.allowsMultipleSelection = true
         
         for cell in cellArray {
-            if cell.photoImageView.image != UIImage(named: "add_photo") && cell.photoImageView.image != UIImage(named: "add_photo_dark") {
+            if cell.photoImageView.image != UIImage.init(named: "add_photo", in: nil, compatibleWith: lightTraits) && cell.photoImageView.image != UIImage.init(named: "add_photo", in: nil, compatibleWith: darkTraits) {
                 cell.selectedImageView.isHidden = false
             }
+            
         }
     }
 
@@ -295,9 +318,9 @@ extension FolderViewController: UICollectionViewDataSource {
                 cell.selectedImageView.isHidden = false
             }
         } else {
-            cell.photoImageView.image = returnLightOrDarkImage()
+            cell.photoImageView.image = UIImage.init(named: "add_photo")!
             cell.photoImageView.contentMode = .scaleAspectFit
-            self.images.append(cell.photoImageView.image!)
+            self.images.append(UIImage.init(named: "add_photo")!)
             cell.selectedImageView.isHidden = true
         }
         
@@ -309,15 +332,6 @@ extension FolderViewController: UICollectionViewDataSource {
         
         cellArray.append(cell)
         return cell
-    }
-    
-    private func returnLightOrDarkImage() -> UIImage {
-        switch traitCollection.userInterfaceStyle {
-                case .light, .unspecified:
-                    return UIImage(named: "add_photo")!
-                case .dark:
-                    return UIImage(named: "add_photo_dark")!
-            }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -340,7 +354,7 @@ extension FolderViewController: UICollectionViewDataSource {
     }
     
     private func didSelectedCellMode(indexPath: IndexPath) {
-        if cellArray[indexPath.row].photoImageView.image != UIImage(named: "add_photo_dark") && cellArray[indexPath.row].photoImageView.image != UIImage(named: "add_photo") {
+        if cellArray[indexPath.row].photoImageView.image != UIImage.init(named: "add_photo", in: nil, compatibleWith: lightTraits) && cellArray[indexPath.row].photoImageView.image != UIImage.init(named: "add_photo", in: nil, compatibleWith: darkTraits) {
             dictionarySelectedIndexPath[indexPath] = true
             cellArray[indexPath.row].selectedImageView.image = UIImage(systemName: "checkmark.circle.fill")
             deleteButton.isHidden = false
@@ -350,7 +364,7 @@ extension FolderViewController: UICollectionViewDataSource {
     
     private func didDeselectedCellMode(indexPath: IndexPath) {
         if mode == .selected {
-            if cellArray[indexPath.row].photoImageView.image != UIImage(named: "add_photo_dark") && cellArray[indexPath.row].photoImageView.image != UIImage(named: "add_photo") {
+            if cellArray[indexPath.row].photoImageView.image != UIImage.init(named: "add_photo", in: nil, compatibleWith: lightTraits) && cellArray[indexPath.row].photoImageView.image != UIImage.init(named: "add_photo", in: nil, compatibleWith: darkTraits) {
                 dictionarySelectedIndexPath[indexPath] = false
                 cellArray[indexPath.row].selectedImageView.image = UIImage(systemName: "circle")
                 

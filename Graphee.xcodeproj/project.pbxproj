@@ -292,6 +292,7 @@
 		B713D0AC26786E020054DA86 /* FoldersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AB26786E020054DA86 /* FoldersController.swift */; };
 		B713D0AE26786E3A0054DA86 /* AddFolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713D0AD26786E3A0054DA86 /* AddFolderController.swift */; };
 		B7BA792E267A33690064649D /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA792D267A33690064649D /* CoreDataService.swift */; };
+		E125BEBE2680D5AC005892AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DC9266F5C8A008D61DA /* Assets.xcassets */; };
 		E128630C26789A4300297B72 /* SettingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128630B26789A4300297B72 /* SettingHelper.swift */; };
 		E128630E26789AAD00297B72 /* TorchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128630D26789AAD00297B72 /* TorchHelper.swift */; };
 		E128631026789B1700297B72 /* CameraImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128630F26789B1700297B72 /* CameraImages.swift */; };
@@ -304,7 +305,6 @@
 		E12863212678A08800297B72 /* MainCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12863202678A08800297B72 /* MainCameraViewController.swift */; };
 		E12863232678A1B100297B72 /* PreviewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12863222678A1B100297B72 /* PreviewStoryboard.storyboard */; };
 		E12863252678A1E500297B72 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12863242678A1E500297B72 /* PreviewViewController.swift */; };
-		E12863262678A4B700297B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BFE7DC9266F5C8A008D61DA /* Assets.xcassets */; };
 		E128632A2678B55900297B72 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12863292678B55900297B72 /* AlbumViewController.swift */; };
 		E128632D2678B73800297B72 /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128632C2678B73800297B72 /* AlbumTableViewCell.swift */; };
 		E128632F2678BB8600297B72 /* FolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E128632E2678BB8600297B72 /* FolderViewController.swift */; };
@@ -1316,6 +1316,7 @@
 				1B6FCE00267C8F7C00FEB554 /* animateTest-1159.png in Resources */,
 				1B6FCEBF267C8F7C00FEB554 /* animateTest-1185.png in Resources */,
 				1B6FCDF9267C8F7C00FEB554 /* animateTest-1011.png in Resources */,
+				E125BEBE2680D5AC005892AA /* Assets.xcassets in Resources */,
 				1B6FCEC0267C8F7C00FEB554 /* animateTest-1191.png in Resources */,
 				1B6FCEB7267C8F7C00FEB554 /* animateTest-1018.png in Resources */,
 				1B6FCEB8267C8F7C00FEB554 /* animateTest-1232.png in Resources */,
@@ -1408,7 +1409,6 @@
 				1B6FCDF7267C8F7C00FEB554 /* animateTest-1004.png in Resources */,
 				1B6FCE7E267C8F7C00FEB554 /* animateTest-1087.png in Resources */,
 				1B6FCE72267C8F7C00FEB554 /* animateTest-1125.png in Resources */,
-				E12863262678A4B700297B72 /* Assets.xcassets in Resources */,
 				1B6FCDD7267C8F7C00FEB554 /* animateTest-1016.png in Resources */,
 				1B6FCE14267C8F7C00FEB554 /* animateTest-1075.png in Resources */,
 				1B6FCEB1267C8F7C00FEB554 /* animateTest-1233.png in Resources */,
@@ -1647,7 +1647,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6K96V6Z2MC;
+				DEVELOPMENT_TEAM = A5LXCCW6FT;
 				INFOPLIST_FILE = Graphee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1666,7 +1666,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6K96V6Z2MC;
+				DEVELOPMENT_TEAM = A5LXCCW6FT;
 				INFOPLIST_FILE = Graphee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
