@@ -20,7 +20,7 @@ class PreviewViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor.init(named: "Title")
         
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         var height = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
@@ -38,7 +38,7 @@ class PreviewViewController: UIViewController {
     private func setupNavigationView(statusBarHeight: CGFloat) {
         
         topView = UIView(frame: CGRect(x: 0, y:  statusBarHeight, width: view.frame.width, height: 80))
-        topView.backgroundColor = .black
+        topView.backgroundColor = UIColor.init(named: "Title")
         view.addSubview(topView)
         
         directionLabel = UILabel()

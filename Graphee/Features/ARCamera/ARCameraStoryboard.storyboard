@@ -47,7 +47,7 @@
                                             </vibrancyEffect>
                                         </visualEffectView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initializing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i67-FQ-ovN">
-                                            <rect key="frame" x="80.666666666666657" y="8.6666666666666714" width="52.666666666666657" height="14"/>
+                                            <rect key="frame" x="75.333333333333343" y="8" width="63.333333333333343" height="15.333333333333336"/>
                                             <fontDescription key="fontDescription" name="Sora-Regular" family="Sora" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <color key="highlightedColor" name="DarkColor"/>
@@ -68,8 +68,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyi-li-m6c">
+                                <rect key="frame" x="0.0" y="595" width="390" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="6lv-L0-3Bw"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="Yyp-d4-Tej"/>
+                                    <constraint firstAttribute="width" constant="390" id="awD-8w-TDA"/>
+                                    <constraint firstAttribute="height" constant="52" id="omF-aA-Uy0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Sora-Regular_Bold" family="Sora" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xt-RY-rBb">
-                                <rect key="frame" x="35" y="655" width="320" height="36"/>
+                                <rect key="frame" x="35" y="645" width="320" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="DCe-g5-1vV"/>
                                     <constraint firstAttribute="height" constant="36" id="Hgb-Wf-N53"/>
@@ -78,23 +90,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyi-li-m6c">
-                                <rect key="frame" x="35" y="618" width="320" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="6lv-L0-3Bw"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="Yyp-d4-Tej"/>
-                                    <constraint firstAttribute="width" constant="320" id="awD-8w-TDA"/>
-                                    <constraint firstAttribute="height" constant="29" id="omF-aA-Uy0"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Sora-Regular_Bold" family="Sora" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="3Xt-RY-rBb" secondAttribute="bottom" constant="119" id="2aJ-Co-fE9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="3Xt-RY-rBb" secondAttribute="bottom" constant="129" id="2aJ-Co-fE9"/>
                             <constraint firstItem="H96-40-pbk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="99" id="64P-eQ-GXe"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="H96-40-pbk" secondAttribute="trailing" constant="77" id="CSY-gq-jqM"/>
                             <constraint firstItem="H96-40-pbk" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="FBw-Jw-59Z"/>
@@ -104,12 +104,12 @@
                             <constraint firstItem="3Xt-RY-rBb" firstAttribute="centerX" secondItem="lyi-li-m6c" secondAttribute="centerX" id="JBM-T9-aur"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3Xt-RY-rBb" secondAttribute="trailing" constant="35" id="Lmi-Pu-L6e"/>
                             <constraint firstItem="Qh5-St-QLJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="MRo-zg-bfR"/>
-                            <constraint firstItem="lyi-li-m6c" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="35" id="QAq-ES-lqK"/>
+                            <constraint firstItem="lyi-li-m6c" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="QAq-ES-lqK"/>
                             <constraint firstItem="Qh5-St-QLJ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Qxn-PK-gLy"/>
-                            <constraint firstItem="3Xt-RY-rBb" firstAttribute="top" secondItem="lyi-li-m6c" secondAttribute="bottom" constant="8" symbolic="YES" id="W1h-b3-DYh"/>
+                            <constraint firstItem="3Xt-RY-rBb" firstAttribute="top" secondItem="lyi-li-m6c" secondAttribute="bottom" constant="-2" id="W1h-b3-DYh"/>
                             <constraint firstItem="3Xt-RY-rBb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="35" id="Wwc-7k-d3P"/>
                             <constraint firstItem="H96-40-pbk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="99" id="efT-Zm-wEE"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lyi-li-m6c" secondAttribute="trailing" constant="35" id="fp8-9X-z6G"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lyi-li-m6c" secondAttribute="trailing" id="fp8-9X-z6G"/>
                         </constraints>
                     </view>
                     <connections>

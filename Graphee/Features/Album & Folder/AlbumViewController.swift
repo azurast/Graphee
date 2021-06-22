@@ -201,7 +201,7 @@ extension AlbumViewController: UITableViewDataSource {
         if let id = imageID {
             cell.folderFirstImage.image = FileManagerHelper.instance.getImageFromStorage(imageName: id)
         } else {
-            cell.folderFirstImage.image = UIImage(systemName: "photo.fill")
+            cell.folderFirstImage.image = UIImage(named: "photo_placeholder")
         }
         
         cell.folderStatus.text = "\(arrayFolder![indexPath.row].fetchPhotosStatus()) of 5 Completed"
