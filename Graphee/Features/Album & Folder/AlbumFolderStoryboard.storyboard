@@ -11,6 +11,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Sora-Medium.ttf">
+            <string>Sora-Medium</string>
+        </array>
         <array key="Sora-Regular.ttf">
             <string>Sora-Regular</string>
         </array>
@@ -47,7 +50,7 @@
                                                     <imageReference key="image" image="photo_placeholder" symbolScale="default"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 of 5 Completed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzC-vE-ntx">
-                                                    <rect key="frame" x="130" y="51" width="210" height="15.333333333333329"/>
+                                                    <rect key="frame" x="130" y="52.666666666666664" width="210" height="16.666666666666664"/>
                                                     <fontDescription key="fontDescription" name="Sora-Regular" family="Sora" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -61,8 +64,8 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMY-bE-Zev">
-                                                    <rect key="frame" x="130" y="26" width="210" height="20"/>
-                                                    <fontDescription key="fontDescription" name="Sora-Regular" family="Sora" pointSize="17"/>
+                                                    <rect key="frame" x="130" y="26" width="210" height="21.666666666666671"/>
+                                                    <fontDescription key="fontDescription" name="Sora-Medium" family="Sora" pointSize="17"/>
                                                     <color key="textColor" name="LightColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -100,23 +103,23 @@
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yyN-hN-cYH">
-                                <rect key="frame" x="70" y="257.33333333333326" width="250" height="329.66666666666674"/>
+                                <rect key="frame" x="65.333333333333343" y="254.66666666666666" width="259.33333333333326" height="334.66666666666674"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder_background" translatesAutoresizingMaskIntoConstraints="NO" id="GgJ-oU-ODg">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                        <rect key="frame" x="4.6666666666666856" y="0.0" width="250" height="250"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="SUW-gs-aSe"/>
                                             <constraint firstAttribute="height" constant="250" id="mEf-dU-mR6"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No photos available yet." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZZ-vg-Nak">
-                                        <rect key="frame" x="11.666666666666671" y="260.00000000000006" width="226.66666666666663" height="24.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="260" width="259.33333333333331" height="26.666666666666686"/>
                                         <fontDescription key="fontDescription" name="Sora-Regular_SemiBold" family="Sora" pointSize="21"/>
                                         <color key="textColor" name="GreyColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start taking photos by creating a folder" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlJ-5K-Eys">
-                                        <rect key="frame" x="15.666666666666671" y="294.66666666666669" width="219" height="35"/>
+                                        <rect key="frame" x="5.6666666666666714" y="296.66666666666674" width="248.33333333333331" height="38"/>
                                         <fontDescription key="fontDescription" name="Sora-Regular" family="Sora" pointSize="15"/>
                                         <color key="textColor" name="GreyColor"/>
                                         <nil key="highlightedColor"/>

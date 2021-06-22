@@ -9,10 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Sora-Regular.ttf">
-            <string>Sora-Regular</string>
-        </array>
         <array key="Sora-VariableFont_wght.ttf">
+            <string>Sora-Regular</string>
             <string>Sora-Regular_Bold</string>
         </array>
     </customFonts>
@@ -31,7 +29,7 @@
                                     <constraint firstAttribute="width" secondItem="Qh5-St-QLJ" secondAttribute="height" multiplier="6:11" constant="-25.090909090909065" id="Tiq-pf-8WM"/>
                                 </constraints>
                             </arscnView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H96-40-pbk">
+                            <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H96-40-pbk">
                                 <rect key="frame" x="99" y="60" width="214" height="31"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WNm-ny-Z0L">
                                     <rect key="frame" x="0.0" y="0.0" width="214" height="31"/>

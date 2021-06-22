@@ -196,13 +196,13 @@ class FolderViewController: UIViewController {
         savedAlert.view.backgroundColor = UIColor.init(named: "DarkColor")
         savedAlert.view.tintColor = UIColor.init(named: "AccentColor")
         savedAlert.view.layer.cornerRadius = 30
-        savedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ _ in
+        present(savedAlert, animated: true, completion: nil)
+        let when = DispatchTime.now() + 1.75
+        DispatchQueue.main.asyncAfter(deadline: when, execute: {
+            savedAlert.dismiss(animated: true, completion: nil)
             self.mode = .unselect
             self.setCanceledUI()
-        }))
-        present(savedAlert, animated: true, completion: nil)
-        
-        print("Success Save")
+        })
     }
     
     private func setRightBarButton() {

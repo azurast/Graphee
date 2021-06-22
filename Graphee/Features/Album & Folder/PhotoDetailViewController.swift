@@ -234,8 +234,11 @@ class PhotoDetailViewController: UIViewController {
         savedAlert.view.backgroundColor = UIColor.init(named: "DarkColor")
         savedAlert.view.tintColor = UIColor.init(named: "AccentColor")
         savedAlert.view.layer.cornerRadius = 30
-        savedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(savedAlert, animated: true, completion: nil)
+        let when = DispatchTime.now() + 1.75
+        DispatchQueue.main.asyncAfter(deadline: when, execute: {
+            savedAlert.dismiss(animated: true, completion: nil)
+        })
     }
     
     @objc private func deleteButtonTapped() {
