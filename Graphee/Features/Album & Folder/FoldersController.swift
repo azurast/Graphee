@@ -13,7 +13,7 @@ class FoldersController: UITableViewController{
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Sora-SemiBold", size: 32)!]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Sora-Bold", size: 32)!]
         self.navigationItem.title = "Folders"
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleAddFolder))

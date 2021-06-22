@@ -9,6 +9,11 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Sora-SemiBold.ttf">
+            <string>Sora-SemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Photo Detail View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -64,7 +69,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hjL-TQ-rnx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Sora-SemiBold" family="Sora" pointSize="17"/>
                                 <state key="normal" title="Take a Photo">
                                     <color key="titleColor" name="DarkColor"/>
                                 </state>

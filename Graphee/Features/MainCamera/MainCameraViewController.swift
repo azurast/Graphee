@@ -628,13 +628,16 @@ extension MainCameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate
         DispatchQueue.main.async {
             if self.segmentedControl.selectedSegmentIndex == 0 {
                 if value < 5 {
-                    self.messageView.backgroundColor = .lightGray
+                    self.messageView.backgroundColor = .lightGray.withAlphaComponent(0.5)
+                    self.messageLabel.font = UIFont(name: "Sora-Medium", size: 13)
                     self.messageLabel.text = "Need More Light"
                 } else if value >= 20 {
-                    self.messageView.backgroundColor = .lightGray
+                    self.messageView.backgroundColor = .lightGray.withAlphaComponent(0.5)
+                    self.messageLabel.font = UIFont(name: "Sora-Medium", size: 13)
                     self.messageLabel.text = "Need Less Light"
                 } else {
-                    self.messageView.backgroundColor = UIColor.init(named: "YellowColor")
+                    self.messageView.backgroundColor = UIColor.init(named: "YellowColor")?.withAlphaComponent(0.7)
+                    self.messageLabel.font = UIFont(name: "Sora-Bold", size: 13)
                     self.messageLabel.text = "Perfect Light"
                 }
             }

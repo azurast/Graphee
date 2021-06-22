@@ -76,11 +76,11 @@ class AngleView: UIView {
         mainAngleHorizontalLine.frame.origin.y = CGFloat(((Double(frame.height) / 2.0) - gravityZ * Double(onePoint)))
         
         if mainAngleHorizontalLine.frame.origin.y < highAngleHorizontalLine.frame.origin.y {
-            completion("Phone in High Angle", .lightGray)
+            completion("Phone in High Angle", .lightGray.withAlphaComponent(0.5))
         } else if mainAngleHorizontalLine.frame.origin.y > leftLowAngleHorizontalLine.frame.origin.y {
-            completion("Phone in Low Angle", .lightGray)
+            completion("Phone in Low Angle", .lightGray.withAlphaComponent(0.5))
         } else {
-            completion("Perfect Leveling", UIColor.init(named: "YellowColor") ?? .yellow)
+            completion("Perfect Leveling", UIColor.init(named: "YellowColor")?.withAlphaComponent(0.7) ?? .yellow.withAlphaComponent(0.7))
         }
     }
     

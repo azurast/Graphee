@@ -59,7 +59,7 @@ class AlbumViewController: UIViewController {
     private func setUpNavigationView(){
         self.navigationController?.navigationBar.backgroundColor = UIColor.init(named: "AccentColor")
         
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(named: "Title")!, NSAttributedString.Key.font: UIFont(name: "Sora-SemiBold", size: 32)!]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(named: "Title")!, NSAttributedString.Key.font: UIFont(name: "Sora-ExtraBold", size: 32)!]
         
         let menuBtn = UIButton(type: .custom)
         menuBtn.frame = CGRect(x: 0.0, y: 0.0, width: 40, height: 30)
