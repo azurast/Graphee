@@ -128,7 +128,6 @@ class MainCameraViewController: UIViewController {
             previewLayer.frame = CGRect(x: 0, y: topView.frame.height + height + veryTopView.frame.height, width: view.frame.width, height: view.frame.height - viewElements)
         }
         else if SettingHelper.shared.isRatio169Activated() {
-            
             previewLayer.frame = CGRect(x: 0, y: height + veryTopView.frame.height, width: view.frame.width, height: view.frame.height - veryTopView.frame.height - height - 50)
             
         }
@@ -193,7 +192,7 @@ class MainCameraViewController: UIViewController {
     
     private func setupVeryBottomView() {
         let veryBottomView = UIView(frame: CGRect(x: 0, y: view.frame.height - 50, width: view.frame.width, height: 50))
-        veryBottomView.backgroundColor =  #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1)
+        veryBottomView.backgroundColor =  #colorLiteral(red: 0.1411764706, green: 0.1411764706, blue: 0.1411764706, alpha: 1).withAlphaComponent(0.5)
         view.addSubview(veryBottomView)
     }
     

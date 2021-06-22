@@ -16,7 +16,6 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var animationImageView: UIImageView!
     var animationImages: [UIImage] = []
-    static var arWorldMap: ARWorldMap?
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
     
@@ -24,8 +23,8 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
     var hasBeenPlaced: Bool! = false
     var hasAnimationBeenPlayed: Bool! = false
     var hasAnimationFinished: Bool! = false
-    static var arRaycastResult: ARRaycastResult!
-    
+    static var translationVector: SIMD4<Float>!
+    static var map: ARWorldMap!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +44,8 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         // Configure lighting
         configureLighting()
         // Check
-        if let res = ARCameraViewController.arRaycastResult {
-            createReferencePoint(result: res)
+        if let translationVec = ARCameraViewController.translationVector {
+            createReferencePoint(translationVector: translationVec)
         }
     }
     
@@ -104,7 +103,7 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         actionSheet.addAction(UIAlertAction(title: "Replace", style: .destructive, handler: {_ in
             self.referencePoint?.removeFromParentNode()
             self.hasBeenPlaced = false
-            ARCameraViewController.arRaycastResult = nil
+            ARCameraViewController.translationVector = nil
             SettingHelper.shared.setAnimationBeenPlayed(status: false)
             self.setupAnimation()
         }))
@@ -130,6 +129,11 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         super.viewWillDisappear(animated)
         // Pause session
         self.sceneView.session.pause()
+        self.sceneView.session.getCurrentWorldMap {
+            (worldMap, error) in
+            guard let worldMap = worldMap else { print("no world map"); return }
+            ARCameraViewController.map = worldMap
+        }
         self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.navigationBar.tintColor = UIColor.init(named: "Title")
         self.navigationController?.navigationBar.backgroundColor = UIColor.init(named: "AccentColor")
@@ -144,12 +148,13 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         configuration.isLightEstimationEnabled = true
         configuration.planeDetection = .horizontal
         // Save world map state
-        if ARCameraViewController.arWorldMap != nil {
-            configuration.initialWorldMap = ARCameraViewController.arWorldMap
+        if let worldMap = ARCameraViewController.map {
+            print("map: \(worldMap)")
+            configuration.initialWorldMap = ARCameraViewController.map
+            print("initial world map: \(String(describing: configuration.initialWorldMap))")
         }
-        sceneView.session.run(configuration, options: [])
+        sceneView.session.run(configuration)
         sceneView.delegate = self
-//        sceneView.debugOptions = .showFeaturePoints
     }
     
     func configureLighting() {
@@ -166,13 +171,13 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         guard let query = sceneView.raycastQuery(from: tapLocation, allowing: .estimatedPlane, alignment: .horizontal) else { return  }
         let results = sceneView.session.raycast(query)
         guard let result = results.first else { return }
-        createReferencePoint(result: result)
-        ARCameraViewController.arRaycastResult = result
+        let translation = result.worldTransform.columns
+        ARCameraViewController.translationVector = translation.3
+        createReferencePoint(translationVector: translation.3)
         hasBeenPlaced = true
     }
     
-    func createReferencePoint(result: ARRaycastResult) {
-        let translation = result.worldTransform.columns
+    func createReferencePoint(translationVector: SIMD4<Float>) {
         // MARK : PLANAR 2D Ref Point
         let image = UIImage(named: "RefPoint")
         referencePoint = SCNNode(geometry: SCNPlane(width: 0.1, height: 0.1))
@@ -180,7 +185,7 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
         referencePoint.eulerAngles.x = -.pi / 2
         referencePoint.geometry?.materials.first?.diffuse.contents  = image
         referencePoint.opacity = 0.7
-        referencePoint.position = SCNVector3(translation.3.x, translation.3.y, translation.3.z)
+        referencePoint.position = SCNVector3(translationVector.x, translationVector.y, translationVector.z)
         sceneView.scene.rootNode.addChildNode(referencePoint)
     }
     
@@ -193,7 +198,7 @@ class ARCameraViewController: UIViewController, UIActionSheetDelegate {
 
 extension ARCameraViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-//        print("didAdd")
+
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         
         DispatchQueue.main.async {
@@ -209,9 +214,6 @@ extension ARCameraViewController: ARSCNViewDelegate {
         planeNode.position = SCNVector3(CGFloat(planeAnchor.center.x), CGFloat(planeAnchor.center.y), CGFloat(planeAnchor.center.z))
         planeNode.eulerAngles.x = -.pi / 2
         planeNode.opacity = 1
-        
-//        let refPointNode = addReferencePointer()
-//        planeNode.addChildNode(refPointNode)
         node.addChildNode(planeNode)
     
     }
