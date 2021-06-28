@@ -14,10 +14,8 @@
         <array key="Sora-Medium.ttf">
             <string>Sora-Medium</string>
         </array>
-        <array key="Sora-Regular.ttf">
-            <string>Sora-Regular</string>
-        </array>
         <array key="Sora-VariableFont_wght.ttf">
+            <string>Sora-Regular</string>
             <string>Sora-Regular_SemiBold</string>
         </array>
     </customFonts>
@@ -25,7 +23,7 @@
         <!--Album-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="AlbumViewController" customModule="Graphee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlbumViewController" id="Y6W-OH-hqX" customClass="AlbumViewController" customModule="Graphee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -233,7 +231,7 @@
         <!--Navigation Controller-->
         <scene sceneID="sok-kj-2iD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="x1E-GM-N3s" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Album" automaticallyAdjustsScrollViewInsets="NO" id="x1E-GM-N3s" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="cRH-qn-IJs">
                         <rect key="frame" x="0.0" y="44" width="390" height="96"/>
