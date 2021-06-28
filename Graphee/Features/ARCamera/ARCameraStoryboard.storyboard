@@ -45,7 +45,7 @@
                                             </vibrancyEffect>
                                         </visualEffectView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initializing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i67-FQ-ovN">
-                                            <rect key="frame" x="75.333333333333343" y="8" width="63.333333333333343" height="15.333333333333336"/>
+                                            <rect key="frame" x="80.666666666666657" y="8.6666666666666714" width="52.666666666666657" height="14"/>
                                             <fontDescription key="fontDescription" name="Sora-Regular" family="Sora" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <color key="highlightedColor" name="DarkColor"/>
